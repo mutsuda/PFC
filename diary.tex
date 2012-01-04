@@ -1,0 +1,52 @@
+%!TEX root = main.tex
+
+This annex contains the diary notes I took during the project development. It is written in catalan and it may contain partial or disconnected information. 
+Reader discretion is advised.
+
+\begin{itemize}
+  \item Identificació del problema: On es determina la viabilitat de la construcció del SBC i la disponibilitat de les fonts de coneixement.
+  \item Conceptualització: Descripció semiformal del coneixement del domini del problema i descomposició en subproblemes, segons la visió d'un expert.
+  \item Formalització: Cal definir el mecanisme adequat de representació del coneixement, en aquest cas segons la visió de l'enginyer de coneixement.
+  \item Rapidminer per testejar diferents solucions, naive bayes rapid, maxent lent pero + accuracy
+  \item Categoritzacio URL per contingut -> MaxEnt
+  \item Classificador basat en categories de Yahoo Directory (training)
+  \item Testing inicial amb petites dades
+  \item Testing posterior amb 140.000 URLs d'Irlanda O2
+  \item Descartar idiomes estrangers -> Trigraphs
+  \item Fitxers amb trigrams d'idiomes generats via randomly crawling wikipedia
+  \item Crawling a traves de proxy amb headers tema idioma
+  \item Afegida categoria adult
+  \item Afegit categoria other, massa generica
+  \item Desmembrat categoria other en altres per posterior mapeig a other
+  \item Generat script per calcular mitja de certesa de classficacio i distancia mitja amb segona opcio
+  \item Millorats fitxers de train en base al punt anterior
+\end{itemize}
+
+
+El primer approach per la classificació va ser fent servir les categories que demanava O2 irlanda. La categoria entertainment englobava molts temes, movies, tv, music,
+literature..., i es requeria a més una categoria "Other". El classificador sempre assigna una categoria, la que té la màxima probabilitat de ser, i per tant s'havia 
+de generar la categoria other a partir de categories que no tinguessin res a veure.
+El problema de crear categoria generica other o entertainment, es que passaven a tenir molt ambigüitat, i moltes coses passaven a considerar-se other i entertainment.
+La solucio va ser crear subcategories sense tenir en compte entertainment i other, i fer un post tractament del ficher resultant de la classificació assignant other o 
+entertainment a allò que realment ho era. D'aquesta manera es té més granularitat, tot i que l'accuracy del classificador baixa al tenir més categories.
+Un problema comú és que algunes urls no es deixen crawlejar. Detecten que no ets un navegador corrent i et donen un contingut que no és significatiu. A l'hora de
+classificar aquestes urls acaben sent categoritzades a categories que no tenen res a veure. Per exemple wikipedia retorna simplement una llista de països, que fa que 
+la categoria passi a ser "Adult". Coses similars passen amb facebook. 
+A youtube el problema és que el text crawlejat són els títols i descripcions de videos que la gent puja, per tant depenent de quan es produeixi el crawling, la
+classificacio de Youtube pot canviar.
+
+
+\textbf{29-12-2011}
+
+  En afegir categories concretes per a ser englobades posteriorment per Entertainment, l'accuracy del classificador ha baixat fins al 73.33
+  adult       education  food\_drink  health             literature  music   real\_estate  religion  social\_networking  sport        travel
+  automotive  email      games       history            maps        news    reference    science   social\_science     television   weather
+  crime       financial  government  instant\_messaging  movies      photos  regional     shopping  software           theme\_parks
+
+  Si la confusió és entre categories que seran englobades per "Entertainment" no hi ha problema. 
+  Observem que la distància disminueix lògicament perquè ara hi ha més categories.
+  \imatge{img/test.png}{Gràfic de blabla}
+
+\textbf{04-01-2012}
+ 
+  Proves a jabato

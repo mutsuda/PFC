@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+if [ "$#" -gt 0 ]
+then 
+    if [ "$1" = "clean" ]
+    then
+      echo -e "\e[1;34m#\e[0m"
+      echo -e "\e[1;34m# Start cleaning directory.\e[0m"
+      echo -e "\e[1;34m#\e[0m"
+      echo "rm -f *.log"
+      rm -f *.log
+      echo "rm -f *.toc"
+      rm -f *.toc
+      echo "rm -f *.out"
+      rm -f *.out
+      echo "rm -f *.aux"
+      rm -f *.aux
+      echo -e "\e[1;34m#\e[0m"
+      echo -e "\e[1;34m# End cleaning directory.\e[0m"
+      echo -e "\e[1;34m#\e[0m"
+    fi
+else
+pdflatex main.tex
+fi
+

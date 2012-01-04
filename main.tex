@@ -1,0 +1,69 @@
+\documentclass[a4paper , titlepage]{report}
+\usepackage{latexmasu}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\lhead{Web content categorization}
+\chead{} 
+\rhead{\nouppercase{\leftmark}}
+% \lfoot{\today}
+% \cfoot{}
+% \rfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+% \renewcommand{\footrulewidth}{0.4pt}
+
+\renewcommand{\chaptermark}[1]{%
+\markboth{\chaptername.  \thechapter. #1}{}}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+
+\author{Masumi Mutsuda Zapater}
+\title{Machine Learning webcontent categorization \\ Artificial Intelligence}
+\date{February 2012}
+
+\begin{document}
+
+\maketitle
+
+\input{abstract}
+
+\tableofcontents
+
+\newpage
+
+\chapter{Introduction}
+%\input{introduction}
+
+\chapter{Identificació del problema}
+%\input{identificacio}
+
+\chapter{Conceptualització}
+%\input{conceptualitzacio}
+
+\chapter{Formalització del problema}
+%\input{formalitzacio}
+
+\chapter{Implementació}
+%\input{implementacio}
+
+\chapter{Ontologia}
+%\input{ontologia}
+
+
+\chapter{Descripció dels mòduls}
+%\input{moduls}
+
+\chapter{Casos de prova}
+%\input{proves}
+
+\chapter{Conclusions}
+%\input{conclusions}
+
+\input{bib}
+
+\chapter{Annex: Diary }
+\input{diary}
+
+
+\end{document}
