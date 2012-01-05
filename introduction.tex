@@ -1,1 +1,23 @@
 Hello my name is here \cite{ConcreteMath}
+
+
+\begin{lstlisting}[language=C++]
+
+#include "TaskFormatFieldsTest.hh"
+#include "Zen.hh"
+
+#define ZEN_TEST_NEGATE_CFG       "task-format-negate-workflow.cfg"
+#define ZEN_TEST_FILTER_CFG       "task-format-filter-workflow.cfg"
+
+
+TEST_F(TaskFormatFieldsTest, TimestampWorks)
+{
+  // Actual test starts here
+  Zen zen(ZEN_BINARY, ZEN_TEST_TIMESTAMP_CFG, ZEN_TEST_ROLE, VERBOSITY);
+  int status = zen.run();
+
+  ASSERT_EQ(0, status);
+
+  checkStages(STAGES_OK);
+}
+\end{lstlisting}

@@ -20,6 +20,12 @@ then
       echo -e "\e[1;34m#\e[0m"
     fi
 else
-pdflatex main.tex
+  echo -e "\e[1;34m#\e[0m"
+  echo -e "\e[1;34m# Started generating document.\e[0m"
+  echo -e "\e[1;34m#\e[0m"
+  pdflatex -interaction=nonstopmode main.tex | grep !
+  echo -e "\e[1;34m#\e[0m"
+  echo -e "\e[1;34m# End generating document .\e[0m"
+  echo -e "\e[1;34m#\e[0m"
 fi
 
