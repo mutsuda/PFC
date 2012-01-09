@@ -1,0 +1,63 @@
+%!TEX root = main.tex
+
+There are several difficulties in the classification task that can be optimized by some refination. 
+The first difficulty is that some servers returned their content in the language of the country they detected the request was coming from. Changing the header in the requests and using a proxy solved this problem.  
+Another difficulty in this classification task is the fact that the content of some of the URIs that are being classified is written in languages different from english. 
+As in this specific problem the classifier is trained to work in English, this situation will potentially cause wrong classifications. 
+We could just filter those URIs from foreign domains (.cz, .jp, .cn) and automatically discard them, but some of those webpages could be written in english, and we would still have the same problem with the generic ".com" domain.
+A better approach would be identifying the language itself and discarding the webcontents which are not in english.
+
+\section{Language Identification}
+Language identification is the process of determining which natural language given content is in. 
+There are several computational/statistical approaches to solve this problem which is split into two different stages: modeling and classification
+
+\subsection{Modeling techniques}
+Before being able to classify languages we need to generate models that will represent each language. This can be done using different techniques:
+\begin{itemize}
+  \item {\bf Common words technique}: the most common words in a corpus are sorted by frequency in order to get a probability distribution.
+  \item {\bf N-Gram technique}: similar to common words technique but instead of sorting the most common words, the most common successions of N characters are sorted.
+\end{itemize}  
+The disadvantage of the {\bf Common words technique} is that although common words may occur in large amounts of text, they might not occur in shorter input examples. With the {\bf N-Gram} technique we avoid that disadvantage by not using just the words but also all the N-partitions in the text.
+
+
+\subsection{Classification techniques}
+Once we have a model for each language we want to identify, we have to classify them.
+\begin{itemize}
+  \item {\bf Relative entropy}: compares the compressibility of the text we want to identify to the compressibility of the previously generated models.
+  \item {\bf Rank order statistics}: generates a probability by comparing how far an N-Gram is from the position of the same N-Gram in the model.
+\end{itemize}
+\subsection{Application}
+For the scope of this project I chose the {\bf 3-Gram technique} to generate the language models and the {\bf Rank order statistics} to identify the languages. I used a Python implementation by Damir Cavar\cite{lid1} consisting of a model generator and a classifier.
+For generating the language models, I used the Wikipedia as a text source by automatically accessing random articles and crawling their content. After generating the models a simple Python algorithm rewrote the output file with the language information.
+
+\begin{lstlisting}[language=Python]
+
+import lid
+import os
+import csv
+
+myLid = lid.Lid()
+output_file = "language_categorized.csv"
+input_file = "categorized.csv"
+
+seed_write = csv.writer(open(output_file, 'wb'), delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
+seed_read = csv.reader(open(input_file, 'rU'), delimiter=',')
+
+for row in seed_read:
+  try:
+    # This call returns the language of the file content
+    language = myLid.checkText(open("unknown-data/http:"+row[0]+".out").read())
+    if (language != "English"):
+      seed_write.writerow([row[0],"foreign_language"])
+    else:
+      seed_write.writerow([row[0],row[1]])
+  except Exception, e:
+    print "error identifying language of "+row[0]
+    print e
+    seed_write.writerow([row[0],"other"])
+\end{lstlisting}
+
+Before applying the LID algorithm, websites in other languages were being categorized as random categories, adding unuseful noise to the results. After applying the algorithm, those websites were categorized as "foreign\_language" and were easily identified. We can see how the foreign language webpages were wrongly classified both in absolute values and percentually.
+
+
+ 
