@@ -20,12 +20,16 @@ then
       echo -e "\e[1;34m#\e[0m"
     fi
 else
-  echo -e "\e[1;34m#\e[0m"
-  echo -e "\e[1;34m# Started generating document.\e[0m"
-  echo -e "\e[1;34m#\e[0m"
+  tput setaf 4
+  echo "#"
+  echo "# Started generating document."
+  echo "#"
+  tput setaf 1 
   pdflatex -interaction=nonstopmode main.tex | grep !
-  echo -e "\e[1;34m#\e[0m"
-  echo -e "\e[1;34m# End generating document .\e[0m"
-  echo -e "\e[1;34m#\e[0m"
+  tput setaf 4
+  echo "#"
+  echo "# End generating document."
+  echo "#"
+  tput sgr0
 fi
 
