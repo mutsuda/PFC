@@ -7,27 +7,12 @@ By the goal itself it is clear that Machine Learning algorithms might be the bes
 
 The original set of categories that we were asked to identify were the following.
 
-\begin{itemize}
-  \item Social Networking
-  \item Email
-  \item Sport
-  \item News
-  \item Shopping
-  \item Weather
-  \item Travel
-  \item Maps
-  \item Photos
-  \item Instant Messaging
-  \item Entertainment
-  \item Financial
-  \item Adult
-  \item Other
-\end{itemize}
+\codi{Social Networking, Email, Sport, News, Shopping, Weather, Travel, Maps, Photos, Instant Messaging, Entertainment, Financial, Adult, Other}
 
 Before going any further and just looking at the categories we were asked to classify, we can observe that some of them could be more difficult to classify.
-Some categories like "Adult" had a clearly characteristic language in their content whereas other categories like "Email" might contain generic language.
-We can also see that the category "Entertainment" might be overlapping with others like "Photos", "Travel", "Social Networking", etc. 
-Finally one of the difficulties of the task was to categorize something as "Other". 
+Some categories like \codi{Adult} had a clearly characteristic language in their content whereas other categories like \codi{Email} might contain generic language.
+We can also see that the category \codi{Entertainment} might be overlapping with others like \codi{Photos}, \codi{Travel}, \codi{Social Networking}, etc. 
+Finally one of the difficulties of the task was to categorize something as \codi{Other}. 
 For initial testing purposes that could help taking later decisions I used rapidminer. A fast-to-set and easy-to-use machine learning tool that, among other things, allowed me to test different
 machine learning algorithms with the same datasets in order to compare their performance.
 
@@ -46,7 +31,29 @@ I used rapidminer\cite{rapidminer} to do inicial tests and try to diagnose how m
 
 \subsection{MaxEnt implementation in the Framework}
 
-\[
-p = \frac{e^{p(i)}}{e^{\sum_{i=0}^{n} e^{i-max}}}
-\]
+\begin{itemize}
+\item Compute $d_j, j=1,...,k+1$
+\item Initialize $\lambda_j^{(1)}$ to zero
+\item Repeat until converge
+\item For each j 
+  \begin{itemize}
+  \item Compute $E_{p^{(n)}} f_j = \sum\limits_{x \in \varepsilon} p^{(n)} (x)f_j(x)$
+    where $p^{(n)}(x) = \frac{e^{\sum\limits_{j=1}^{k+1}\lambda_j^{(n)}f_j(x)}}{Z}$ 
+  \item Update $\lambda_j^{(n+1)} = \lambda_j^{(n)} + \frac{1}{C}(log\frac{d_i}{E_{{p^{(n)}}}f_j})$
+  \end{itemize}
+\end{itemize}
 
+  
+
+
+
+
+Why maximum entropy?
+Maximize ntropy = Minimize commitment
+
+Model all that is known and assume nothing about what is unknown. 
+Model all that is known: satisfy a set of constraints that must hold
+
+Assume nothing about what is unknown: 
+   choose the most “uniform” distribution 
+   choose the one with maximum entropy

@@ -4,7 +4,7 @@ There are several difficulties in the classification task that can be optimized 
 The first difficulty is that some servers returned their content in the language of the country they detected the request was coming from. Changing the header in the requests and using a proxy solved this problem.  
 Another difficulty in this classification task is the fact that the content of some of the URIs that are being classified is written in languages different from english. 
 As in this specific problem the classifier is trained to work in English, this situation will potentially cause wrong classifications. 
-We could just filter those URIs from foreign domains (.cz, .jp, .cn) and automatically discard them, but some of those webpages could be written in english, and we would still have the same problem with the generic ".com" domain.
+We could just filter those URIs from foreign domains (\codi{.cz, .jp, .cn}) and automatically discard them, but some of those webpages could be written in english, and we would still have the same problem with the generic \codi{.com} domain.
 A better approach would be identifying the language itself and discarding the webcontents which are not in english.
 
 \section{Language Identification}
@@ -17,7 +17,7 @@ Before being able to classify languages we need to generate models that will rep
   \item {\bf Common words technique}: the most common words in a corpus are sorted by frequency in order to get a probability distribution.
   \item {\bf N-Gram technique}: similar to common words technique but instead of sorting the most common words, the most common successions of N characters are sorted.
 \end{itemize}  
-The disadvantage of the {\bf Common words technique} is that although common words may occur in large amounts of text, they might not occur in shorter input examples. With the {\bf N-Gram} technique we avoid that disadvantage by not using just the words but also all the N-partitions in the text.
+The disadvantage of the {\bf common words technique} is that although common words may occur in large amounts of text, they might not occur in shorter input examples. With the {\bf N-Gram} technique we avoid that disadvantage by not using just the words but also all the N-partitions in the text.
 
 
 \subsection{Classification techniques}
@@ -57,4 +57,4 @@ for row in seed_read:
     seed_write.writerow([row[0],"other"])
 \end{lstlisting}
 
-Before applying the LID algorithm, websites in other languages were being categorized as random categories, adding unuseful noise to the results. After applying the algorithm, those websites were categorized as "foreign\_language" and were easily identified. We can see how the foreign language webpages were wrongly classified both in absolute values and percentually. 
+Before applying the LID algorithm, websites in other languages were being categorized as random categories, adding unuseful noise to the results. After applying the algorithm, those websites were categorized as \codi{foreign\_language} and were easily identified. We can see how the foreign language webpages were wrongly classified both in absolute values and percentually. 
