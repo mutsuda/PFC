@@ -19,17 +19,37 @@ machine learning algorithms with the same datasets in order to compare their per
 \subsection{Crawling training data}
 Supervised Machine Learning algorithms need a set of training (labeled) data to infere the function that will later determine wether a new example is from one class or the other. In this case we needed
 web content for each of the categories. We decided to use the {\bf Yahoo! Directory}\cite{yahoo} as a source for this data.
- 
+The {\bf Yahoo! Directory} is an organized url database where everything is under a category. Crawling every url under a given category provided a huge reliable corpus to train the model.
 
   
 
 
 \subsection{Tests with Rapidminer}
-I used rapidminer\cite{rapidminer} to do inicial tests and try to diagnose how might some categories be overlapping and at the same time detecting which algorithms performed better.
+Rapidminer\cite{rapidminer} is a widely used easy to use and powerful machine learning environment.  
+It was the perfect tool to do some initial tests in orther to diagnose how might some categories be overlapping, detecting which algorithms performed better, etc.
 \imatgePetita{img/rapid1.png}{Rapidminer process}
 
 
+\subsubsection{Number of features}
+%!Make some experiments. Try classification using 100, 300, 500, 700, 900, max
+The first experiment consisted in determining wether the amount of features was important and which was the optimal amount. Starting with 100 files for each category, the following graphic
+represents the model accuracy over number of documents. 
+
+\subsubsection{K nearest neighbours}
+%!Do some tests changing the N and see the performance.
+
+\subsubsection{X-Accuracy}
+%!Learn to distinguish between all pairs of classes and see which are more difficult
+Another experiment consisted in comparing all classes binarily to  
+
+
+
+
 \subsection{MaxEnt implementation in the Framework}
+
+
+\subsubsection{Feature selection}
+Word count
 
 \begin{itemize}
 \item Compute $d_j, j=1,...,k+1$
@@ -44,16 +64,29 @@ I used rapidminer\cite{rapidminer} to do inicial tests and try to diagnose how m
 \end{itemize}
 
   
-
-
-
+Looking at the rapidminer test results, we could say that Naive Bayes was the better performing algorithm. 
 
 Why maximum entropy?
 Maximize ntropy = Minimize commitment
 
 Model all that is known and assume nothing about what is unknown. 
-Model all that is known: satisfy a set of constraints that must hold
+Model all that is known: satisfy a set of constraints that must hold respecting uniformity.
 
 Assume nothing about what is unknown: 
    choose the most “uniform” distribution 
    choose the one with maximum entropy
+
+One nice aspect of maximum entropy is that it does not suffer from any independence assumptions. For example, consider a document containing the same number of occurences of
+"rainy" and "social network". A Naive Bayes classifier will double count the occurences of "social network" - it will add in the weight for "social" and the weight for "network". Since "rainy" and
+"social network" occur equally, a single occurrence of "social network" will contribute twice the weight as an occurence of "rainy". This will cause Naive Bayes to prefer one class incorrectly.
+Maximum entropy, on the other hand, will discount the $\lambda_i$ for each of these features such that their weight towards classification is appropriately reduced by half.
+This is because the constraints work over expectations of the counts. One implication for this freedmo from independence assumptions is that bigrams and phrases can be easily added as features 
+by maximum entropy, without worry that the features are overlapping.i
+
+
+\subsubsection{Performace}
+%!Run the tests with m1r1, m2r1, m3r1, m4r1, m5,r1, mr2r2, m3r3, m4r4, m5r5, or etc...
+Compared to other classification algorithms like Naive Bayes, the Maximum Entropy algorithm has a higher computational requirement. 
+The platform where the MaxEnt classification algorithm is running is highly scalable and follows the map/reduce paradigm. Taking advantage of the paraidgm, the MaxEnt algorithm
+is able to perform notably faster.
+The following chart presents the execution time of the same algorithm with different number of mappers and reducers.
