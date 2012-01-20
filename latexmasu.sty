@@ -2,11 +2,8 @@
 
 \ProvidesPackage{latexmasu}
 
+% Package imports
 \usepackage{color}
-\definecolor{navy}{rgb}{0,0,0.75}
-\definecolor{leave}{rgb}{0,0.5,0}
-\definecolor{gray}{rgb}{0.4,0.4,0.4}
-\definecolor{darkgreen}{rgb}{0,0.4,0}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage{graphicx}
@@ -15,61 +12,51 @@
 \usepackage{url}
 \usepackage{hyperref}
 \usepackage{amsmath}
+\usepackage{caption}
 
-\newcommand{\codi}[1]{\small\texttt{{#1}}}
+% Color definitions
+\definecolor{navy}{rgb}{0,0,0.75}
+\definecolor{leave}{rgb}{0,0.5,0}
+\definecolor{gray}{rgb}{0.4,0.4,0.4}
+\definecolor{darkgreen}{rgb}{0,0.4,0}
+\definecolor{plum}{cmyk}{0,0.27,0,0.45}
 
-
+% Code formatting
 \lstset{
-         basicstyle=\footnotesize\ttfamily, % Standardschrift
-         %numbers=left,               % Ort der Zeilennummern
-         %numberstyle=\tiny,          % Stil der Zeilennummern
-         %stepnumber=2,               % Abstand zwischen den Zeilennummern
-         %numbersep=5pt,              % Abstand der Nummern zum Text
-         tabsize=2,                  % Groesse von Tabs
-         extendedchars=true,         %
-         breaklines=true,            % Zeilen werden Umgebrochen
+         basicstyle=\footnotesize\ttfamily,
+         tabsize=2,                  
+         extendedchars=true,         
+         breaklines=true,            
          keywordstyle=\color{red},
-                frame=b,
-        commentstyle=\color{darkgreen},
- %        keywordstyle=[1]\textbf,    % Stil der Keywords
- %        keywordstyle=[2]\textbf,    %
- %        keywordstyle=[3]\textbf,    %
- %        keywordstyle=[4]\textbf,   \sqrt{\sqrt{}} %
-         stringstyle=\color{navy}\ttfamily, % Farbe der String
-         showspaces=false,           % Leerzeichen anzeigen ?
-         showtabs=false,             % Tabs anzeigen ?
+         frame=b,
+         commentstyle=\color{darkgreen},
+         stringstyle=\color{navy}\ttfamily, 
+         showspaces=false,           
+         showtabs=false,             
          xleftmargin=10pt,
          framexleftmargin=10pt,
          framexrightmargin=5pt,
          framexbottommargin=4pt,
-         %backgroundcolor=\color{lightgray},
-         showstringspaces=false      % Leerzeichen in Strings anzeigen ?        
- }
- \lstloadlanguages{% Check Dokumentation for further languages ...
-         %[Visual]Basic
-         %Pascal
-         %C
-         C++
-         %XML
-         %HTML
-         %Java
- }
-    %\DeclareCaptionFont{blue}{\color{blue}} 
+         showstringspaces=false              
+}
 
-  %\captionsetup[lstlisting]{singlelinecheck=false, labelfont={blue}, textfont={blue}}
-\usepackage{caption}
+% General caption formatting
 \DeclareCaptionFont{white}{\color{white}}
-\DeclareCaptionFormat{listing}{\colorbox[cmyk]{0.43, 0.35, 0.35,0.01}{\parbox{\textwidth}{\hspace{15pt}#1#2#3}}}
-\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white, singlelinecheck=false, margin=0pt, font={bf,footnotesize}}
-\renewcommand{\lstlistingname}{Codi}
+\DeclareCaptionFormat{listing}{\colorbox{plum}{\parbox{\textwidth}{\hspace{15pt}#1#2#3}}}
 
+% Figure caption setup
 \captionsetup[figure]{format=listing,labelfont=white,textfont=white, singlelinecheck=false, margin=0pt, font={bf,footnotesize}}
 
 
-%Transforms urls into clickable links
+%% User defined comands %%
+
+% Changes font style into a "cody" one
+\newcommand{\codi}[1]{\small\texttt{{#1}}}
+
+% Transforms urls into clickable links
 \newcommand{\posaurl}[1]{\href{#1}{#1}}
 
-%Places big image
+% Places big image
 \newcommand{\imatge}[2]
 {
   \begin{figure}[ht]
@@ -80,7 +67,7 @@
   \end{figure}
 }
 
-%Places small image 
+% Places small image 
 \newcommand{\imatgePetita}[2]
 {
   \begin{figure}[ht]
@@ -91,8 +78,8 @@
   \end{figure}
 }
 
-%Generates a bibitem for urls
+% Generates a bibligoraphy line for urls
 \newcommand{\biburl}[6]{\bibitem{#1} #2, "#3", \textit{#4}, #5, \posaurl{#6}}
 
-%Generates a bibitem for books
+% Generates a bibliography line for books
 \newcommand{\bibook}[4]{ \bibitem{#1} #2,\textit{#3} #4 }

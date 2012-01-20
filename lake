@@ -4,9 +4,11 @@ if [ "$#" -gt 0 ]
 then 
     if [ "$1" = "clean" ]
     then
-      echo -e "\e[1;34m#\e[0m"
-      echo -e "\e[1;34m# Start cleaning directory.\e[0m"
-      echo -e "\e[1;34m#\e[0m"
+      tput setaf 4
+      echo  "#"
+      echo  "# Started cleaning directory."
+      echo  "#"
+      tput setaf 1 
       echo "rm -f *.log"
       rm -f *.log
       echo "rm -f *.toc"
@@ -15,9 +17,13 @@ then
       rm -f *.out
       echo "rm -f *.aux"
       rm -f *.aux
-      echo -e "\e[1;34m#\e[0m"
-      echo -e "\e[1;34m# End cleaning directory.\e[0m"
-      echo -e "\e[1;34m#\e[0m"
+      echo rm -f *.pdf
+      rm -f *.pdf
+      tput setaf 4
+      echo "#"
+      echo "# Ended cleaning directory."
+      echo "#"
+      tput sgr0
     fi
 else
   tput setaf 4
@@ -28,7 +34,7 @@ else
   pdflatex -interaction=nonstopmode main.tex | grep !
   tput setaf 4
   echo "#"
-  echo "# End generating document."
+  echo "# Ended generating document."
   echo "#"
   tput sgr0
 fi
