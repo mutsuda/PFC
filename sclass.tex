@@ -29,6 +29,17 @@ Rapidminer\cite{rapidminer} is a widely used easy to use and powerful machine le
 It was the perfect tool to do some initial tests in orther to diagnose how might some categories be overlapping, detecting which algorithms performed better, etc.
 \imatgePetita{img/rapid1.png}{Rapidminer process}
 
+\subsubsection{Feature vector creation}
+In order to obtain a precise and accurate document representation, and before selecting the features several preprocesses can be applied to the word set.
+\imatge{img/vector.png}{Vector creation}
+\begin{itemize}
+  \item {\bf Tokenize}: the first step is to tokenize all documents.That is, split the text into a sequence of tokens. 
+  \item {\bf Tranform cases}: transforms all words to lowercase.
+  \item {\bf Stopword filter}: this process will remove common words. This step is language dependant.
+  \item {\bf Stem}: this process reduces inflected or derived words to their stem, base or root. It is also language dependant.
+\end{itemize}
+
+
 
 \subsubsection{Number of features}
 %!Make some experiments. Try classification using 100, 300, 500, 700, 900, max
