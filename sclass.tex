@@ -30,10 +30,10 @@ It was the perfect tool to do some initial tests in orther to diagnose how might
 \imatgePetita{img/rapid1.png}{Rapidminer process}
 
 \subsubsection{Feature vector creation}
-In order to obtain a precise and accurate document representation, and before selecting the features several preprocesses can be applied to the word set.
+In order to obtain a precise and accurate document representation, and before selecting the features, several preprocesses need to/can be applied to the word set.
 \imatge{img/vector.png}{Vector creation}
 \begin{itemize}
-  \item {\bf Tokenize}: the first step is to tokenize all documents.That is, split the text into a sequence of tokens. 
+  \item {\bf Tokenize}: the first step is to tokenize all documents. That is, split the text into a sequence of tokens. 
   \item {\bf Tranform cases}: transforms all words to lowercase.
   \item {\bf Stopword filter}: this process will remove common words. This step is language dependant.
   \item {\bf Stem}: this process reduces inflected or derived words to their stem, base or root. It is also language dependant.
@@ -54,7 +54,11 @@ represents the model accuracy over number of documents.
 Another experiment consisted in comparing all classes binarily to  
 
 
+\subsubsection{Entertainment into subcategories}
+%!Splitting entertainment into subcategories and seeing performance
+As we saw in the previous section, the category \codi{Entertainment} was one of the most difficult to distinguish. 
 
+\subsubsection{The \codi{Other} category}
 
 \subsection{MaxEnt implementation in the Framework}
 
@@ -101,3 +105,30 @@ Compared to other classification algorithms like Naive Bayes, the Maximum Entrop
 The platform where the MaxEnt classification algorithm is running is highly scalable and follows the map/reduce paradigm. Taking advantage of the paraidgm, the MaxEnt algorithm
 is able to perform notably faster.
 The following chart presents the execution time of the same algorithm with different number of mappers and reducers.
+
+
+\setlength{\unitlength}{0.8cm}
+\begin{picture}(6,5)(-5,0)
+\thicklines
+\put(1,0.5){\line(2,1){3}}
+\put(0,0){\line(0,1){5}}
+\put(0,0){\line(1,0){5}}
+\put(0,0){\line(-1,-1){2.5}}
+\put(4,2){\line(-2,1){2}}
+\put(2,3){\line(-2,-5){1}}
+
+\thinlines
+\put(-0.125,2.5){\line(1,0){0.25}}
+
+%\put(-5,-5){\line(
+%\put(0.7,0.3){$A$}
+%\put(4.05,1.9){$B$}
+%\put(1.7,2.95){$C$}
+%\put(3.1,2.5){$a$}
+%\put(1.3,1.7){$b$}
+%\put(2.5,1.05){$c$}
+%\put(0.3,4){$F=
+%\sqrt{s(s-a)(s-b)(s-c)}$}
+%\put(3.5,0.4){$\displaystyle
+%s:=\frac{a+b+c}{2}$}
+\end{picture}
