@@ -107,20 +107,77 @@ is able to perform notably faster.
 The following chart presents the execution time of the same algorithm with different number of mappers and reducers.
 
 
-\setlength{\unitlength}{0.8cm}
-\begin{picture}(6,5)(-5,0)
+\setlength{\unitlength}{0.3cm}
+\begin{picture}(15,15)(-20,2)
 \thicklines
-\put(1,0.5){\line(2,1){3}}
-\put(0,0){\line(0,1){5}}
-\put(0,0){\line(1,0){5}}
-\put(0,0){\line(-1,-1){2.5}}
-\put(4,2){\line(-2,1){2}}
-\put(2,3){\line(-2,-5){1}}
+
+% Axis
+\put(0,0){\line(0,1){15}}
+\put(0,0){\line(1,0){15}}
+\put(0,0){\line(-1,-1){7}}
+
+% Y-axis points (performance)
+\put(0,1){\circle*{0.25}}
+\put(0,2){\circle*{0.25}}
+\put(0,3){\circle*{0.25}}
+\put(0,4){\circle*{0.25}}
+\put(0,5){\circle*{0.25}}
+\put(0,6){\circle*{0.25}}
+\put(0,7){\circle*{0.25}}
+\put(0,8){\circle*{0.25}}
+\put(0,9){\circle*{0.25}}
+\put(0,10){\circle*{0.25}}
+\put(0,11){\circle*{0.25}}
+\put(0,12){\circle*{0.25}}
+\put(0,13){\circle*{0.25}}
+\put(0,14){\circle*{0.25}}
+\put(0,15){\circle*{0.25}}
+
+
+% X-axis points (mappers)
+\put(3,0){\circle*{0.25}}
+\put(6,0){\circle*{0.25}}
+\put(9,0){\circle*{0.25}}
+\put(12,0){\circle*{0.25}}
+\put(15,0){\circle*{0.25}}
+
+% Z-axis points (reducers)
+
+\put(-1.41421356237,-1.41421356237){\circle*{0.25}}
+\put(-2.82842712475,-2.82842712475){\circle*{0.25}}
+\put(-4.24264068712,-4.24264068712){\circle*{0.25}}
+\put(-5.65685424949,-5.65685424949){\circle*{0.25}}
+\put(-7.07106781187,-7.07106781187){\circle*{0.25}}
 
 \thinlines
-\put(-0.125,2.5){\line(1,0){0.25}}
+% Actual data
 
-%\put(-5,-5){\line(
+\put(1.58578643763,1.02967905463){\circle{0.4}}
+\put(0.171572875254,6.78483100295){\circle{0.4}}
+\put(-1.24264068712,9.62052038268){\circle{0.4}}
+\put(-2.65685424949,2.32855143761){\circle{0.4}}
+\put(-4.07106781187,-2.84521281827){\circle{0.4}}
+\put(4.58578643763,1.15627967123){\circle{0.4}}
+\put(3.17157287525,6.80336543285){\circle{0.4}}
+\put(1.75735931288,9.59186656708){\circle{0.4}}
+\put(0.343145750508,1.85443578311){\circle{0.4}}
+\put(-1.07106781187,-3.66517960337){\circle{0.4}}
+\put(7.58578643763,1.15295345123){\circle{0.4}}
+\put(6.17157287525,6.80235629055){\circle{0.4}}
+\put(4.75735931288,9.80411970408){\circle{0.4}}
+\put(3.34314575051,0.567089272608){\circle{0.4}}
+\put(1.92893218813,-7.07106781187){\circle{0.4}}
+\put(10.5857864376,1.13855209883){\circle{0.4}}
+\put(9.17157287525,6.80154912895){\circle{0.4}}
+\put(7.75735931288,9.72005336158){\circle{0.4}}
+\put(6.34314575051,0.0693443842076){\circle{0.4}}
+\put(4.92893218813,-0.878358846965){\circle{0.4}}
+\put(13.5857864376,1.12938781753){\circle{0.4}}
+\put(12.1715728753,6.81717827025){\circle{0.4}}
+\put(10.7573593129,9.74711174798){\circle{0.4}}
+\put(9.34314575051,0.681474333708){\circle{0.4}}
+\put(7.92893218813,-0.280308976565){\circle{0.4}}
+
 %\put(0.7,0.3){$A$}
 %\put(4.05,1.9){$B$}
 %\put(1.7,2.95){$C$}
