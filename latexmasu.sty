@@ -13,6 +13,7 @@
 \usepackage{hyperref}
 \usepackage{amsmath}
 \usepackage{caption}
+\usepackage{pgfplots}
 
 % Color definitions
 \definecolor{navy}{rgb}{0,0,0.75}
@@ -55,6 +56,19 @@
 
 % Transforms urls into clickable links
 \newcommand{\posaurl}[1]{\href{#1}{#1}}
+
+% Places graph
+\newcommand{\grafic}[2]
+{
+\begin{figure}[ht]
+  \caption{{#2}}\label{graph:{#1}}
+    \begin{center}
+      \input{#1}
+    \end{center}
+\end{figure}  
+
+}
+
 
 % Places big image
 \newcommand{\imatge}[2]
