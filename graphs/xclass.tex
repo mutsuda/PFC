@@ -1,0 +1,181 @@
+\begin{tikzpicture}[scale=0.75]
+\begin{axis}[colorbar,colormap/blackwhite,
+  colorbar style={xshift=0cm,
+    yticklabel pos=right,
+    yticklabel style={anchor=west} }, symbolic x coords={adult,email,entertainment,financial,im,maps,news,photos,shopping,socialn,sport,travel,weather},symbolic y coords={adult,email,entertainment,financial,im,maps,news,photos,shopping,socialn,sport,travel,weather}]
+\addplot[scatter,point meta=explicit,ultra thick,point meta min={70}, point meta max={100}]
+    table[x=S,y=POT_T, meta=DB, col sep=semicolon]{
+      S;POT_T;DB
+      adult;email;91.99
+      adult;entertainment;90.41
+      adult;financial;92.42
+      adult;im;92.25
+      adult;maps;93.23
+      adult;news;91.38
+      adult;photos;90.6
+      adult;shopping;91.43
+      adult;socialn;86.78
+      adult;sport;90.74
+      adult;travel;91.47
+      adult;weather;92.1
+
+
+      email;entertainment;94.04
+email;financial;89.61
+      email;im;84.89
+      email;maps;92.66
+      email;news;92.2
+      email;photos;90.79
+      email;shopping;90.53
+      email;socialn;86.99
+      email;sport;91.24
+      email;travel;89.74
+      email;weather;93.82      
+
+      entertainment;financial;85.87
+      entertainment;im;91.77
+      entertainment;maps;91.35
+      entertainment;news;74.02
+      entertainment;photos;81.62
+      entertainment;shopping;76.41
+      entertainment;socialn;82.49
+      entertainment;sport;75.32
+      entertainment;travel;80.67
+      entertainment;weather;87.28 
+
+      financial;im;90.71
+      financial;maps;93.37
+      financial;news;87.14
+      financial;photos;94.79
+      financial;shopping;89.28
+      financial;socialn;88.31
+      financial;sport;90.09
+      financial;travel;90.98
+      financial;weather;94.94
+
+   im;maps;91.68
+      im;news;90.09
+      im;photos;92.22
+      im;shopping;84.43
+      im;socialn;80.9
+      im;sport;89.01
+      im;travel;91.7
+      im;weather;93.98
+
+      maps;news;87.26
+      maps;photos;89.57
+      maps;shopping;87.46
+      maps;socialn;85.85
+      maps;sport;91.88
+      maps;travel;81.7
+      maps;weather;91.44
+
+      news;photos;87.68
+      news;shopping;83.54
+      news;socialn;83.88
+      news;sport;81.71
+      news;travel;83.55
+      news;weather;85.18
+
+      photos;shopping;85.5
+      photos;socialn;82.78
+      photos;sport;85.01
+      photos;travel;86.17
+      photos;weather;93.87
+
+      shopping;socialn;81.33
+      shopping;sport;85.21
+      shopping;travel;84.14
+      shopping;weather;88.92
+
+      socialn;sport;82.63
+      socialn;travel;84.02
+      socialn;weather;92.53
+
+      sport;travel;83.91
+      sport;weather;87.28
+
+      travel;weather;90.16
+
+
+   %   2;3;94.04
+   %   2;4;89.61
+   %   2;5;84.89
+   %   2;6;92.66
+   %   2;7;92.2
+   %   2;8;90.79
+   %   2;9;90.53
+   %   2;10;86.99
+   %   2;11;91.24
+   %   2;12;89.74
+   %   2;13;93.82      
+      
+   %   3;4;85.87
+   %   3;5;91.77
+   %   3;6;91.35
+   %   3;7;74.02
+   %   3;8;81.62
+   %   3;9;76.41
+   %   3;10;82.49
+   %   3;11;75.32
+   %   3;12;80.67
+   %   3;13;87.28 
+
+    %  4;5;90.71
+    %  4;6;93.37
+    %  4;7;87.14
+    %  4;8;94.79
+    %  4;9;89.28
+    %  4;10;88.31
+    %  4;11;90.09
+    %  4;12;90.98
+    %  4;13;94.94
+
+     % 5;6;91.68
+     % 5;7;90.09
+     % 5;8;92.22
+     % 5;9;84.43
+     % 5;10;80.9
+     % 5;11;89.01
+     % 5;12;91.7
+     % 5;13;93.98
+
+      %6;7;87.26
+      %6;8;89.57
+      %6;9;87.46
+      %6;10;85.85
+      %6;11;91.88
+      %6;12;81.7
+      %6;13;91.44
+
+      %7;8;87.68
+      %7;9;83.54
+      %7;10;83.88
+      %7;11;81.71
+      %7;12;83.55
+      %7;13;85.18
+
+      %8;9;85.5
+      %8;10;82.78
+      %8;11;85.01
+      %8;12;86.17
+      %8;13;93.87
+
+      %9;10;81.33
+      %9;11;85.21
+      %9;12;84.14
+      %9;13;88.92
+
+      %10;11;82.63
+      %10;12;84.02
+      %10;13;92.53
+
+      %11;12;83.91
+      %11;13;87.28
+
+      %12;13;90.16
+
+};
+\end{axis}
+\end{tikzpicture}
+
