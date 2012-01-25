@@ -1,0 +1,18 @@
+% This graph belongs to sclass.tex
+
+% 2D graph of the performance
+\begin{tikzpicture}[scale=1]
+    %[xlabel=$mappers/reducers$,ylabel=$performance (pps)$]
+    \begin{axis}[symbolic x coords={1-1,1-2,1-3,1-4,1-5,2-1,2-2,2-3,2-4,2-5,3-1,3-2,3-3,3-4,3-5,4-1,4-2,4-3,4-4,4-5,5-1,5-2,5-3,5-4,5-5}, xlabel=$mappers/reducers$,ylabel=$performance (pps)$]
+
+    \addplot[smooth,mark=*,blue] coordinates
+    {
+      (1-1,24.44)(1-2,25.70)(1-3,25.67)(1-4,25.52)(1-5,25.43)
+      (2-1,96.13)(2-2,96.318)(2-3,96.3078)(2-4,96.299)(2-5,96.456)
+      (3-1,138.6)(3-2,138.3)(3-3,140.5)(3-4,139.6)(3-5,139.9)
+      (4-1,79.9)(4-2,75.1)(4-3,62.2)(4-4,57.3)(4-5,63.4)
+      (5-1,42.3)(5-2,34.1)(5-3,59.5)(5-4,61.9)(5-5,67.9)
+    };
+    \end{axis}
+\end{tikzpicture}
+
