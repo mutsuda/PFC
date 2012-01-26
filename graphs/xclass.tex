@@ -1,22 +1,28 @@
 \begin{tikzpicture}[scale=0.6]
 \begin{axis}
- [
+ [ 
+  % Set the plot size
+  height=13cm,
+  width=13cm, 
+
+  % Set the boundaries
   xmin=adult,
   xmax=travel,
   ymax=weather,
   ymin=email,
-  yticklabel style={inner ysep=0pt, anchor=south east},
+
+  % Draw a background grid
   grid=major,
   grid style={dashed, gray!50},
-  height=13cm,
-  width=13cm, 
+
+  % Draw a colorbar
   colorbar,
   colormap/blackwhite,
   colorbar style=
   {
-    xshift=0cm,
-    yticklabel pos=right,
-    yticklabel style={anchor=west},
+    %ylabel=Accuracy
+    %yticklabel pos=right,
+    %yticklabel style={anchor=west},
   },
   symbolic x coords={adult,email,entertainment,financial,im,maps,news,photos,shopping,socialn,sport,travel,weather},
   symbolic y coords={adult,email,entertainment,financial,im,maps,news,photos,shopping,socialn,sport,travel,weather},
