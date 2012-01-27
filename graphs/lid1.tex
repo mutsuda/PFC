@@ -1,0 +1,24 @@
+% This graph belongs to sclass.tex
+
+
+\begin{tikzpicture}
+\begin{axis}[
+  width=11cm,
+  bar width = 7pt,
+  xtick=data,
+  ylabel=Amount,
+  enlargelimits=0.05,
+  legend style={at={(0.8,0.97)},
+      anchor=north,legend columns=-1},
+  ybar,
+  %ybar interval=2,
+  symbolic x coords={adult,email,entertainment,financial,instant messaging,maps,news,photos,shopping,social networking,sport,travel,weather,other,foreign},
+  xticklabel style={rotate=90,anchor=east},
+  ]
+\addplot
+  table[x index = 0, y index = 1, col sep=comma]{graphs/data/lid.dat};
+\addplot
+  table[x index = 0, y index = 2, col sep=comma]{graphs/data/lid.dat};
+\legend{noLID,LID}
+\end{axis}
+\end{tikzpicture}
