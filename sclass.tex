@@ -52,13 +52,16 @@ represents the model accuracy over number of documents.
 \subsubsection{X-Accuracy}
 %!Learn to distinguish between all pairs of classes and see which are more difficult
 Another experiment consisted in comparing all classes binarily to  
-
+\grafic{graphs/xclass.tex}{Accuracy heat graph}
 
 \subsubsection{Entertainment into subcategories}
 %!Splitting entertainment into subcategories and seeing performance
 As we saw in the previous section, the category \codi{Entertainment} was one of the most difficult to distinguish. 
 
 \subsubsection{The \codi{Other} category}
+There are several approaches in order to represent the \codi{Other} category, one of them could be taking the accuracy of a classification into account, and using a threshold to decide wether
+some sample should be considered of a any class or TODO:  
+
 
 \subsection{MaxEnt implementation in the Framework}
 
@@ -99,6 +102,9 @@ This is because the constraints work over expectations of the counts. One implic
 by maximum entropy, without worry that the features are overlapping.i
 
 
+
+
+
 \subsubsection{Performace}
 %!Run the tests with m1r1, m2r1, m3r1, m4r1, m5,r1, mr2r2, m3r3, m4r4, m5r5, or etc...
 Compared to other classification algorithms like Naive Bayes, the Maximum Entropy algorithm has a higher computational requirement. 
@@ -107,12 +113,9 @@ is able to perform notably faster.
 The following chart presents the execution time of the same algorithm with different number of mappers and reducers.
 
 
-
-
 \grafic{graphs/sclass_2dmr}{2D Performance graph}
 
 As we can see
 
 \grafic{graphs/sclass_3dmr}{3D Performance graph}
 
-\grafic{graphs/xclass.tex}{Accuracy heat graph}
