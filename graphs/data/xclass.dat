@@ -2,78 +2,78 @@ c1;c2;accuracy
 adult;email;91.99 
 adult;entertainment;90.41
 adult;financial;92.42
-adult;im;92.25
+adult;instant messaging;92.25
 adult;maps;93.23
 adult;news;91.38
 adult;photos;90.6
 adult;shopping;91.43
-adult;socialn;86.78
+adult;social networking;86.78
 adult;sport;90.74
 adult;travel;91.47
 adult;weather;92.1
 email;entertainment;94.04
 email;financial;89.61
-email;im;84.89
+email;instant messaging;84.89
 email;maps;92.66
 email;news;92.2
 email;photos;90.79
 email;shopping;90.53
-email;socialn;86.99
+email;social networking;86.99
 email;sport;91.24
 email;travel;89.74
 email;weather;93.82      
 entertainment;financial;85.87
-entertainment;im;91.77
+entertainment;instant messaging;91.77
 entertainment;maps;91.35
 entertainment;news;74.02
 entertainment;photos;81.62
 entertainment;shopping;76.41
-entertainment;socialn;82.49
+entertainment;social networking;82.49
 entertainment;sport;75.32
 entertainment;travel;80.67
 entertainment;weather;87.28 
-financial;im;90.71
+financial;instant messaging;90.71
 financial;maps;93.37
 financial;news;87.14
 financial;photos;94.79
 financial;shopping;89.28
-financial;socialn;88.31
+financial;social networking;88.31
 financial;sport;90.09
 financial;travel;90.98
 financial;weather;94.94
-im;maps;91.68
-im;news;90.09
-im;photos;92.22
-im;shopping;84.43
-im;socialn;80.9
-im;sport;89.01
-im;travel;91.7
-im;weather;93.98
+instant messaging;maps;91.68
+instant messaging;news;90.09
+instant messaging;photos;92.22
+instant messaging;shopping;84.43
+instant messaging;social networking;80.9
+instant messaging;sport;89.01
+instant messaging;travel;91.7
+instant messaging;weather;93.98
 maps;news;87.26
 maps;photos;89.57
 maps;shopping;87.46
-maps;socialn;85.85
+maps;social networking;85.85
 maps;sport;91.88
 maps;travel;81.7
 maps;weather;91.44
 news;photos;87.68
 news;shopping;83.54
-news;socialn;83.88
+news;social networking;83.88
 news;sport;81.71
 news;travel;83.55
 news;weather;85.18
 photos;shopping;85.5
-photos;socialn;82.78
+photos;social networking;82.78
 photos;sport;85.01
 photos;travel;86.17
 photos;weather;93.87
-shopping;socialn;81.33
+shopping;social networking;81.33
 shopping;sport;85.21
 shopping;travel;84.14
 shopping;weather;88.92
-socialn;sport;82.63
-socialn;travel;84.02
-socialn;weather;92.53
+social networking;sport;82.63
+social networking;travel;84.02
+social networking;weather;91.53
 sport;travel;83.91
 sport;weather;87.28
 travel;weather;90.16

@@ -1,40 +1,43 @@
-%!TEX root = main.te% 3D graph of the performancex
+%!TEX root = main.tex
 
-The main goal of the project was to be able to automatically classify webpages depending on their content into different categories. 
-By the goal itself it is clear that Machine Learning algorithms might be the best approach to try to solve the problem. 
+The main goal of the project is to be able to automatically classify webpages depending on their content into different categories. 
+By the goal itself it is clear that Machine Learning algorithms might be the best approach to try to solve the problem. We could try to use some unsupervised algorithms to solve the task,
+but in this case we have a clear knowledge about what we want to classify, and we don't need to extract new knowledge from the data.
 
 \subsection{Client requirements}
 
-The original set of categories that we were asked to identify were the following.
+Being part of a real case scenario brought to this project some requirements we had to take into account. The original set of categories that we were asked to identify was the following.
 
 \codi{Social Networking, Email, Sport, News, Shopping, Weather, Travel, Maps, Photos, Instant Messaging, Entertainment, Financial, Adult, Other}
 
-Before going any further and just looking at the categories we were asked to classify, we can observe that some of them could be more difficult to classify.
-Some categories like \codi{Adult} had a clearly characteristic language in their content whereas other categories like \codi{Email} might contain generic language.
+Before going any further and just looking at the categories we were asked to classify, we can observe that some of them could be more difficult to classify than others.
+Some categories like \codi{Adult} have a clearly characteristic language in their content whereas other categories like \codi{Email} might contain generic language.
 We can also see that the category \codi{Entertainment} might be overlapping with others like \codi{Photos}, \codi{Travel}, \codi{Social Networking}, etc. 
-Finally one of the difficulties of the task was to categorize something as \codi{Other}. 
-For initial testing purposes that could help taking later decisions I used rapidminer. A fast-to-set and easy-to-use machine learning tool that, among other things, allowed me to test different
+Another of the difficulties of the task seems to be categorizing something as \codi{Other}, because generating a training set for such a category might be difficult. 
+For initial testing purposes that could help taking later decisions I used rapidminer\cite{rapidminer}, a fast-to-setup and easy-to-use machine learning tool that, among other things, allowed me to test different
 machine learning algorithms with the same datasets in order to compare their performance.
 
 \subsection{Crawling training data}
-Supervised Machine Learning algorithms need a set of training (labeled) data to infere the function that will later determine wether a new example is from one class or the other. In this case we needed
+Supervised Machine Learning algorithms need a set of training (labeled) data to infer the function that will later determine whether a new example is from one class or the other. In this case we needed
 web content for each of the categories. We decided to use the {\bf Yahoo! Directory}\cite{yahoo} as a source for this data.
-The {\bf Yahoo! Directory} is an organized url database where everything is under a category. Crawling every url under a given category provided a huge reliable corpus to train the model.
+Before search engines like Google existed, people used directories to find what they were looking for. The {\bf Yahoo! Directory} is an organized URL database where everything is under a category. 
+Crawling every URL under a given category provided a huge and reliable corpus to train the model.
 
   
 
 
 \subsection{Tests with Rapidminer}
 Rapidminer\cite{rapidminer} is a widely used easy to use and powerful machine learning environment.  
-It was the perfect tool to do some initial tests in orther to diagnose how might some categories be overlapping, detecting which algorithms performed better, etc.
+It was the perfect tool to do some initial tests in order to diagnose how might some categories be overlapping, detecting which algorithms performed better, etc. The training process was 
+performed with a 10 fold cross validation in order to prevent overfitting and obtaining realistic accuracy values.
 \imatgePetita{img/rapid1.png}{Rapidminer process}
 
 \subsubsection{Feature vector creation}
-In order to obtain a precise and accurate document representation, and before selecting the features, several preprocesses need to/can be applied to the word set.
+In order to obtain a precise and accurate document representation, and before selecting the features, several pre-processes need to/can be applied to the word set.
 \imatge{img/vector.png}{Vector creation}
 \begin{itemize}
   \item {\bf Tokenize}: the first step is to tokenize all documents. That is, split the text into a sequence of tokens. 
-  \item {\bf Tranform cases}: transforms all words to lowercase.
+  \item {\bf Transform cases}: transforms all words to lowercase.
   \item {\bf Stopword filter}: this process will remove common words. This step is language dependant.
   \item {\bf Stem}: this process reduces inflected or derived words to their stem, base or root. It is also language dependant.
 \end{itemize}
@@ -43,31 +46,87 @@ In order to obtain a precise and accurate document representation, and before se
 
 \subsubsection{Number of features}
 %!Make some experiments. Try classification using 100, 300, 500, 700, 900, max
-The first experiment consisted in determining wether the amount of features was important and which was the optimal amount. Starting with 100 files for each category, the following graphic
+The first experiment consisted in determining whether the amount of features was important and which was the optimal amount. Starting with 100 files for each category, the following graphic
 represents the model accuracy over number of documents. 
 
 \subsubsection{K nearest neighbours}
 %!Do some tests changing the N and see the performance.
 
-\subsubsection{X-Accuracy}
+\subsubsection{Face to face accuracy}
 %!Learn to distinguish between all pairs of classes and see which are more difficult
-Another experiment consisted in comparing all classes binarily to  
+Another experiment consisted in comparing all classes binarily to determine which classes are more likely to be confused. In the following graph each circle represents a classification 
+between the class in the y-axis and the class in the x-axis. Smaller and more transparent circles represent worse accuracy, and bigger and stronger circles represent better accuracy. 
 \grafic{graphs/xclass.tex}{Accuracy heat graph}
+
+As we can see, classes like \codi{Entertainment} are more likely to be confused with any other class, being the distinction between the classes \codi{News} and \codi{Entertainment} the most
+difficult to perform. The reason why the \codi{News} are so easy to confuse might be the fact that their content depends on what is trending, and their sites do not contain specific language.
+\codi{Entertainment} is likely to be confused with \codi{Sport} or \codi{Shopping} because a lot of people consider them entertainment activities. 
+As a concrete example, the following tree represents the WJ-48 pruned tree output that classifies \codi{Weather} and \codi{News}.
+
+\begin{lstlisting}[language=Python]
+
+weather <= 0.068359
+|   forecast <= 0.030773
+|   |   snow <= 0.035962: news (511.0/30.0)
+|   |   snow > 0.035962
+|   |   |   stori <= 0.033615
+|   |   |   |   watch <= 0.01856: weather (14.0/1.0)
+|   |   |   |   watch > 0.01856: news (3.0)
+|   |   |   stori > 0.033615: news (8.0)
+|   forecast > 0.030773
+|   |   engin <= 0.017747
+|   |   |   edit <= 0.015559: weather (19.0/1.0)
+|   |   |   edit > 0.015559: news (2.0)
+|   |   engin > 0.017747: news (4.0)
+weather > 0.068359
+|   news <= 0.153393: weather (163.0/17.0)
+|   news > 0.153393
+|   |   copi <= 0.068359: weather (4.0)
+|   |   copi > 0.068359: news (7.0)
+\end{lstlisting}
 
 \subsubsection{Entertainment into subcategories}
 %!Splitting entertainment into subcategories and seeing performance
 As we saw in the previous section, the category \codi{Entertainment} was one of the most difficult to distinguish. 
 
 \subsubsection{The \codi{Other} category}
-There are several approaches in order to represent the \codi{Other} category, one of them could be taking the accuracy of a classification into account, and using a threshold to decide wether
-some sample should be considered of a any class or TODO:  
+There are several approaches in order to represent the \codi{Other} category, one of them could be creating a new class named \codi{Other} and filling it with content from categories that 
+differ from the ones we want to classify.\\
+Another approach is taking the accuracy of a classification into account, and using a threshold to decide whether some sample should be considered of a any class or assume it should be considered of another class. By calculating the variance of the probability distribution through classes, we can determine
+the strength with which a classification is done.   
+
+\grafic{graphs/other.tex}{Variance}
 
 
-\subsection{MaxEnt implementation in the Framework}
+\subsection{Implementation in the Framework}
+Although decision trees and Naive Bayes performed well during the rapidminer tests, they have some issues inherent to their specification. Decision trees are accurate, but their performance is 
+not suitable for an almost real time high demanding environment. Naive Bayes is better at performance but it makes independence assumptions that could cause some classification problems.\\
+There is an algorithm though that is both efficient and doesn't make any assumption. It's called Maximum Entropy (or Logistic Regression).
+
+\subsubsection{The Maximum Entropy}
+Why maximum entropy?
+Maximize entropy = Minimize commitment
+
+Model all that is known and assume nothing about what is unknown. 
+Model all that is known: satisfy a set of constraints that must hold respecting uniformity.
+
+Assume nothing about what is unknown: 
+   choose the most “uniform” distribution 
+   choose the one with maximum entropy
+
+One nice aspect of maximum entropy is that it does not suffer from any independence assumptions.\\
+For example, consider a document containing the same number of occurrences of \codi{rainy} and \codi{social network}.\\
+A Naive Bayes classifier will double count the occurrences of \codi{social network} 
+- it will add in the weight for \codi{social} and the weight for \codi{network}. Since \codi{rainy} and
+\codi{social network} occur equally, a single occurrence of \codi{social network} will contribute twice the weight as an occurrence of \codi{rainy}. This will cause Naive Bayes to prefer one class 
+incorrectly.
+Maximum entropy, on the other hand, will discount the $\lambda_i$ for each of these features such that their weight towards classification is appropriately reduced by half.
+This is because the constraints work over expectations of the counts. \\
+One implication for this freedom from independence assumptions is that bigrams and phrases can be easily added as features by maximum entropy, without worry that the features are overlapping.
 
 
-\subsubsection{Feature selection}
-Word count
+\subsubsection{MaxEnt Algorithm}
+
 
 \begin{itemize}
 \item Compute $d_j, j=1,...,k+1$
@@ -82,33 +141,19 @@ Word count
 \end{itemize}
 
   
-Looking at the rapidminer test results, we could say that Naive Bayes was the better performing algorithm. 
 
-Why maximum entropy?
-Maximize ntropy = Minimize commitment
-
-Model all that is known and assume nothing about what is unknown. 
-Model all that is known: satisfy a set of constraints that must hold respecting uniformity.
-
-Assume nothing about what is unknown: 
-   choose the most “uniform” distribution 
-   choose the one with maximum entropy
-
-One nice aspect of maximum entropy is that it does not suffer from any independence assumptions. For example, consider a document containing the same number of occurences of
-"rainy" and "social network". A Naive Bayes classifier will double count the occurences of "social network" - it will add in the weight for "social" and the weight for "network". Since "rainy" and
-"social network" occur equally, a single occurrence of "social network" will contribute twice the weight as an occurence of "rainy". This will cause Naive Bayes to prefer one class incorrectly.
-Maximum entropy, on the other hand, will discount the $\lambda_i$ for each of these features such that their weight towards classification is appropriately reduced by half.
-This is because the constraints work over expectations of the counts. One implication for this freedmo from independence assumptions is that bigrams and phrases can be easily added as features 
-by maximum entropy, without worry that the features are overlapping.i
+\subsubsection{Feature selection}
+After observing the feature selection performance in the previous chapter, maybe the best choice for a fast feature selection is counting the term frequency.
 
 
 
 
 
-\subsubsection{Performace}
+
+\subsubsection{Performance}
 %!Run the tests with m1r1, m2r1, m3r1, m4r1, m5,r1, mr2r2, m3r3, m4r4, m5r5, or etc...
 Compared to other classification algorithms like Naive Bayes, the Maximum Entropy algorithm has a higher computational requirement. 
-The platform where the MaxEnt classification algorithm is running is highly scalable and follows the map/reduce paradigm. Taking advantage of the paraidgm, the MaxEnt algorithm
+The platform where the MaxEnt classification algorithm is running is highly scalable and follows the map/reduce paradigm. Taking advantage of the paradigm, the MaxEnt algorithm
 is able to perform notably faster.
 The following chart presents the execution time of the same algorithm with different number of mappers and reducers.
 
