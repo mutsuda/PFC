@@ -46,8 +46,8 @@ In order to obtain a precise and accurate document representation, and before se
 
 \subsubsection{Number of features}
 %!Make some experiments. Try classification using 100, 300, 500, 700, 900, max
-The first experiment consisted in determining whether the amount of features was important and which was the optimal amount. Starting with 100 files for each category, the following graphic
-represents the model accuracy over number of documents. 
+The first experiment consisted in determining whether the amount of features was important and which was the optimal amount. It was also useful to determine which vector creation algorithm was
+more suitable for the process. Starting with 100 files for each category, the following plot represents the model accuracy over number of documents. 
 
 \subsubsection{K nearest neighbours}
 %!Do some tests changing the N and see the performance.
@@ -87,7 +87,13 @@ weather > 0.068359
 
 \subsubsection{Entertainment into subcategories}
 %!Splitting entertainment into subcategories and seeing performance
-As we saw in the previous section, the category \codi{Entertainment} was one of the most difficult to distinguish. 
+As we saw in the previous section, the category \codi{Entertainment} is one of the most difficult to distinguish. This could be due to the fact that it is a wide category containing a lot of different
+subcategories. We could try to split \codi{Entertainment} into subcategories (such as \codi{Music}, \codi{Movies}, \codi{Literature}...) to get a more precise dataset. In order to meet the
+client requirements those subcategories should be remapped to the original \codi{Entertainment} category after the classification process. \\
+After splitting the \codi{Entertainment} category into subcategories, these are the new classes: \\
+\codi{Music}, \codi{Literature}, \codi{Theme parks}, \codi{Movies}, \codi{Food \& Drink}, \codi{Games}, \codi{Television} 
+It is clear that the overall accuracy of the classification may be worse, but with this new structure
+ 
 
 \subsubsection{The \codi{Other} category}
 There are several approaches in order to represent the \codi{Other} category, one of them could be creating a new class named \codi{Other} and filling it with content from categories that 
@@ -95,7 +101,12 @@ differ from the ones we want to classify.\\
 Another approach is taking the accuracy of a classification into account, and using a threshold to decide whether some sample should be considered of a any class or assume it should be considered of another class. By calculating the variance of the probability distribution through classes, we can determine
 the strength with which a classification is done.   
 
-\grafic{graphs/other.tex}{Variance}
+\grafic{graphs/other.tex}{Probability distribution of two instances}
+
+
+This could be done by looking at the variance of the model. Looking at the plot (figure \ref{fig:{graphs/other.tex}}) we could say that the blue colored classification is not really confident whereas 
+the orange colored classification seems to be sure assigning the \codi{c30} category. In this case we could assign the blue instance to the \codi{Other} category, because it is more or less equally
+unsure of its category.
 
 
 \subsection{Implementation in the Framework}
@@ -143,7 +154,8 @@ One implication for this freedom from independence assumptions is that bigrams a
   
 
 \subsubsection{Feature selection}
-After observing the feature selection performance in the previous chapter, maybe the best choice for a fast feature selection is counting the term frequency.
+After observing the feature selection performance in the previous chapter, maybe the best choice for a fast vector creation is counting the term frequency. It usually performed better, and it always
+was faster.
 
 
 
