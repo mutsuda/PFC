@@ -14,9 +14,9 @@
       xlabel=$\#mappers-\#reducers$,
       xlabel style={yshift=-0.4cm},
       ylabel=$performance (pps)$]
-    \addplot[line width=1pt,smooth,blue] 
+    \addplot[line width=1pt,blue] 
       table[x index=0, y index=1, col sep=comma]{graphs/data/sclass_2dmr.dat};
-    \addplot[line width=1pt,smooth,red] 
+    \addplot[line width=1pt,red] 
       table[x index=0, y index=2, col sep=comma]{graphs/data/sclass_2dmr.dat};
     \legend{ultraman (pps), rogue (pps)}
     \end{axis}

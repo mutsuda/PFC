@@ -1,7 +1,7 @@
 %!TEX root = main.tex
 
-The main goal of the project is to be able to automatically classify webpages depending on their content into different categories. 
-By the goal itself it is clear that Machine Learning algorithms might be the best approach to try to solve the problem. We could try to use some unsupervised algorithms to solve the task,
+The main goal of the project was to be able to automatically classify webpages into different categories depending on their content. 
+By the goal itself it is clear that Machine Learning algorithms might be the best approach to try to solve the problem. We could have tried to use some unsupervised algorithms to solve the task,
 but in this case we have a clear knowledge about what we want to classify, and we don't need to extract new knowledge from the data.
 
 \subsection{Client requirements}
@@ -14,21 +14,44 @@ Before going any further and just looking at the categories we were asked to cla
 Some categories like \codi{Adult} have a clearly characteristic language in their content whereas other categories like \codi{Email} might contain generic language.
 We can also see that the category \codi{Entertainment} might be overlapping with others like \codi{Photos}, \codi{Travel}, \codi{Social Networking}, etc. 
 Another of the difficulties of the task seems to be categorizing something as \codi{Other}, because generating a training set for such a category might be difficult. 
-For initial testing purposes that could help taking later decisions I used rapidminer\cite{rapidminer}, a fast-to-setup and easy-to-use machine learning tool that, among other things, allowed me to test different
-machine learning algorithms with the same datasets in order to compare their performance.
+But before being able to do any training, we needed labeled data, that is content from where to learn.
 
 \subsection{Crawling training data}
-Supervised Machine Learning algorithms need a set of training (labeled) data to infer the function that will later determine whether a new example is from one class or the other. In this case we needed
-web content for each of the categories. We decided to use the {\bf Yahoo! Directory}\cite{yahoo} as a source for this data.
-Before search engines like Google existed, people used directories to find what they were looking for. The {\bf Yahoo! Directory} is an organized URL database where everything is under a category. 
+Supervised Machine Learning algorithms need a set of training (labeled) data to infer the function that will later determine whether a new example is from one class or another. In this case we needed
+web content for each of the categories. There were different approaches to solve the problem. One of them could have been querying categories in search engines or navigating through blog entries matching
+each category. \\
+We finally decided to use the {\bf Yahoo! Directory}\cite{yahoo} as a source for this data.
+Before search engines like Google existed, people used directories to find what they were looking for. These directories are characterized as being a hierarchical structure for navigating through categories
+and subcategories. Under each category there is a list of URL related to it.  
 Crawling every URL under a given category provided a huge and reliable corpus to train the model.
+I used a python to automate the process of crawling the Yahoo directory, manually checking which categories I wanted to crawl, and writing those initial URL into a seed file that was later automatically parsed.
+
+\begin{lstlisting}[language=Python]
+...
+http://dir.yahoo.com/Recreation/Sports/,sport
+http://dir.yahoo.com/News_and_Media/,news
+http://dir.yahoo.com/Business_and_Economy/Shopping_and_Services/Auctions/,shopping
+http://dir.yahoo.com/Business_and_Economy/Shopping_and_Services/Music/,shopping
+http://dir.yahoo.com/Business_and_Economy/Shopping_and_Services/Jewelry/,shopping
+http://dir.yahoo.com/news_and_media/weather/,weather
+http://dir.yahoo.com/Recreation/Travel/,travel
+http://dir.yahoo.com/science/geography/cartography/maps/,maps
+http://dir.yahoo.com/arts/visual_arts/photography/,photos
+http://dir.yahoo.com/computers_and_internet/software/internet/instant_messaging/,instant_messaging
+http://dir.yahoo.com/business_and_economy/finance_and_investment/,financial
+http://dir.yahoo.com/business_and_economy/shopping_and_services/sex/adult_galleries/,adult
+...
+\end{lstlisting}
+
+Once I had the training set and for initial testing purposes that could help taking later decisions I used rapidminer\cite{rapidminer}, a fast-to-setup and easy-to-use machine learning tool that, 
+among other things, allowed me to test different machine learning algorithms with the same datasets in order to compare their performance. 
 
   
 
 
 \subsection{Tests with Rapidminer}
-Rapidminer\cite{rapidminer} is a widely used easy to use and powerful machine learning environment.  
-It was the perfect tool to do some initial tests in order to diagnose how might some categories be overlapping, detecting which algorithms performed better, etc. The training process was 
+Rapidminer\cite{rapidminer} is a widely used, easy to use and powerful machine learning environment.  
+It was the perfect tool to do some initial tests in order to diagnose how might some categories be overlapping, detecting which algorithms performed better, etc. Almost all training processes were 
 performed with a 10 fold cross validation in order to prevent overfitting and obtaining realistic accuracy values.
 \imatgePetita{img/rapid1.png}{Rapidminer process}
 
@@ -48,7 +71,11 @@ In order to obtain a precise and accurate document representation, and before se
 %!Make some experiments. Try classification using 10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200,210,220,230,240,250,260...300, 500, 700, 900, max
 %!Calculate time of both algorithms at 100, 200, 300, 400, 500, 600, 700, 800, 900 and 1000.
 The first experiment consisted in determining whether the amount of features was important and which was the optimal amount. It was also useful to determine which vector creation algorithm was
-more suitable for the process. Starting with 100 files for each category, the following plot represents the model accuracy over number of documents. 
+more suitable for the process. Starting with 100 files for each category, the following plot represents the model accuracy over number of documents in the training set, using two different 
+feature selection methods: \codi{TD-IDF} and \codi{Term Frequency}. 
+
+The conclusion of this initial test was that the more data the better. We can also observe that when the training set size is small it is not clear which feature selection method is better,
+but as the dataset grows it is clear that word frequency performs better, and also faster.
 
 \subsubsection{K nearest neighbours}
 %!Do some tests changing the N and see the performance.
@@ -91,23 +118,25 @@ weather > 0.068359
 As we saw in the previous section, the category \codi{Entertainment} is one of the most difficult to distinguish. This could be due to the fact that it is a wide category containing a lot of different
 subcategories. We could try to split \codi{Entertainment} into subcategories (such as \codi{Music}, \codi{Movies}, \codi{Literature}...) to get a more precise dataset. In order to meet the
 client requirements those subcategories should be remapped to the original \codi{Entertainment} category after the classification process. \\
-After splitting the \codi{Entertainment} category into subcategories, these are the new classes: \\
+After splitting the \codi{Entertainment} category into subcategories, these were the new classes I found: \\
 \codi{Music}, \codi{Literature}, \codi{Theme parks}, \codi{Movies}, \codi{Food \& Drink}, \codi{Games}, \codi{Television} 
-It is clear that the overall accuracy of the classification may be worse, but with this new structure
+As new classes are added, it is clear that the overall accuracy of the classification may be worse, but with this new structure the confusions are likely to be between categories belonging to the same
+supercategory, which is not a problem.
  
 
 \subsubsection{The \codi{Other} category}
 There are several approaches in order to represent the \codi{Other} category, one of them could be creating a new class named \codi{Other} and filling it with content from categories that 
 differ from the ones we want to classify.\\
-Another approach is taking the accuracy of a classification into account, and using a threshold to decide whether some sample should be considered of a any class or assume it should be considered of another class. By calculating the variance of the probability distribution through classes, we can determine
-the strength with which a classification is done.   
+Another approach is taking the accuracy of a classification into account, and using a threshold to decide whether some sample should be considered of a any class or assume it should be considered of 
+another class. 
+By calculating the variance of the probability distribution through classes, we can determine the strength with which a classification is done.   
 
 \grafic{graphs/other.tex}{Probability distribution of two instances}
 
 
 This could be done by looking at the variance of the model. Looking at the plot (figure \ref{fig:{graphs/other.tex}}) we could say that the blue colored classification is not really confident whereas 
-the orange colored classification seems to be sure assigning the \codi{c30} category. In this case we could assign the blue instance to the \codi{Other} category, because it is more or less equally
-unsure of its category.
+the orange colored classification seems to be sure assigning the \codi{c30} category. In this particular case we could assign the blue instance to the \codi{Other} category, because it is more or less 
+equally unsure of its category.
 
 
 \subsection{Implementation in the Framework}
@@ -159,11 +188,6 @@ After observing the feature selection performance in the previous chapter, maybe
 was faster.
 
 
-
-
-
-
-
 \subsubsection{Performance}
 %!Run the tests with m1r1, m2r1, m3r1, m4r1, m5,r1, mr2r2, m3r3, m4r4, m5r5, or etc...
 Compared to other classification algorithms like Naive Bayes, the Maximum Entropy algorithm has a higher computational requirement. 
@@ -174,11 +198,10 @@ is able to perform notably faster.
 \grafic{graphs/sclass2dmr.tex}{2D Performance graph}
 
 Figure \ref{fig:{graphs/sclass2dmr.tex}} represents the execution time of the same algorithm with different number of mappers and reducers, in two different machines: \codi{ultraman (Intel Core 2 Duo CPU 2.00GHz 4GB RAM)} 
-is the machine where I'm writing most of this document, and \codi{rogue (Intel Core 2 Quad CPU Q9300 @ 2.5GHz 8GB RAM)} is a more powerful machine used for testing purposes. The x axis represents the 
-different mapper and reducer combinations I tested while the y axis represents the number of categorized pages per second.
+is the machine where I'm writing most of this document, and \codi{rogue (Intel Core 2 Quad CPU Q9300 @ 2.5GHz 8GB RAM)} is a more powerful machine used for testing purposes. The \codi{x} axis represents the 
+different mapper and reducer combinations I tested while the \codi{y} axis represents the number of categorized pages per second.
 As we can see both machines perform similary when using one to two mappers, but the most powerful machine outperforms the other one when using more than two mappers. We can also observe how \codi{ultraman}'s performance
 quickly stalls for more than thre mappers, while \codi{rogue} is able to hold a rising performance until six mappers are used.
-
 
 Figure \ref{fig:{graphs/sclass3dmr.tex}} is a three dimensional representation of \codi{ultraman}'s performance. We can quiclky observe a repeating pattern for each number of mappers.
 \grafic{graphs/sclass3dmr.tex}{3D Performance graph}
