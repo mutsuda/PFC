@@ -169,12 +169,17 @@ was faster.
 Compared to other classification algorithms like Naive Bayes, the Maximum Entropy algorithm has a higher computational requirement. 
 The platform where the MaxEnt classification algorithm is running is highly scalable and follows the map/reduce paradigm. Taking advantage of the paradigm, the MaxEnt algorithm
 is able to perform notably faster.
-The following chart presents the execution time of the same algorithm with different number of mappers and reducers.
 
 
-\grafic{graphs/sclass_2dmr}{2D Performance graph}
+\grafic{graphs/sclass2dmr.tex}{2D Performance graph}
 
-As we can see
+Figure \ref{fig:{graphs/sclass2dmr.tex}} represents the execution time of the same algorithm with different number of mappers and reducers, in two different machines: \codi{ultraman (Intel Core 2 Duo CPU 2.00GHz 4GB RAM)} 
+is the machine where I'm writing most of this document, and \codi{rogue (Intel Core 2 Quad CPU Q9300 @ 2.5GHz 8GB RAM)} is a more powerful machine used for testing purposes. The x axis represents the 
+different mapper and reducer combinations I tested while the y axis represents the number of categorized pages per second.
+As we can see both machines perform similary when using one to two mappers, but the most powerful machine outperforms the other one when using more than two mappers. We can also observe how \codi{ultraman}'s performance
+quickly stalls for more than thre mappers, while \codi{rogue} is able to hold a rising performance until six mappers are used.
 
-\grafic{graphs/sclass_3dmr}{3D Performance graph}
+
+Figure \ref{fig:{graphs/sclass3dmr.tex}} is a three dimensional representation of \codi{ultraman}'s performance. We can quiclky observe a repeating pattern for each number of mappers.
+\grafic{graphs/sclass3dmr.tex}{3D Performance graph}
 
