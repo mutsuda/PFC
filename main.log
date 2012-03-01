@@ -1,0 +1,1287 @@
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.1.2)  1 MAR 2012 16:26
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**main.tex
+(./main.tex
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, ge
+rman-x-2011-07-01, ngerman-x-2011-07-01, afrikaans, ancientgreek, ibycus, arabi
+c, armenian, basque, bulgarian, catalan, pinyin, coptic, croatian, czech, danis
+h, dutch, ukenglish, usenglishmax, esperanto, estonian, ethiopic, farsi, finnis
+h, french, galician, german, ngerman, swissgerman, monogreek, greek, hungarian,
+ icelandic, assamese, bengali, gujarati, hindi, kannada, malayalam, marathi, or
+iya, panjabi, tamil, telugu, indonesian, interlingua, irish, italian, kurmanji,
+ lao, latin, latvian, lithuanian, mongolian, mongolianlmc, bokmal, nynorsk, pol
+ish, portuguese, romanian, russian, sanskrit, serbian, serbianc, slovak, sloven
+ian, spanish, swedish, turkish, turkmen, ukrainian, uppersorbian, welsh, loaded
+.
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2007/10/19 v1.4h Standard LaTeX document class
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(./latexmasu.sty
+Package: latexmasu 
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 130.
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/message (HO)
+)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/04/18 v1.20 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count88
+))
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2008/03/30 v1.1d Input encoding file
+\inpenc@prehook=\toks14
+\inpenc@posthook=\toks15
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/base/utf8.def
+File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
+Now handling font encoding OML ...
+... no UTF-8 mapping file for font encoding OML
+Now handling font encoding T1 ...
+... processing UTF-8 mapping file for font encoding T1
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/base/t1enc.dfu
+File: t1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
+   defining Unicode char U+00A1 (decimal 161)
+   defining Unicode char U+00A3 (decimal 163)
+   defining Unicode char U+00AB (decimal 171)
+   defining Unicode char U+00BB (decimal 187)
+   defining Unicode char U+00BF (decimal 191)
+   defining Unicode char U+00C0 (decimal 192)
+   defining Unicode char U+00C1 (decimal 193)
+   defining Unicode char U+00C2 (decimal 194)
+   defining Unicode char U+00C3 (decimal 195)
+   defining Unicode char U+00C4 (decimal 196)
+   defining Unicode char U+00C5 (decimal 197)
+   defining Unicode char U+00C6 (decimal 198)
+   defining Unicode char U+00C7 (decimal 199)
+   defining Unicode char U+00C8 (decimal 200)
+   defining Unicode char U+00C9 (decimal 201)
+   defining Unicode char U+00CA (decimal 202)
+   defining Unicode char U+00CB (decimal 203)
+   defining Unicode char U+00CC (decimal 204)
+   defining Unicode char U+00CD (decimal 205)
+   defining Unicode char U+00CE (decimal 206)
+   defining Unicode char U+00CF (decimal 207)
+   defining Unicode char U+00D0 (decimal 208)
+   defining Unicode char U+00D1 (decimal 209)
+   defining Unicode char U+00D2 (decimal 210)
+   defining Unicode char U+00D3 (decimal 211)
+   defining Unicode char U+00D4 (decimal 212)
+   defining Unicode char U+00D5 (decimal 213)
+   defining Unicode char U+00D6 (decimal 214)
+   defining Unicode char U+00D8 (decimal 216)
+   defining Unicode char U+00D9 (decimal 217)
+   defining Unicode char U+00DA (decimal 218)
+   defining Unicode char U+00DB (decimal 219)
+   defining Unicode char U+00DC (decimal 220)
+   defining Unicode char U+00DD (decimal 221)
+   defining Unicode char U+00DE (decimal 222)
+   defining Unicode char U+00DF (decimal 223)
+   defining Unicode char U+00E0 (decimal 224)
+   defining Unicode char U+00E1 (decimal 225)
+   defining Unicode char U+00E2 (decimal 226)
+   defining Unicode char U+00E3 (decimal 227)
+   defining Unicode char U+00E4 (decimal 228)
+   defining Unicode char U+00E5 (decimal 229)
+   defining Unicode char U+00E6 (decimal 230)
+   defining Unicode char U+00E7 (decimal 231)
+   defining Unicode char U+00E8 (decimal 232)
+   defining Unicode char U+00E9 (decimal 233)
+   defining Unicode char U+00EA (decimal 234)
+   defining Unicode char U+00EB (decimal 235)
+   defining Unicode char U+00EC (decimal 236)
+   defining Unicode char U+00ED (decimal 237)
+   defining Unicode char U+00EE (decimal 238)
+   defining Unicode char U+00EF (decimal 239)
+   defining Unicode char U+00F0 (decimal 240)
+   defining Unicode char U+00F1 (decimal 241)
+   defining Unicode char U+00F2 (decimal 242)
+   defining Unicode char U+00F3 (decimal 243)
+   defining Unicode char U+00F4 (decimal 244)
+   defining Unicode char U+00F5 (decimal 245)
+   defining Unicode char U+00F6 (decimal 246)
+   defining Unicode char U+00F8 (decimal 248)
+   defining Unicode char U+00F9 (decimal 249)
+   defining Unicode char U+00FA (decimal 250)
+   defining Unicode char U+00FB (decimal 251)
+   defining Unicode char U+00FC (decimal 252)
+   defining Unicode char U+00FD (decimal 253)
+   defining Unicode char U+00FE (decimal 254)
+   defining Unicode char U+00FF (decimal 255)
+   defining Unicode char U+0102 (decimal 258)
+   defining Unicode char U+0103 (decimal 259)
+   defining Unicode char U+0104 (decimal 260)
+   defining Unicode char U+0105 (decimal 261)
+   defining Unicode char U+0106 (decimal 262)
+   defining Unicode char U+0107 (decimal 263)
+   defining Unicode char U+010C (decimal 268)
+   defining Unicode char U+010D (decimal 269)
+   defining Unicode char U+010E (decimal 270)
+   defining Unicode char U+010F (decimal 271)
+   defining Unicode char U+0110 (decimal 272)
+   defining Unicode char U+0111 (decimal 273)
+   defining Unicode char U+0118 (decimal 280)
+   defining Unicode char U+0119 (decimal 281)
+   defining Unicode char U+011A (decimal 282)
+   defining Unicode char U+011B (decimal 283)
+   defining Unicode char U+011E (decimal 286)
+   defining Unicode char U+011F (decimal 287)
+   defining Unicode char U+0130 (decimal 304)
+   defining Unicode char U+0131 (decimal 305)
+   defining Unicode char U+0132 (decimal 306)
+   defining Unicode char U+0133 (decimal 307)
+   defining Unicode char U+0139 (decimal 313)
+   defining Unicode char U+013A (decimal 314)
+   defining Unicode char U+013D (decimal 317)
+   defining Unicode char U+013E (decimal 318)
+   defining Unicode char U+0141 (decimal 321)
+   defining Unicode char U+0142 (decimal 322)
+   defining Unicode char U+0143 (decimal 323)
+   defining Unicode char U+0144 (decimal 324)
+   defining Unicode char U+0147 (decimal 327)
+   defining Unicode char U+0148 (decimal 328)
+   defining Unicode char U+014A (decimal 330)
+   defining Unicode char U+014B (decimal 331)
+   defining Unicode char U+0150 (decimal 336)
+   defining Unicode char U+0151 (decimal 337)
+   defining Unicode char U+0152 (decimal 338)
+   defining Unicode char U+0153 (decimal 339)
+   defining Unicode char U+0154 (decimal 340)
+   defining Unicode char U+0155 (decimal 341)
+   defining Unicode char U+0158 (decimal 344)
+   defining Unicode char U+0159 (decimal 345)
+   defining Unicode char U+015A (decimal 346)
+   defining Unicode char U+015B (decimal 347)
+   defining Unicode char U+015E (decimal 350)
+   defining Unicode char U+015F (decimal 351)
+   defining Unicode char U+0160 (decimal 352)
+   defining Unicode char U+0161 (decimal 353)
+   defining Unicode char U+0162 (decimal 354)
+   defining Unicode char U+0163 (decimal 355)
+   defining Unicode char U+0164 (decimal 356)
+   defining Unicode char U+0165 (decimal 357)
+   defining Unicode char U+016E (decimal 366)
+   defining Unicode char U+016F (decimal 367)
+   defining Unicode char U+0170 (decimal 368)
+   defining Unicode char U+0171 (decimal 369)
+   defining Unicode char U+0178 (decimal 376)
+   defining Unicode char U+0179 (decimal 377)
+   defining Unicode char U+017A (decimal 378)
+   defining Unicode char U+017B (decimal 379)
+   defining Unicode char U+017C (decimal 380)
+   defining Unicode char U+017D (decimal 381)
+   defining Unicode char U+017E (decimal 382)
+   defining Unicode char U+200C (decimal 8204)
+   defining Unicode char U+2013 (decimal 8211)
+   defining Unicode char U+2014 (decimal 8212)
+   defining Unicode char U+2018 (decimal 8216)
+   defining Unicode char U+2019 (decimal 8217)
+   defining Unicode char U+201A (decimal 8218)
+   defining Unicode char U+201C (decimal 8220)
+   defining Unicode char U+201D (decimal 8221)
+   defining Unicode char U+201E (decimal 8222)
+   defining Unicode char U+2030 (decimal 8240)
+   defining Unicode char U+2031 (decimal 8241)
+   defining Unicode char U+2039 (decimal 8249)
+   defining Unicode char U+203A (decimal 8250)
+   defining Unicode char U+2423 (decimal 9251)
+)
+Now handling font encoding OT1 ...
+... processing UTF-8 mapping file for font encoding OT1
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/base/ot1enc.dfu
+File: ot1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
+   defining Unicode char U+00A1 (decimal 161)
+   defining Unicode char U+00A3 (decimal 163)
+   defining Unicode char U+00B8 (decimal 184)
+   defining Unicode char U+00BF (decimal 191)
+   defining Unicode char U+00C5 (decimal 197)
+   defining Unicode char U+00C6 (decimal 198)
+   defining Unicode char U+00D8 (decimal 216)
+   defining Unicode char U+00DF (decimal 223)
+   defining Unicode char U+00E6 (decimal 230)
+   defining Unicode char U+00EC (decimal 236)
+   defining Unicode char U+00ED (decimal 237)
+   defining Unicode char U+00EE (decimal 238)
+   defining Unicode char U+00EF (decimal 239)
+   defining Unicode char U+00F8 (decimal 248)
+   defining Unicode char U+0131 (decimal 305)
+   defining Unicode char U+0141 (decimal 321)
+   defining Unicode char U+0142 (decimal 322)
+   defining Unicode char U+0152 (decimal 338)
+   defining Unicode char U+0153 (decimal 339)
+   defining Unicode char U+2013 (decimal 8211)
+   defining Unicode char U+2014 (decimal 8212)
+   defining Unicode char U+2018 (decimal 8216)
+   defining Unicode char U+2019 (decimal 8217)
+   defining Unicode char U+201C (decimal 8220)
+   defining Unicode char U+201D (decimal 8221)
+)
+Now handling font encoding OMS ...
+... processing UTF-8 mapping file for font encoding OMS
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/base/omsenc.dfu
+File: omsenc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
+   defining Unicode char U+00A7 (decimal 167)
+   defining Unicode char U+00B6 (decimal 182)
+   defining Unicode char U+00B7 (decimal 183)
+   defining Unicode char U+2020 (decimal 8224)
+   defining Unicode char U+2021 (decimal 8225)
+   defining Unicode char U+2022 (decimal 8226)
+)
+Now handling font encoding OMX ...
+... no UTF-8 mapping file for font encoding OMX
+Now handling font encoding U ...
+... no UTF-8 mapping file for font encoding U
+   defining Unicode char U+00A9 (decimal 169)
+   defining Unicode char U+00AA (decimal 170)
+   defining Unicode char U+00AE (decimal 174)
+   defining Unicode char U+00BA (decimal 186)
+   defining Unicode char U+02C6 (decimal 710)
+   defining Unicode char U+02DC (decimal 732)
+   defining Unicode char U+200C (decimal 8204)
+   defining Unicode char U+2026 (decimal 8230)
+   defining Unicode char U+2122 (decimal 8482)
+   defining Unicode char U+2423 (decimal 9251)
+))
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2008/07/08 v3.8m The Babel package
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/babel/english.ldf
+Language: english 2005/03/30 v3.3o English support from the babel system
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2008/07/08 v3.8m Babel common definitions
+\babel@savecnt=\count89
+\U@D=\dimen103
+)
+\l@canadian = a dialect from \language\l@american 
+\l@australian = a dialect from \language\l@british 
+\l@newzealand = a dialect from \language\l@british 
+))
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks16
+)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+)
+\Gin@req@height=\dimen104
+\Gin@req@width=\dimen105
+)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count90
+\lst@gtempboxa=\box26
+\lst@token=\toks17
+\lst@length=\count91
+\lst@currlwidth=\dimen106
+\lst@column=\count92
+\lst@pos=\count93
+\lst@lostspace=\dimen107
+\lst@width=\dimen108
+\lst@newlines=\count94
+\lst@lineno=\count95
+\lst@maxwidth=\dimen109
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
+\c@lstnumber=\count96
+\lst@skipnumbers=\count97
+\lst@framebox=\box27
+)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2007/02/22 1.4 listings configuration
+))
+Package: listings 2007/02/22 1.4 (Carsten Heinz)
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/psnfss/courier.sty
+Package: courier 2005/04/12 PSNFSS-v9.2a (WaS) 
+)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip10
+Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
+)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2011/12/04 v6.82m Hypertext links for LaTeX
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.st
+y
+Package: hobsub-hyperref 2011/04/23 v1.4 Bundle oberdiek, subset hyperref (HO)
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
+Package: hobsub-generic 2011/04/23 v1.4 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2011/04/23 v1.4 Subsetting bundle oberdiek (HO)
+Package hobsub Info: Skipping package `infwarerr' (already loaded).
+Package hobsub Info: Skipping package `ltxcmds' (already loaded).
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+Package: ifvtex 2010/03/01 v1.5 Switches for detecting VTeX and its modes (HO)
+Package ifvtex Info: VTeX not detected.
+Package: intcalc 2007/09/27 v1.1 Expandable integer calculations (HO)
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+Package: etexcmds 2011/02/16 v1.5 Prefix for e-TeX command names (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+Package: kvsetkeys 2011/04/07 v1.13 Key value parser (HO)
+Package: kvdefinekeys 2011/04/07 v1.3 Defining keys (HO)
+Package: pdftexcmds 2011/04/22 v0.16 Utilities of pdfTeX for LuaTeX (HO)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+Package: pdfescape 2011/04/04 v1.12 Provides string conversions (HO)
+Package: bigintcalc 2011/01/30 v1.2 Expandable big integer calculations (HO)
+Package: bitset 2011/01/30 v1.1 Data type bit set (HO)
+Package: uniquecounter 2011/01/30 v1.2 Provides unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2010/09/02 v1.4 Let assignment for LaTeX macros (HO)
+Package: hopatch 2011/01/30 v1.0 Wrapper for package hooks (HO)
+Package: xcolor-patch 2011/01/30 xcolor patch
+Package: atveryend 2011/04/23 v1.7 Hooks at very end of document (HO)
+Package: atbegshi 2011/01/30 v1.15 At begin shipout hook (HO)
+Package: refcount 2010/12/01 v3.2 Data extraction from references (HO)
+Package: hycolor 2011/01/30 v1.7 Color options of hyperref/bookmark (HO)
+) (/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2010/12/23 v3.10 Keyval support for LaTeX options (HO)
+)
+\@linkdim=\dimen110
+\Hy@linkcounter=\count98
+\Hy@pagecounter=\count99
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2011/12/04 v6.82m Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+\Hy@SavedSpaceFactor=\count100
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/latexconfig/hyperref.cfg
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Hyper figures OFF on input line 4046.
+Package hyperref Info: Link nesting OFF on input line 4051.
+Package hyperref Info: Hyper index ON on input line 4054.
+Package hyperref Info: Plain pages OFF on input line 4061.
+Package hyperref Info: Backreferencing OFF on input line 4066.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4284.
+\c@Hy@tempcnt=\count101
+LaTeX Info: Redefining \url on input line 4637.
+\Fld@menulength=\count102
+\Field@Width=\dimen111
+\Fld@charsize=\dimen112
+Package hyperref Info: Hyper figures OFF on input line 5757.
+Package hyperref Info: Link nesting OFF on input line 5762.
+Package hyperref Info: Hyper index ON on input line 5765.
+Package hyperref Info: backreferencing OFF on input line 5772.
+Package hyperref Info: Link coloring OFF on input line 5777.
+Package hyperref Info: Link coloring with OCG OFF on input line 5782.
+Package hyperref Info: PDF/A mode OFF on input line 5787.
+LaTeX Info: Redefining \ref on input line 5827.
+LaTeX Info: Redefining \pageref on input line 5831.
+\Hy@abspage=\count103
+\c@Item=\count104
+\c@Hfootnote=\count105
+)
+
+Package hyperref Message: Driver (autodetected): hpdftex.
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2011/12/04 v6.82m Hyperref driver for pdfTeX
+\Fld@listcount=\count106
+\c@bookmark@seq@number=\count107
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
+Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+82.
+)
+\Hy@SectionHShift=\skip43
+) (/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip44
+
+For additional information on amsmath, use the `?' option.
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks18
+\ex@=\dimen113
+))
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen114
+)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count108
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count109
+\leftroot@=\count110
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count111
+\DOTSCASE@=\count112
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box28
+\strutbox@=\box29
+\big@size=\dimen115
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count113
+\c@MaxMatrixCols=\count114
+\dotsspace@=\muskip11
+\c@parentequation=\count115
+\dspbrk@lvl=\count116
+\tag@help=\toks19
+\row@=\count117
+\column@=\count118
+\maxfields@=\count119
+\andhelp@=\toks20
+\eqnshift@=\dimen116
+\alignsep@=\dimen117
+\tagshift@=\dimen118
+\tagwidth@=\dimen119
+\totwidth@=\dimen120
+\lineht@=\dimen121
+\@envbody=\toks21
+\multlinegap=\skip45
+\multlinetaggap=\skip46
+\mathdisplay@stack=\toks22
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2011/11/10 v3.2e Customizing captions (AR)
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2011/11/01 v1.4a caption3 kernel (AR)
+\captionmargin=\dimen122
+\captionmargin@=\dimen123
+\captionwidth=\dimen124
+\caption@indent=\dimen125
+\caption@parindent=\dimen126
+\caption@hangindent=\dimen127
+)
+\c@ContinuedFloat=\count120
+Package caption Info: hyperref package is loaded.
+Package caption Info: listings package is loaded.
+)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/pgfplots/pgfplots.sty
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgfplots/pgfplots.revision.
+tex)
+Package: pgfplots 2011/12/29 v1.5.1 (git show 1.5.1-4-g53e640f )
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/utilities/pgfutil-commo
+n.tex
+\pgfutil@everybye=\toks23
+)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex
+.def
+\pgfutil@abb=\box30
+ (/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/ms/everyshi.sty
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+))
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.t
+ex
+Package: pgfrcs 2010/10/25 v2.10 (rcs-revision 1.24)
+))
+Package: pgf 2008/01/15 v2.10 (rcs-revision 1.12)
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code
+.tex
+Package: pgfsys 2010/06/30 v2.10 (rcs-revision 1.37)
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.
+tex
+\pgfkeys@pathtoks=\toks24
+\pgfkeys@temptoks=\toks25
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/utilities/pgfkeysfilter
+ed.code.tex
+\pgfkeys@tmptoks=\toks26
+))
+\pgf@x=\dimen128
+\pgf@y=\dimen129
+\pgf@xa=\dimen130
+\pgf@ya=\dimen131
+\pgf@xb=\dimen132
+\pgf@yb=\dimen133
+\pgf@xc=\dimen134
+\pgf@yc=\dimen135
+\w@pgf@writea=\write3
+\r@pgf@reada=\read1
+\c@pgf@counta=\count121
+\c@pgf@countb=\count122
+\c@pgf@countc=\count123
+\c@pgf@countd=\count124
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
+)
+Package pgfsys Info: Driver file for pgf: pgfsys-pdftex.def on input line 900.
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdft
+ex.def
+File: pgfsys-pdftex.def 2009/05/22  (rcs-revision 1.26)
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-comm
+on-pdf.def
+File: pgfsys-common-pdf.def 2008/05/19  (rcs-revision 1.10)
+)))
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftp
+ath.code.tex
+File: pgfsyssoftpath.code.tex 2008/07/18  (rcs-revision 1.7)
+\pgfsyssoftpath@smallbuffer@items=\count125
+\pgfsyssoftpath@bigbuffer@items=\count126
+)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/systemlayer/pgfsysproto
+col.code.tex
+File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
+))
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+LaTeX Info: Redefining \color on input line 702.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code
+.tex
+Package: pgfcore 2010/04/11 v2.10 (rcs-revision 1.7)
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.t
+ex
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.t
+ex)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/math/pgfmathparser.code
+.tex
+\pgfmath@dimen=\dimen136
+\pgfmath@count=\count127
+\pgfmath@box=\box31
+\pgfmath@toks=\toks27
+\pgfmath@stack@operand=\toks28
+\pgfmath@stack@operation=\toks29
+)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.c
+ode.tex
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.b
+asic.code.tex)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.t
+rigonometric.code.tex)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.r
+andom.code.tex)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.c
+omparison.code.tex)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.b
+ase.code.tex)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.r
+ound.code.tex)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.m
+isc.code.tex)))
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.
+tex
+\c@pgfmathroundto@lastzeros=\count128
+))
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoint
+s.code.tex
+File: pgfcorepoints.code.tex 2010/04/09  (rcs-revision 1.20)
+\pgf@picminx=\dimen137
+\pgf@picmaxx=\dimen138
+\pgf@picminy=\dimen139
+\pgf@picmaxy=\dimen140
+\pgf@pathminx=\dimen141
+\pgf@pathmaxx=\dimen142
+\pgf@pathminy=\dimen143
+\pgf@pathmaxy=\dimen144
+\pgf@xx=\dimen145
+\pgf@xy=\dimen146
+\pgf@yx=\dimen147
+\pgf@yy=\dimen148
+\pgf@zx=\dimen149
+\pgf@zy=\dimen150
+)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathc
+onstruct.code.tex
+File: pgfcorepathconstruct.code.tex 2010/08/03  (rcs-revision 1.24)
+\pgf@path@lastx=\dimen151
+\pgf@path@lasty=\dimen152
+)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathu
+sage.code.tex
+File: pgfcorepathusage.code.tex 2008/04/22  (rcs-revision 1.12)
+\pgf@shorten@end@additional=\dimen153
+\pgf@shorten@start@additional=\dimen154
+)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescope
+s.code.tex
+File: pgfcorescopes.code.tex 2010/09/08  (rcs-revision 1.34)
+\pgfpic=\box32
+\pgf@hbox=\box33
+\pgf@layerbox@main=\box34
+\pgf@picture@serial@count=\count129
+)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraph
+icstate.code.tex
+File: pgfcoregraphicstate.code.tex 2008/04/22  (rcs-revision 1.9)
+\pgflinewidth=\dimen155
+)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretrans
+formations.code.tex
+File: pgfcoretransformations.code.tex 2009/06/10  (rcs-revision 1.11)
+\pgf@pt@x=\dimen156
+\pgf@pt@y=\dimen157
+\pgf@pt@temp=\dimen158
+)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick
+.code.tex
+File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
+)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjec
+ts.code.tex
+File: pgfcoreobjects.code.tex 2006/10/11  (rcs-revision 1.2)
+)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathp
+rocessing.code.tex
+File: pgfcorepathprocessing.code.tex 2008/10/09  (rcs-revision 1.8)
+)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrow
+s.code.tex
+File: pgfcorearrows.code.tex 2008/04/23  (rcs-revision 1.11)
+)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade
+.code.tex
+File: pgfcoreshade.code.tex 2008/11/23  (rcs-revision 1.13)
+\pgf@max=\dimen159
+\pgf@sys@shading@range@num=\count130
+)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage
+.code.tex
+File: pgfcoreimage.code.tex 2010/03/25  (rcs-revision 1.16)
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexter
+nal.code.tex
+File: pgfcoreexternal.code.tex 2010/09/01  (rcs-revision 1.17)
+\pgfexternal@startupbox=\box35
+))
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayer
+s.code.tex
+File: pgfcorelayers.code.tex 2010/08/27  (rcs-revision 1.2)
+)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretrans
+parency.code.tex
+File: pgfcoretransparency.code.tex 2008/01/17  (rcs-revision 1.2)
+)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatte
+rns.code.tex
+File: pgfcorepatterns.code.tex 2009/07/02  (rcs-revision 1.3)
+)))
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes
+.code.tex
+File: pgfmoduleshapes.code.tex 2010/09/09  (rcs-revision 1.13)
+\pgfnodeparttextbox=\box36
+)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.c
+ode.tex
+File: pgfmoduleplot.code.tex 2010/10/22  (rcs-revision 1.8)
+)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-ver
+sion-0-65.sty
+Package: pgfcomp-version-0-65 2007/07/03 v2.10 (rcs-revision 1.7)
+\pgf@nodesepstart=\dimen160
+\pgf@nodesepend=\dimen161
+)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-ver
+sion-1-18.sty
+Package: pgfcomp-version-1-18 2007/07/23 v2.10 (rcs-revision 1.1)
+))
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.
+tex))
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/utilities/pgffor.code.t
+ex
+Package: pgffor 2010/03/23 v2.10 (rcs-revision 1.18)
+\pgffor@iter=\dimen162
+\pgffor@skip=\dimen163
+\pgffor@stack=\toks30
+\pgffor@toks=\toks31
+))
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz
+.code.tex
+Package: tikz 2010/10/13 v2.10 (rcs-revision 1.76)
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/libraries/pgflibraryplo
+thandlers.code.tex
+File: pgflibraryplothandlers.code.tex 2010/05/31 v2.10 (rcs-revision 1.15)
+\pgf@plot@mark@count=\count131
+\pgfplotmarksize=\dimen164
+)
+\tikz@lastx=\dimen165
+\tikz@lasty=\dimen166
+\tikz@lastxsaved=\dimen167
+\tikz@lastysaved=\dimen168
+\tikzleveldistance=\dimen169
+\tikzsiblingdistance=\dimen170
+\tikz@figbox=\box37
+\tikz@tempbox=\box38
+\tikztreelevel=\count132
+\tikznumberofchildren=\count133
+\tikznumberofcurrentchild=\count134
+\tikz@fig@count=\count135
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix
+.code.tex
+File: pgfmodulematrix.code.tex 2010/08/24  (rcs-revision 1.4)
+\pgfmatrixcurrentrow=\count136
+\pgfmatrixcurrentcolumn=\count137
+\pgf@matrix@numberofcolumns=\count138
+)
+\tikz@expandcount=\count139
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libr
+aries/tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2008/06/17 v2.10 (rcs-revision 1.2)
+)))
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.
+tex
+\t@pgfplots@toka=\toks32
+\t@pgfplots@tokb=\toks33
+\t@pgfplots@tokc=\toks34
+\pgfplots@tmpa=\dimen171
+\c@pgfplots@coordindex=\count140
+\c@pgfplots@scanlineindex=\count141
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgen
+eric.code.tex))
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibra
+ry.code.tex)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgf
+plotsoldpgfsupp_loader.code.tex
+Package pgfplots: loading complementary code for your PGF version...
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgf
+plotsoldpgfsupp_misc.code.tex)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgf
+plotsoldpgfsupp_pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks35
+\pgfkeys@temptoks=\toks36
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgf
+plotsoldpgfsupp_pgfkeysfiltered.code.tex
+\pgfkeys@tmptoks=\toks37
+))
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgf
+plotsoldpgfsupp_pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count142
+)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgf
+plotsoldpgfsupp_pgflibraryplothandlers.code.tex
+File: pgflibraryplothandlers.code.tex 2011/12/28 v2.10 (rcs-revision 1.16)
+\pgf@plot@mark@count=\count143
+\pgfplotmarksize=\dimen172
+)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgf
+plotsoldpgfsupp_pgflibraryfpu.code.tex))
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.
+code.tex
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgfplots/liststructure/pgfp
+lotsliststructure.code.tex)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgfplots/liststructure/pgfp
+lotsliststructureext.code.tex)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgfplots/liststructure/pgfp
+lotsarray.code.tex
+\c@pgfplotsarray@tmp=\count144
+)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgfplots/liststructure/pgfp
+lotsmatrix.code.tex)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgfplots/numtable/pgfplotst
+ableshared.code.tex
+\c@pgfplotstable@counta=\count145
+\t@pgfplotstable@a=\toks38
+)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgfplots/liststructure/pgfp
+lotsdeque.code.tex)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinar
+y.code.tex)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.
+verb.code.tex)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgf
+plots.surfshading.code.tex
+\c@pgfplotslibrarysurf@no=\count146
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfp
+lots.surfshading.pgfsys-pdftex.def)))
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor
+map.code.tex)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplo
+ts.code.tex)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgfplots/pgfplotsplothandle
+rs.code.tex
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotha
+ndler.code.tex))
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgfplots/pgfplotscoordproce
+ssing.code.tex)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code
+.tex)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgfplots/pgfplots.paths.cod
+e.tex)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libr
+aries/tikzlibrarydecorations.code.tex
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/modules/pgfmoduledecora
+tions.code.tex
+\pgfdecoratedcompleteddistance=\dimen173
+\pgfdecoratedremainingdistance=\dimen174
+\pgfdecoratedinputsegmentcompleteddistance=\dimen175
+\pgfdecoratedinputsegmentremainingdistance=\dimen176
+\pgf@decorate@distancetomove=\dimen177
+\pgf@decorate@repeatstate=\count147
+\pgfdecorationsegmentamplitude=\dimen178
+\pgfdecorationsegmentlength=\dimen179
+)
+\tikz@lib@dec@box=\box39
+)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libr
+aries/tikzlibrarydecorations.pathmorphing.code.tex
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/libraries/decorations/p
+gflibrarydecorations.pathmorphing.code.tex))
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libr
+aries/tikzlibrarydecorations.pathreplacing.code.tex
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/libraries/decorations/p
+gflibrarydecorations.pathreplacing.code.tex))
+\pgfplots@numplots=\count148
+\pgfplots@xmin@reg=\dimen180
+\pgfplots@xmax@reg=\dimen181
+\pgfplots@ymin@reg=\dimen182
+\pgfplots@ymax@reg=\dimen183
+\pgfplots@zmin@reg=\dimen184
+\pgfplots@zmax@reg=\dimen185
+)
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libr
+aries/tikzlibraryplotmarks.code.tex
+File: tikzlibraryplotmarks.code.tex 2008/01/09 v2.10 (rcs-revision 1.1)
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/pgf/libraries/pgflibraryplo
+tmarks.code.tex
+File: pgflibraryplotmarks.code.tex 2010/10/15 v2.10 (rcs-revision 1.12)
+))))
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+\fancy@headwidth=\skip47
+\f@ncyO@elh=\skip48
+\f@ncyO@erh=\skip49
+\f@ncyO@olh=\skip50
+\f@ncyO@orh=\skip51
+\f@ncyO@elf=\skip52
+\f@ncyO@erf=\skip53
+\f@ncyO@olf=\skip54
+\f@ncyO@orf=\skip55
+)
+(./main.aux)
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count149
+\scratchdimen=\dimen186
+\scratchbox=\box40
+\nofMPsegments=\count150
+\nofMParguments=\count151
+\everyMPshowfont=\toks39
+\MPscratchCnt=\count152
+\MPscratchDim=\dimen187
+\MPnumerator=\count153
+\makeMPintoPDFobject=\count154
+\everyMPtoPDFconversion=\toks40
+) (/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Managing graphics extensions (HO)
+)
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+\c@lstlisting=\count155
+\AtBeginShipoutBox=\box41
+Package hyperref Info: Link coloring OFF on input line 25.
+ (/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
+)
+\c@section@level=\count156
+)
+LaTeX Info: Redefining \ref on input line 25.
+LaTeX Info: Redefining \pageref on input line 25.
+LaTeX Info: Redefining \nameref on input line 25.
+ (./main.out) (./main.out)
+\@outlinefile=\write4
+\openout4 = `main.out'.
+
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+ ABD: EveryShipout initializing macros [1
+
+{/home/mmutsuda/texlive/2011/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+(./abstract.texpdfTeX warning (ext4): destination with the same identifier (nam
+e{page.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.7 \end{abstract}
+                   [1]) (./main.toc
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 12.
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+))
+\tf@toc=\write5
+\openout5 = `main.toc'.
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.35 \chapter
+             {Introduction} [1
+
+]
+Chapter 1.
+(./introduction.tex) [2
+
+]
+Chapter 2.
+(./sclass.tex
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 7.
+
+
+Overfull \hbox (5.9996pt too wide) in paragraph at lines 11--12
+[]\OT1/pcr/m/n/9 Social Networking, Email, Sport, News, Shopping, Weather, Trav
+el,
+ []
+
+
+Overfull \hbox (5.9996pt too wide) in paragraph at lines 11--12
+\OT1/pcr/m/n/9 Maps, Photos, Instant Messaging, Entertainment, Financial, Adult
+,
+ []
+
+[3
+
+] (/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2004/09/05 1.3 listings language file
+)
+Overfull \hbox (6.0pt too wide) in paragraph at lines 56--56
+[][][][][][][] 
+ []
+
+<img/rapid1.png, id=159, 563.10374pt x 434.62375pt>
+File: img/rapid1.png Graphic file (type png)
+ <use img/rapid1.png>
+Package pdftex.def Info: img/rapid1.png used on input line 56.
+(pdftex.def)             Requested size: 199.16928pt x 153.72548pt.
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 60--60
+[][][][][][][] 
+ []
+
+<img/vector.png, id=160, 582.175pt x 75.28125pt>
+File: img/vector.png Graphic file (type png)
+ <use img/vector.png>
+Package pdftex.def Info: img/vector.png used on input line 60.
+(pdftex.def)             Requested size: 341.43306pt x 44.15134pt.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 62.
+
+(/home/mmutsuda/texlive/2011/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <9> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 62.
+ [4]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 87--87
+[][][][][][][] 
+ []
+
+(./graphs/xclass.tex
+PGFPlots: reading {graphs/data/xclass.dat}
+) [5 <./img/rapid1.png> <./img/vector.png>]
+Overfull \hbox (2.58286pt too wide) in paragraph at lines 118--125
+\OT1/pcr/m/n/9 Music\OT1/cmr/m/n/9 , \OT1/pcr/m/n/9 Literature\OT1/cmr/m/n/9 , 
+\OT1/pcr/m/n/9 Theme parks\OT1/cmr/m/n/9 , \OT1/pcr/m/n/9 Movies\OT1/cmr/m/n/9 
+, \OT1/pcr/m/n/9 Food & Drink\OT1/cmr/m/n/9 , \OT1/pcr/m/n/9 Games\OT1/cmr/m/n/
+9 , \OT1/pcr/m/n/9 Television
+ []
+
+[6]
+LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <9> not available
+(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 127.
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 134--134
+[][][][][][][] 
+ []
+
+(./graphs/other.tex
+PGFPlots: reading {graphs/data/other.dat}
+PGFPlots: reading {graphs/data/other.dat}
+) [7] [8]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 198--198
+[][][][][][][] 
+ []
+
+(./graphs/sclass2dmr.tex
+PGFPlots: reading {graphs/data/sclass_2dmr.dat}
+
+NOTE: coordinate (6-1,) has been dropped because of a coordinate filter. 
+NOTE: coordinate (6-2,) has been dropped because of a coordinate filter. 
+NOTE: coordinate (6-3,) has been dropped because of a coordinate filter. 
+NOTE: coordinate (6-4,) has been dropped because of a coordinate filter. 
+NOTE: coordinate (6-5,) has been dropped because of a coordinate filter. 
+NOTE: coordinate (7-1,) has been dropped because of a coordinate filter. 
+NOTE: coordinate (7-2,) has been dropped because of a coordinate filter. 
+NOTE: coordinate (7-3,) has been dropped because of a coordinate filter. 
+NOTE: coordinate (7-4,) has been dropped because of a coordinate filter. 
+NOTE: coordinate (7-5,) has been dropped because of a coordinate filter. 
+PGFPlots: reading {graphs/data/sclass_2dmr.dat}
+
+Overfull \hbox (1.31944pt too wide) in paragraph at lines 23--24
+ [] 
+ []
+
+)
+Overfull \hbox (6.0pt too wide) in paragraph at lines 207--207
+[][][][][][][] 
+ []
+
+(./graphs/sclass3dmr.tex
+PGFPlots: reading {graphs/data/sclass_3dmr_1.dat}
+PGFPlots: reading {graphs/data/sclass_3dmr_2.dat}
+PGFPlots: reading {graphs/data/sclass_3dmr_3.dat}
+PGFPlots: reading {graphs/data/sclass_3dmr_4.dat}
+PGFPlots: reading {graphs/data/sclass_3dmr_5.dat}
+)) [9] [10]
+Chapter 3.
+(./lid.tex [11
+
+]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 62--62
+[][][][][][][] 
+ []
+
+(./graphs/lid1.tex
+PGFPlots: reading {graphs/data/lid.dat}
+PGFPlots: reading {graphs/data/lid.dat}
+)) [12] [13]
+Chapter 4.
+(./issues.tex) [14
+
+]
+Chapter 5.
+(./bibliography.tex [15
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 9--10
+[]\OT1/cmr/m/n/9 Rapid-I, "Rapid-miner", \OT1/cmr/m/it/9 Rapid-miner site\OT1/c
+mr/m/n/9 , 9 Nov. 2011, []http://rapid-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 12--13
+[]\OT1/cmr/m/n/9 Dan Klein, Chris Man-ning, "Max-ent Mod-els, Con-di-tional Es-
+ti-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 12--13
+\OT1/cmr/m/n/9 ma-tion, and Op-ti-miza-tion", \OT1/cmr/m/it/9 Stan-ford Uni-ver
+-sity\OT1/cmr/m/n/9 , 19 Jan. 2012,
+ []
+
+
+Underfull \hbox (badness 1460) in paragraph at lines 14--15
+[]\OT1/cmr/m/n/9 Kamal Nigam, John Laf-ferty, An-drew Mc-Cal-lum, "Us-ing Max-i
+-mum En-
+ []
+
+
+Underfull \hbox (badness 1496) in paragraph at lines 14--15
+\OT1/cmr/m/n/9 tropy for Text Clas-si-fi-ca-tion", \OT1/cmr/m/it/9 Carnegie Mel
+-lon Uni-ver-sity\OT1/cmr/m/n/9 , 19 Jan. 2012,
+ []
+
+
+Underfull \hbox (badness 5681) in paragraph at lines 15--16
+[]\OT1/cmr/m/n/9 Alec Go, Richa Bhayani, Lei Huang, "Twit-ter Sen-ti-ment Clas-
+si-fi-ca-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--16
+\OT1/cmr/m/n/9 tion us-ing Dis-tant Su-per-vi-sion", \OT1/cmr/m/it/9 Stan-ford 
+Uni-ver-sity\OT1/cmr/m/n/9 , 19 Jan. 2012,
+ []
+
+) [16
+
+]
+Chapter 6.
+(./diary.tex [17
+
+]
+Overfull \hbox (24.21443pt too wide) in paragraph at lines 38--42
+\OT1/cmr/m/n/9 nan-cial gov-ern-ment in-stant[]messaging movies pho-tos re-gion
+al shop-ping soft-ware theme[]parks 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 45--45
+[][][][][][][] 
+ []
+
+<img/test.png, id=332, 602.25pt x 501.875pt>
+File: img/test.png Graphic file (type png)
+ <use img/test.png>
+Package pdftex.def Info: img/test.png used on input line 45.
+(pdftex.def)             Requested size: 341.43306pt x 284.54012pt.
+)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 56.
+ [18 <./img/test.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 56.
+ (./main.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 56.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 56.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 330C763AB8020F5CB21EA73896CBFEAE;1633.
+ ) 
+Here is how much of TeX's memory you used:
+ 24638 strings out of 493629
+ 524759 string characters out of 3141673
+ 788226 words of memory out of 3000000
+ 27330 multiletter control sequences out of 15000+200000
+ 13879 words of font info for 50 fonts, out of 3000000 for 9000
+ 831 hyphenation exceptions out of 8191
+ 70i,19n,95p,648b,2072s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/home/mmutsuda/texlive/2011/texmf-dist/fonts/enc/dvips/base/8r.enc}</home/mm
+utsuda/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></home
+/mmutsuda/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></h
+ome/mmutsuda/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><
+/home/mmutsuda/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb
+></home/mmutsuda/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cmextra/cm
+ex7.pfb></home/mmutsuda/texlive/2011/texmf-dist/fonts/type1/public/amsfonts/cme
+xtra/cmex9.pfb></home/mmutsuda/texlive/2011/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmmi10.pfb></home/mmutsuda/texlive/2011/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmmi5.pfb></home/mmutsuda/texlive/2011/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmmi6.pfb></home/mmutsuda/texlive/2011/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmmi9.pfb></home/mmutsuda/texlive/2011/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmr10.pfb></home/mmutsuda/texlive/2011/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr12.pfb></home/mmutsuda/texlive/2011/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmr17.pfb></home/mmutsuda/texlive/2011/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmr5.pfb></home/mmutsuda/texlive/2011/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr6.pfb></home/mmutsuda/texlive/2011/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr7.pfb></home/mmutsuda/texlive/2011/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr9.pfb></home/mmutsuda/texlive/2011/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmsy10.pfb></home/mmutsuda/texlive/2011/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmsy6.pfb></home/mmutsuda/texlive/2011/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmsy7.pfb></home/mmutsuda/texlive/2011/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmsy9.pfb></home/mmutsuda/texlive/2011/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmti9.pfb></home/mmutsuda/texlive/2011/texmf
+-dist/fonts/type1/urw/courier/ucrb8a.pfb></home/mmutsuda/texlive/2011/texmf-dis
+t/fonts/type1/urw/courier/ucrr8a.pfb>
+Output written on main.pdf (20 pages, 388709 bytes).
+PDF statistics:
+ 443 PDF objects out of 1000 (max. 8388607)
+ 390 compressed objects within 4 object streams
+ 124 named destinations out of 1000 (max. 500000)
+ 220 words of extra memory for PDF output out of 10000 (max. 10000000)
+
