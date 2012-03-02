@@ -8,7 +8,10 @@ but in this case we have a clear knowledge about what we want to classify, and w
 
 Being part of a real case scenario brought to this project some requirements we had to take into account. The original set of categories that we were asked to identify was the following.
 
-\codi{Social Networking, Email, Sport, News, Shopping, Weather, Travel, Maps, Photos, Instant Messaging, Entertainment, Financial, Adult, Other}
+
+\begin{lstlisting}
+Social Networking, Email, Sport, News, Shopping, Weather, Travel, Maps, Photos, Instant Messaging, Entertainment, Financial, Adult, Other
+\end{lstlisting}
 
 Before going any further and just looking at the categories we were asked to classify, we can observe that some of them could be more difficult to classify than others.
 Some categories like \codi{Adult} have a clearly characteristic language in their content whereas other categories like \codi{Email} might contain generic language.
@@ -134,9 +137,9 @@ By calculating the variance of the probability distribution through classes, we 
 \grafic{graphs/other.tex}{Probability distribution of two instances}
 
 
-This could be done by looking at the variance of the model. Looking at the plot (figure \ref{fig:{graphs/other.tex}}) we could say that the blue colored classification is not really confident whereas 
-the orange colored classification seems to be sure assigning the \codi{c30} category. In this particular case we could assign the blue instance to the \codi{Other} category, because it is more or less 
-equally unsure of its category.
+This could be done by looking at the variance of the model. The plot (figure \ref{fig:{graphs/other.tex}}) represents the confidence with which two instances are classified, the x axis being the classes
+and the y axis being the probability. We could say that the blue colored classification is not really confident whereas the orange colored classification seems to be sure assigning the \codi{c30} 
+category. In this particular case we could assign the blue instance to the \codi{Other} category, because it is more or less equally unsure of where to assign it.
 
 
 \subsection{Implementation in the Framework}

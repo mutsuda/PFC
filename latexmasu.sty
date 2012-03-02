@@ -15,7 +15,6 @@
 \usepackage{caption}
 \usepackage{pgfplots}
 
-
 % Color definitions
 \definecolor{navy}{rgb}{0,0,0.75}
 \definecolor{leave}{rgb}{0,0.5,0}
@@ -53,7 +52,6 @@
 
 
 
-
 %% User defined comands %%
 
 % Changes font style into a "codi" one
@@ -65,7 +63,7 @@
 % Places graph
 \newcommand{\grafic}[2]
 {
-\begin{figure}[ht]
+\begin{figure}[ht!!]
   \caption{{#2}}\label{fig:{#1}}
     \begin{center}
       \input{#1}
@@ -78,7 +76,7 @@
 % Places big image
 \newcommand{\imatge}[2]
 {
-  \begin{figure}[ht]
+  \begin{figure}[ht!!]
     \caption{{#2}}\label{fig:{#1}}
     \begin{center}
       \includegraphics[width=120mm]{{#1}}
@@ -89,7 +87,7 @@
 % Places small image 
 \newcommand{\imatgePetita}[2]
 {
-  \begin{figure}[ht]
+  \begin{figure}[ht!!]
     \caption{{#2}}\label{fig:{#1}}
     \begin{center}
       \includegraphics[width=70mm]{{#1}}
