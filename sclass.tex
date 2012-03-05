@@ -70,15 +70,17 @@ In order to obtain a precise and accurate document representation, and before se
 
 
 
-\subsubsection{Number of features}
+\subsubsection{Training set size}
 %!Make some experiments. Try classification using 10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200,210,220,230,240,250,260...300, 500, 700, 900, max
 %!Calculate time of both algorithms at 100, 200, 300, 400, 500, 600, 700, 800, 900 and 1000.
-The first experiment consisted in determining whether the amount of features was important and which was the optimal amount. It was also useful to determine which vector creation algorithm was
-more suitable for the process. Starting with 100 files for each category, the following plot represents the model accuracy over number of documents in the training set, using two different 
-feature selection methods: \codi{TD-IDF} and \codi{Term Frequency}. 
+The first experiment consisted in determining how much the size of the training set mattered in temrs of accuracy. It was also useful to determine which vector creation algorithm was
+more suitable for the process of feature selection. Starting with 10 files for each category, the following plot represents the model accuracy over number of documents in the training set, 
+using two different feature selection methods: \codi{TD-IDF} and \codi{Term Frequency}.
 
-The conclusion of this initial test was that the more data the better. We can also observe that when the training set size is small it is not clear which feature selection method is better,
-but as the dataset grows it is clear that word frequency performs better, and also faster.
+\grafic{graphs/features.tex}{Accuracy on number of features}
+ 
+The conclusion of this initial test was, not surprisingly, that the more data the better. But we can also observe that when the training set size is small it is not clear which feature selection 
+method is better, whereas as the dataset grows it is clear that word frequency performs better, and also faster.
 
 \subsubsection{K nearest neighbours}
 %!Do some tests changing the N and see the performance.
@@ -122,7 +124,9 @@ As we saw in the previous section, the category \codi{Entertainment} is one of t
 subcategories. We could try to split \codi{Entertainment} into subcategories (such as \codi{Music}, \codi{Movies}, \codi{Literature}...) to get a more precise dataset. In order to meet the
 client requirements those subcategories should be remapped to the original \codi{Entertainment} category after the classification process. \\
 After splitting the \codi{Entertainment} category into subcategories, these were the new classes I found: \\
-\codi{Music}, \codi{Literature}, \codi{Theme parks}, \codi{Movies}, \codi{Food \& Drink}, \codi{Games}, \codi{Television} 
+\begin{lstlisting} 
+Music, Literature, Theme parks, Movies, Food & Drink, Games, Television
+\end{lstlisting} 
 As new classes are added, it is clear that the overall accuracy of the classification may be worse, but with this new structure the confusions are likely to be between categories belonging to the same
 supercategory, which is not a problem.
  
