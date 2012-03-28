@@ -27,7 +27,8 @@ We finally decided to use the {\bf Yahoo! Directory}\cite{yahoo} as a source for
 Before search engines like Google existed, people used directories to find what they were looking for. These directories are characterized as being a hierarchical structure for navigating through categories
 and subcategories. Under each category there is a list of URL related to it.  
 Crawling every URL under a given category provided a huge and reliable corpus to train the model.
-I used a python to automate the process of crawling the Yahoo directory, manually checking which categories I wanted to crawl, and writing those initial URL into a seed file that was later automatically parsed.
+I used a python to automate the process of crawling the Yahoo directory, manually checking which categories needed to be crawled, and writing those initial URL into a seed file that was later 
+automatically parsed.
 
 \begin{lstlisting}[language=Python]
 ...
@@ -46,21 +47,53 @@ http://dir.yahoo.com/business_and_economy/shopping_and_services/sex/adult_galler
 ...
 \end{lstlisting}
 
-Once I had the training set and for initial testing purposes that could help taking later decisions I used rapidminer\cite{rapidminer}, a fast-to-setup and easy-to-use machine learning tool that, 
+The process of parsing the seed file and crawling those URL was performed by two separate  workflows in the application specifically designed for the task. \\
+The first workflow simply parsed each of the lines inside the seed file looking for the URL contained in each of the categories and inserting them into a database. \\
+A second and highly scalable workflow parsed the database crawling the content of each of the previously inserted URL and put it into a folder depending on its category. \\
+
+\begin{lstlisting}[language=Python]
+... 
+ email/
+    http:fusemail.com.out
+    http:hellodog.zzn.com.out
+    http:hens.ie.out
+    ...
+ entertainment/
+    http:library.thinkquest.orgC005075F.out
+    http:tulsatvmemories.com.out
+    http:www.bluesexpress.com.out
+    ...
+ financial/
+    http:ifg.ie.out
+    http:mutualfunds.about.com.out
+    http:www.aaii.org.out
+    ...
+ instant_messaging/
+    http:aimexpress.aim.com.out
+    http:diamond-back.comicqlies.html.out
+    http:iphoneblogr.com.out
+    ...
+...
+\end{lstlisting}
+
+Once the training set was ready I performed some initial tests that could help taking later decisions using rapidminer\cite{rapidminer}, a fast-to-setup and easy-to-use machine learning tool that, 
 among other things, allowed me to test different machine learning algorithms with the same datasets in order to compare their performance. 
 
   
 
-
 \subsection{Tests with Rapidminer}
-Rapidminer\cite{rapidminer} is a widely used, easy to use and powerful machine learning environment.  
+Rapidminer\cite{rapidminer}\ref{fig:{img/rapid1.png}} is a widely used, easy to use and powerful machine learning environment.  
 It was the perfect tool to do some initial tests in order to diagnose how might some categories be overlapping, detecting which algorithms performed better, etc. Almost all training processes were 
 performed with a 10 fold cross validation in order to prevent overfitting and obtaining realistic accuracy values.
 \imatgePetita{img/rapid1.png}{Rapidminer process}
 
 \subsubsection{Feature vector creation}
-In order to obtain a precise and accurate document representation, and before selecting the features, several pre-processes need to/can be applied to the word set.
-\imatge{img/vector.png}{Vector creation}
+The fist step for all tests was reading the previously created directories and somehow turning their content into features. In rapidminer this can be done by using the \codi{Process Documents from Files}
+ (see image \ref{fig:{img/read_docs.png}})
+component and selecting where to read the files from.\\
+\imatge{img/read_docs.png}{Read documents from files}
+In order to obtain a precise and accurate document representation, and before selecting the features, several pre-processes need to/can be applied to the word set. (see image \ref{fig:{img/vector.png}})
+\imatge{img/vector.png}{Vector creation} 
 \begin{itemize}
   \item {\bf Tokenize}: the first step is to tokenize all documents. That is, split the text into a sequence of tokens. 
   \item {\bf Transform cases}: transforms all words to lowercase.
@@ -69,25 +102,24 @@ In order to obtain a precise and accurate document representation, and before se
 \end{itemize}
 
 
-
 \subsubsection{Training set size}
 %!Make some experiments. Try classification using 10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200,210,220,230,240,250,260...300, 500, 700, 900, max
 %!Calculate time of both algorithms at 100, 200, 300, 400, 500, 600, 700, 800, 900 and 1000.
-The first experiment consisted in determining how much the size of the training set mattered in temrs of accuracy. It was also useful to determine which vector creation algorithm was
+The first experiment consisted in determining how much the size of the training set mattered in terms of accuracy. It was also useful to determine which vector creation algorithm was
 more suitable for the process of feature selection. Starting with 10 files for each category, the following plot represents the model accuracy over number of documents in the training set, 
 using two different feature selection methods: \codi{TD-IDF} and \codi{Term Frequency}.
 
 \grafic{graphs/features.tex}{Accuracy on number of features}
  
 The conclusion of this initial test was, not surprisingly, that the more data the better. But we can also observe that when the training set size is small it is not clear which feature selection 
-method is better, whereas as the dataset grows it is clear that word frequency performs better, and also faster.
+method is better, whereas as the dataset grows it is clear that word frequency performs better, and also faster. (see image \ref{fig:{graphs/features.tex}})
 
 \subsubsection{K nearest neighbours}
 %!Do some tests changing the N and see the performance.
 
 \subsubsection{Face to face accuracy}
 %!Learn to distinguish between all pairs of classes and see which are more difficult
-Another experiment consisted in comparing all classes binarily to determine which classes are more likely to be confused. In the following graph each circle represents a classification 
+Another experiment consisted in comparing all classes binarily to determine which classes are more likely to be confused. In image \ref{fig:{graphs/xclass.tex}} each circle represents a classification 
 between the class in the y-axis and the class in the x-axis. Smaller and more transparent circles represent worse accuracy, and bigger and stronger circles represent better accuracy. 
 \grafic{graphs/xclass.tex}{Accuracy heat graph}
 
@@ -97,7 +129,6 @@ difficult to perform. The reason why the \codi{News} are so easy to confuse migh
 As a concrete example, the following tree represents the WJ-48 pruned tree output that classifies \codi{Weather} and \codi{News}.
 
 \begin{lstlisting}[language=Python]
-
 weather <= 0.068359
 |   forecast <= 0.030773
 |   |   snow <= 0.035962: news (511.0/30.0)
@@ -117,6 +148,9 @@ weather > 0.068359
 |   |   copi <= 0.068359: weather (4.0)
 |   |   copi > 0.068359: news (7.0)
 \end{lstlisting}
+It's obvious that words like weather, news or forecast will help us distinguish between one category and the other, but it is interesting to observe how the stem "stori" or "engin" also help performing
+the task.
+
 
 \subsubsection{Entertainment into subcategories}
 %!Splitting entertainment into subcategories and seeing performance
@@ -149,19 +183,11 @@ category. In this particular case we could assign the blue instance to the \codi
 \subsection{Implementation in the Framework}
 Although decision trees and Naive Bayes performed well during the rapidminer tests, they have some issues inherent to their specification. Decision trees are accurate, but their performance is 
 not suitable for an almost real time high demanding environment. Naive Bayes is better at performance but it makes independence assumptions that could cause some classification problems.\\
-There is an algorithm though that is both efficient and doesn't make any assumption. It's called Maximum Entropy (or Logistic Regression).
+There is an algorithm though that is both efficient (although it's not as fast as Naive Bayes) and doesn't make any assumption. It's called Maximum Entropy (or Logistic Regression).
 
 \subsubsection{The Maximum Entropy}
-Maximum entropy, also known as logistic regression
-Why maximum entropy?
-Maximize entropy = Minimize commitment
-
-Model all that is known and assume nothing about what is unknown. 
-Model all that is known: satisfy a set of constraints that must hold respecting uniformity.
-
-Assume nothing about what is unknown: 
-   choose the most “uniform” distribution 
-   choose the one with maximum entropy
+Maximum entropy, also known as logistic regression focuses on minimizing commitment in its classifications. It is based on the principle of modeling all that is known satisfying a set of constraints
+that must hold respecting uniformity, and assuming nothing about what is unknown.
 
 One nice aspect of maximum entropy is that it does not suffer from any independence assumptions.\\
 For example, consider a document containing the same number of occurrences of \codi{rainy} and \codi{social network}.\\
