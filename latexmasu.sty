@@ -99,3 +99,13 @@
 
 % Generates a bibliography line for books
 \newcommand{\bibook}[4]{ \bibitem{#1} #2,\textit{#3} #4 }
+
+
+% Thesis specific command
+\newcommand{\inputcfg}[2]
+{
+  \begin{figure}[h!]
+  \caption{{#2}}\label{fig:{#1}}
+    \input{#1}
+  \end{figure}
+}

@@ -27,61 +27,29 @@ We finally decided to use the {\bf Yahoo! Directory}\cite{yahoo} as a source for
 Before search engines like Google existed, people used directories to find what they were looking for. These directories are characterized as being a hierarchical structure for navigating through categories
 and subcategories. Under each category there is a list of URL related to it.  
 Crawling every URL under a given category provided a huge and reliable corpus to train the model.
-I used a python to automate the process of crawling the Yahoo directory, manually checking which categories needed to be crawled, and writing those initial URL into a seed file that was later 
-automatically parsed.
+I configured a workflow inside the application in order to automate the process of crawling the Yahoo directory, manually checking which categories needed to be crawled, and writing those initial URL into 
+a seed file that was later automatically parsed.
 
-\begin{lstlisting}[language=Python]
-...
-http://dir.yahoo.com/Recreation/Sports/,sport
-http://dir.yahoo.com/News_and_Media/,news
-http://dir.yahoo.com/Business_and_Economy/Shopping_and_Services/Auctions/,shopping
-http://dir.yahoo.com/Business_and_Economy/Shopping_and_Services/Music/,shopping
-http://dir.yahoo.com/Business_and_Economy/Shopping_and_Services/Jewelry/,shopping
-http://dir.yahoo.com/news_and_media/weather/,weather
-http://dir.yahoo.com/Recreation/Travel/,travel
-http://dir.yahoo.com/science/geography/cartography/maps/,maps
-http://dir.yahoo.com/arts/visual_arts/photography/,photos
-http://dir.yahoo.com/computers_and_internet/software/internet/instant_messaging/,instant_messaging
-http://dir.yahoo.com/business_and_economy/finance_and_investment/,financial
-http://dir.yahoo.com/business_and_economy/shopping_and_services/sex/adult_galleries/,adult
-...
-\end{lstlisting}
+\inputcfg{config/seed_yahoodir.txt}{Yahoo Directory! parsing seed file (excerpt)}
 
 The process of parsing the seed file and crawling those URL was performed by two separate  workflows in the application specifically designed for the task. \\
 The first workflow simply parsed each of the lines inside the seed file looking for the URL contained in each of the categories and inserting them into a database. \\
 A second and highly scalable workflow parsed the database crawling the content of each of the previously inserted URL and put it into a folder depending on its category. \\
 
-\begin{lstlisting}[language=Python]
-... 
- email/
-    http:fusemail.com.out
-    http:hellodog.zzn.com.out
-    http:hens.ie.out
-    ...
- entertainment/
-    http:library.thinkquest.orgC005075F.out
-    http:tulsatvmemories.com.out
-    http:www.bluesexpress.com.out
-    ...
- financial/
-    http:ifg.ie.out
-    http:mutualfunds.about.com.out
-    http:www.aaii.org.out
-    ...
- instant_messaging/
-    http:aimexpress.aim.com.out
-    http:diamond-back.comicqlies.html.out
-    http:iphoneblogr.com.out
-    ...
-...
-\end{lstlisting}
+\inputcfg{config/yahoo_parser.cfg}{Yahoo Directory! URL parser}
+
+\clearpage
+\inputcfg{config/yahoo_crawler.cfg}{Yahoo Directory! URL crawler}
+
+\clearpage
+\inputcfg{config/resultdir.txt}{Directory structure created by the crawler task}
 
 Once the training set was ready I performed some initial tests that could help taking later decisions using rapidminer\cite{rapidminer}, a fast-to-setup and easy-to-use machine learning tool that, 
 among other things, allowed me to test different machine learning algorithms with the same datasets in order to compare their performance. 
 
   
 
-\subsection{Tests with Rapidminer}
+\subsection{Rapidminer tests}
 Rapidminer\cite{rapidminer}\ref{fig:{img/rapid1.png}} is a widely used, easy to use and powerful machine learning environment.  
 It was the perfect tool to do some initial tests in order to diagnose how might some categories be overlapping, detecting which algorithms performed better, etc. Almost all training processes were 
 performed with a 10 fold cross validation in order to prevent overfitting and obtaining realistic accuracy values.
@@ -185,7 +153,7 @@ Although decision trees and Naive Bayes performed well during the rapidminer tes
 not suitable for an almost real time high demanding environment. Naive Bayes is better at performance but it makes independence assumptions that could cause some classification problems.\\
 There is an algorithm though that is both efficient (although it's not as fast as Naive Bayes) and doesn't make any assumption. It's called Maximum Entropy (or Logistic Regression).
 
-\subsubsection{The Maximum Entropy}
+\subsubsection{Maximum entropy concept}
 Maximum entropy, also known as logistic regression focuses on minimizing commitment in its classifications. It is based on the principle of modeling all that is known satisfying a set of constraints
 that must hold respecting uniformity, and assuming nothing about what is unknown.
 
@@ -222,7 +190,7 @@ After observing the feature selection performance in the previous chapter, maybe
 was faster.
 
 
-\subsubsection{Performance}
+\subsubsection{Performance evaluation}
 %!Run the tests with m1r1, m2r1, m3r1, m4r1, m5,r1, mr2r2, m3r3, m4r4, m5r5, or etc...
 Compared to other classification algorithms like Naive Bayes, the Maximum Entropy algorithm has a higher computational requirement. 
 The platform where the MaxEnt classification algorithm is running is highly scalable and follows the map/reduce paradigm. Taking advantage of the paradigm, the MaxEnt algorithm

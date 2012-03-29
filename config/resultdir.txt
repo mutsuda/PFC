@@ -1,0 +1,24 @@
+\begin{lstlisting}[language=Python]
+... 
+ email/
+    http:fusemail.com.out
+    http:hellodog.zzn.com.out
+    http:hens.ie.out
+    ...
+ entertainment/
+    http:library.thinkquest.orgC005075F.out
+    http:tulsatvmemories.com.out
+    http:www.bluesexpress.com.out
+    ...
+ financial/
+    http:ifg.ie.out
+    http:mutualfunds.about.com.out
+    http:www.aaii.org.out
+    ...
+ instant_messaging/
+    http:aimexpress.aim.com.out
+    http:diamond-back.comicqlies.html.out
+    http:iphoneblogr.com.out
+    ...
+...
+\end{lstlisting}

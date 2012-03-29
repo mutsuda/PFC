@@ -1,0 +1,17 @@
+\begin{lstlisting}[language=Python]
+...
+http://dir.yahoo.com/Recreation/Sports/,sport
+http://dir.yahoo.com/News_and_Media/,news
+http://dir.yahoo.com/Business_and_Economy/Shopping_and_Services/Auctions/,shopping
+http://dir.yahoo.com/Business_and_Economy/Shopping_and_Services/Music/,shopping
+http://dir.yahoo.com/Business_and_Economy/Shopping_and_Services/Jewelry/,shopping
+http://dir.yahoo.com/news_and_media/weather/,weather
+http://dir.yahoo.com/Recreation/Travel/,travel
+http://dir.yahoo.com/science/geography/cartography/maps/,maps
+http://dir.yahoo.com/arts/visual_arts/photography/,photos
+http://dir.yahoo.com/computers_and_internet/software/internet/instant_messaging/,instant_messaging
+http://dir.yahoo.com/business_and_economy/finance_and_investment/,financial
+http://dir.yahoo.com/business_and_economy/shopping_and_services/sex/adult_galleries/,adult
+...
+\end{lstlisting}
+
