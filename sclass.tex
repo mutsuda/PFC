@@ -33,8 +33,8 @@ a seed file that was later automatically parsed.
 \inputcfg{config/seed_yahoodir.txt}{Yahoo Directory! parsing seed file (excerpt)}
 
 The process of parsing the seed file and crawling those URL was performed by two separate  workflows in the application specifically designed for the task. \\
-The first workflow simply parsed each of the lines inside the seed file looking for the URL contained in each of the categories and inserting them into a database. \\
-A second and highly scalable workflow parsed the database crawling the content of each of the previously inserted URL and put it into a folder depending on its category. \\
+The first workflow\ref{fig:{config/yahoo_parser.cfg}} simply parsed each of the lines inside the seed file looking for the URL contained in each of the categories and inserting them into a database. \\
+A second and highly scalable workflow\ref{fig:{config/yahoo_crawler.cfg}} parsed the database crawling the content of each of the previously inserted URL and put it into a folder depending on its category.\ref{fig:{config/resultdir.txt}} \\
 
 \inputcfg{config/yahoo_parser.cfg}{Yahoo Directory! URL parser}
 
