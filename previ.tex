@@ -1,6 +1,7 @@
 \documentclass[12pt, a4paper , titlepage]{report}
 \usepackage{latexmasu}
 \usepackage{fancyhdr}
+\usepackage{colortbl}
 \setcounter{tocdepth}{4}
 \pagestyle{fancy}
 \lhead{Automatic web content categorization}
@@ -28,27 +29,63 @@
 
 \tableofcontents
 
+\chapter{Introduction}
+FlowSight is a Massively Parallel Processing platform that scales using Commercial Off-The-Shelf Hardware and Directly Attached Storage. It has been conceived among other things, to collect
+huge amounts of data from the mobile internet networks analyzing it in real time, correlating it and analyzing the results in order to act upon. FlowSight includes:
+\begin{itemize}
+  \item{State of the art Fault Tolerance, Distribution and Manageability features that allow for low response latencies and always-on Analytics.}
+  \item{A next generation Complex Event Processing engine that is able to achieve processing rates that were previously only available at packet processing level. The engine uses schema-less, 
+        distributed, in-memory columnar storage to be able to handle massive amounts of data.}
+  \item{Built-in reporting capabilities}
+\end{itemize}
+The figure\ref{fig:{img/total_traffic_type.png}} represents three days of data capturing and analyzing. As we can see the application is already able to distinguish between differents types of traffic (OTT, streaming, browsing...).
+But looking at the browsing category\ref{fig:{img/total_traffic_browsing.png}}, all we know right now is the amount of data that is consumed and when it is consumed.
+
+\imatge{img/total_traffic_type.png}{Total volume per traffic type}
+
+\imatge{img/total_traffic_browsing.png}{Total browsing volume}
+
+The main objective of this thesis, is to be able to split the browsing category into subcategories by automatically (with Machine Learning algorithms) categorizing the content of each web page that is browsed. 
+
 
 \chapter{Overall objectives}
-The main objectives of this thesis are:
-- Implementing and configuring a machine learning algorithm able to categorize web content automatically inside FlowSight. \\
-It will serve as an enchancement of a larger application called FlowSight that analizes subscriber generated internet traffic within the network of different telecom companies.
-- Initial tests for determining which algorithms perform better\\
-- Solve language problems (lid) for better accuracy\\
-- Analyzing the results as well as the algorithm performance is also part of the project.\\
-- 
+This thesis is centered in the extension of the FlowSight capabilities. In this case, the need of improving FlowSight was driven by a client request and the schedule for its completion was tightly
+adjusted. As we already saw in the previous section, the main goal of this thesis is to implement and configure a module in the already existing platform FlowSight, to be able to differentiate
+the content of the websites that are being visited. 
 
 
 \chapter{Covered objectives}
-The enchancement provided by this thesis has been already used by the company, in some of their projects. 
-The initial tests with rapidminer are already covered as well as the language detection algorithm. The language detection was not applied in the company project but has been already implemented
-for future uses.
-The speed performance of the algorithm has been tested in two different machines using different configurations.
 
+The following table represents the objectives of the thesis which have already been covered.
 
+\begin{center}  
+    \begin{tabular}{ | p{10cm} | l |}
+    \hline
+    \rowcolor{lightgray}{\bf Objective} & {\bf Date} \\ \hline
+    Learning to use the FlowSight platform & September 2011 \\ \hline 
+    Studying the implementation of the FlowSight platform  & September 2011 \\ \hline
+    Analyzing the client requirements & October 2011 \\ \hline
+    Tuning the existing code to match the client requirements & October 2011 \\ \hline
+    Crawling the Yahoo! directory to obtain a reliable corpus & October 2011\\ \hline
+    Performing initial tests with Rapidminer & November 2011 \\ \hline
+    Implementation and setup in the Framework & November 2011\\ \hline
+    Enhancements & December 2011\\ \hline
+    \end{tabular}
+\end{center}
 
-\chapter{Planification}
-Gantt?
+\chapter{Plan}
+In the following table the pending tasks are enumerated as well as an approximated date of their completion.
+\begin{center}
+    \begin{tabular}{ | p{10cm} | l |}
+    \hline
+    \rowcolor{lightgray}{\bf Objective} & {\bf Date} \\ \hline
+    Performance evaluation & Mid April 2012\\ \hline
+    Result analysis & Late April 2012\\ \hline
+    Conclusions and future work & May 2012\\ \hline
+    Documentation and presentation & Late May\\ \hline
+    \end{tabular}
+\end{center}
+ 
 
 
 

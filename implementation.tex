@@ -1,0 +1,60 @@
+\section{Implementation in the Framework}
+Although decision trees and Naive Bayes performed well during the rapidminer tests, they have some issues inherent to their specification. Decision trees are accurate, but their performance is 
+not suitable for an almost real time high demanding environment. Naive Bayes is better at performance but it makes independence assumptions that could cause some classification problems.\\
+There is an algorithm though that is both efficient (although it's not as fast as Naive Bayes) and doesn't make any assumption. It's called Maximum Entropy (or Logistic Regression).
+
+\subsection{Maximum entropy concept}
+Maximum entropy, also known as logistic regression focuses on minimizing commitment in its classifications. It is based on the principle of modeling all that is known satisfying a set of constraints
+that must hold respecting uniformity, and assuming nothing about what is unknown.
+
+One nice aspect of maximum entropy is that it does not suffer from any independence assumptions.\\
+For example, consider a document containing the same number of occurrences of \codi{rainy} and \codi{social network}.\\
+A Naive Bayes classifier will double count the occurrences of \codi{social network} 
+- it will add in the weight for \codi{social} and the weight for \codi{network}. Since \codi{rainy} and
+\codi{social network} occur equally, a single occurrence of \codi{social network} will contribute twice the weight as an occurrence of \codi{rainy}. This will cause Naive Bayes to prefer one class 
+incorrectly.
+Maximum entropy, on the other hand, will discount the $\lambda_i$ for each of these features such that their weight towards classification is appropriately reduced by half.
+This is because the constraints work over expectations of the counts. \\
+One implication for this freedom from independence assumptions is that bigrams and phrases can be easily added as features by maximum entropy, without worry that the features are overlapping.
+
+
+\subsection{MaxEnt Algorithm}
+
+
+\begin{itemize}
+\item Compute $d_j, j=1,...,k+1$
+\item Initialize $\lambda_j^{(1)}$ to zero
+\item Repeat until converge
+\item For each j 
+  \begin{itemize}
+  \item Compute $E_{p^{(n)}} f_j = \sum\limits_{x \in \varepsilon} p^{(n)} (x)f_j(x)$
+    where $p^{(n)}(x) = \frac{e^{\sum\limits_{j=1}^{k+1}\lambda_j^{(n)}f_j(x)}}{Z}$ 
+  \item Update $\lambda_j^{(n+1)} = \lambda_j^{(n)} + \frac{1}{C}(log\frac{d_i}{E_{{p^{(n)}}}f_j})$
+  \end{itemize}
+\end{itemize}
+
+  
+
+\subsection{Feature selection}
+After observing the feature selection performance in the previous chapter, maybe the best choice for a fast vector creation is counting the term frequency. It usually performed better, and it always
+was faster.
+
+
+\subsection{Performance evaluation}
+%!Run the tests with m1r1, m2r1, m3r1, m4r1, m5,r1, mr2r2, m3r3, m4r4, m5r5, or etc...
+Compared to other classification algorithms like Naive Bayes, the Maximum Entropy algorithm has a higher computational requirement. 
+The platform where the MaxEnt classification algorithm is running is highly scalable and follows the map/reduce paradigm. Taking advantage of the paradigm, the MaxEnt algorithm
+is able to perform notably faster.
+
+
+\grafic{graphs/sclass2dmr.tex}{2D Performance graph}
+
+Figure \ref{fig:{graphs/sclass2dmr.tex}} represents the execution time of the same algorithm with different number of mappers and reducers, in two different machines: \codi{ultraman (Intel Core 2 Duo CPU 2.00GHz 4GB RAM)} 
+is the machine where I'm writing most of this document, and \codi{rogue (Intel Core 2 Quad CPU Q9300 @ 2.5GHz 8GB RAM)} is a more powerful machine used for testing purposes. The \codi{x} axis represents the 
+different mapper and reducer combinations I tested while the \codi{y} axis represents the number of categorized pages per second.
+As we can see both machines perform similary when using one to two mappers, but the most powerful machine outperforms the other one when using more than two mappers. We can also observe how \codi{ultraman}'s performance
+quickly stalls for more than thre mappers, while \codi{rogue} is able to hold a rising performance until six mappers are used.
+
+Figure \ref{fig:{graphs/sclass3dmr.tex}} is a three dimensional representation of \codi{ultraman}'s performance. We can quiclky observe a repeating pattern for each number of mappers.
+\grafic{graphs/sclass3dmr.tex}{3D Performance graph}
+

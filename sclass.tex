@@ -4,7 +4,7 @@ The main goal of the project was to be able to automatically classify webpages i
 By the goal itself it is clear that Machine Learning algorithms might be the best approach to try to solve the problem. We could have tried to use some unsupervised algorithms to solve the task,
 but in this case we have a clear knowledge about what we want to classify, and we don't need to extract new knowledge from the data.
 
-\subsection{Client requirements}
+\section{Client requirements}
 
 Being part of a real case scenario brought to this project some requirements we had to take into account. The original set of categories that we were asked to identify was the following.
 
@@ -19,7 +19,7 @@ We can also see that the category \codi{Entertainment} might be overlapping with
 Another of the difficulties of the task seems to be categorizing something as \codi{Other}, because generating a training set for such a category might be difficult. 
 But before being able to do any training, we needed labeled data, that is content from where to learn.
 
-\subsection{Crawling training data}
+\section{Crawling training data}
 Supervised Machine Learning algorithms need a set of training (labeled) data to infer the function that will later determine whether a new example is from one class or another. In this case we needed
 web content for each of the categories. There were different approaches to solve the problem. One of them could have been querying categories in search engines or navigating through blog entries matching
 each category. \\
@@ -49,13 +49,13 @@ among other things, allowed me to test different machine learning algorithms wit
 
   
 
-\subsection{Rapidminer tests}
+\section{Rapidminer tests}
 Rapidminer\cite{rapidminer}\ref{fig:{img/rapid1.png}} is a widely used, easy to use and powerful machine learning environment.  
 It was the perfect tool to do some initial tests in order to diagnose how might some categories be overlapping, detecting which algorithms performed better, etc. Almost all training processes were 
 performed with a 10 fold cross validation in order to prevent overfitting and obtaining realistic accuracy values.
 \imatgePetita{img/rapid1.png}{Rapidminer process}
 
-\subsubsection{Feature vector creation}
+\subsection{Feature vector creation}
 The fist step for all tests was reading the previously created directories and somehow turning their content into features. In rapidminer this can be done by using the \codi{Process Documents from Files}
  (see image \ref{fig:{img/read_docs.png}})
 component and selecting where to read the files from.\\
@@ -70,7 +70,7 @@ In order to obtain a precise and accurate document representation, and before se
 \end{itemize}
 
 
-\subsubsection{Training set size}
+\subsection{Training set size}
 %!Make some experiments. Try classification using 10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200,210,220,230,240,250,260...300, 500, 700, 900, max
 %!Calculate time of both algorithms at 100, 200, 300, 400, 500, 600, 700, 800, 900 and 1000.
 The first experiment consisted in determining how much the size of the training set mattered in terms of accuracy. It was also useful to determine which vector creation algorithm was
@@ -82,10 +82,10 @@ using two different feature selection methods: \codi{TD-IDF} and \codi{Term Freq
 The conclusion of this initial test was, not surprisingly, that the more data the better. But we can also observe that when the training set size is small it is not clear which feature selection 
 method is better, whereas as the dataset grows it is clear that word frequency performs better, and also faster. (see image \ref{fig:{graphs/features.tex}})
 
-\subsubsection{K nearest neighbours}
+\subsection{K nearest neighbours}
 %!Do some tests changing the N and see the performance.
 
-\subsubsection{Face to face accuracy}
+\subsection{Face to face accuracy}
 %!Learn to distinguish between all pairs of classes and see which are more difficult
 Another experiment consisted in comparing all classes binarily to determine which classes are more likely to be confused. In image \ref{fig:{graphs/xclass.tex}} each circle represents a classification 
 between the class in the y-axis and the class in the x-axis. Smaller and more transparent circles represent worse accuracy, and bigger and stronger circles represent better accuracy. 
@@ -118,94 +118,4 @@ weather > 0.068359
 \end{lstlisting}
 It's obvious that words like weather, news or forecast will help us distinguish between one category and the other, but it is interesting to observe how the stem "stori" or "engin" also help performing
 the task.
-
-
-\subsubsection{Entertainment into subcategories}
-%!Splitting entertainment into subcategories and seeing performance
-As we saw in the previous section, the category \codi{Entertainment} is one of the most difficult to distinguish. This could be due to the fact that it is a wide category containing a lot of different
-subcategories. We could try to split \codi{Entertainment} into subcategories (such as \codi{Music}, \codi{Movies}, \codi{Literature}...) to get a more precise dataset. In order to meet the
-client requirements those subcategories should be remapped to the original \codi{Entertainment} category after the classification process. \\
-After splitting the \codi{Entertainment} category into subcategories, these were the new classes I found: \\
-\begin{lstlisting} 
-Music, Literature, Theme parks, Movies, Food & Drink, Games, Television
-\end{lstlisting} 
-As new classes are added, it is clear that the overall accuracy of the classification may be worse, but with this new structure the confusions are likely to be between categories belonging to the same
-supercategory, which is not a problem.
- 
-
-\subsubsection{The \codi{Other} category}
-There are several approaches in order to represent the \codi{Other} category, one of them could be creating a new class named \codi{Other} and filling it with content from categories that 
-differ from the ones we want to classify.\\
-Another approach is taking the accuracy of a classification into account, and using a threshold to decide whether some sample should be considered of a any class or assume it should be considered of 
-another class. 
-By calculating the variance of the probability distribution through classes, we can determine the strength with which a classification is done.   
-
-\grafic{graphs/other.tex}{Probability distribution of two instances}
-
-
-This could be done by looking at the variance of the model. The plot (figure \ref{fig:{graphs/other.tex}}) represents the confidence with which two instances are classified, the x axis being the classes
-and the y axis being the probability. We could say that the blue colored classification is not really confident whereas the orange colored classification seems to be sure assigning the \codi{c30} 
-category. In this particular case we could assign the blue instance to the \codi{Other} category, because it is more or less equally unsure of where to assign it.
-
-
-\subsection{Implementation in the Framework}
-Although decision trees and Naive Bayes performed well during the rapidminer tests, they have some issues inherent to their specification. Decision trees are accurate, but their performance is 
-not suitable for an almost real time high demanding environment. Naive Bayes is better at performance but it makes independence assumptions that could cause some classification problems.\\
-There is an algorithm though that is both efficient (although it's not as fast as Naive Bayes) and doesn't make any assumption. It's called Maximum Entropy (or Logistic Regression).
-
-\subsubsection{Maximum entropy concept}
-Maximum entropy, also known as logistic regression focuses on minimizing commitment in its classifications. It is based on the principle of modeling all that is known satisfying a set of constraints
-that must hold respecting uniformity, and assuming nothing about what is unknown.
-
-One nice aspect of maximum entropy is that it does not suffer from any independence assumptions.\\
-For example, consider a document containing the same number of occurrences of \codi{rainy} and \codi{social network}.\\
-A Naive Bayes classifier will double count the occurrences of \codi{social network} 
-- it will add in the weight for \codi{social} and the weight for \codi{network}. Since \codi{rainy} and
-\codi{social network} occur equally, a single occurrence of \codi{social network} will contribute twice the weight as an occurrence of \codi{rainy}. This will cause Naive Bayes to prefer one class 
-incorrectly.
-Maximum entropy, on the other hand, will discount the $\lambda_i$ for each of these features such that their weight towards classification is appropriately reduced by half.
-This is because the constraints work over expectations of the counts. \\
-One implication for this freedom from independence assumptions is that bigrams and phrases can be easily added as features by maximum entropy, without worry that the features are overlapping.
-
-
-\subsubsection{MaxEnt Algorithm}
-
-
-\begin{itemize}
-\item Compute $d_j, j=1,...,k+1$
-\item Initialize $\lambda_j^{(1)}$ to zero
-\item Repeat until converge
-\item For each j 
-  \begin{itemize}
-  \item Compute $E_{p^{(n)}} f_j = \sum\limits_{x \in \varepsilon} p^{(n)} (x)f_j(x)$
-    where $p^{(n)}(x) = \frac{e^{\sum\limits_{j=1}^{k+1}\lambda_j^{(n)}f_j(x)}}{Z}$ 
-  \item Update $\lambda_j^{(n+1)} = \lambda_j^{(n)} + \frac{1}{C}(log\frac{d_i}{E_{{p^{(n)}}}f_j})$
-  \end{itemize}
-\end{itemize}
-
-  
-
-\subsubsection{Feature selection}
-After observing the feature selection performance in the previous chapter, maybe the best choice for a fast vector creation is counting the term frequency. It usually performed better, and it always
-was faster.
-
-
-\subsubsection{Performance evaluation}
-%!Run the tests with m1r1, m2r1, m3r1, m4r1, m5,r1, mr2r2, m3r3, m4r4, m5r5, or etc...
-Compared to other classification algorithms like Naive Bayes, the Maximum Entropy algorithm has a higher computational requirement. 
-The platform where the MaxEnt classification algorithm is running is highly scalable and follows the map/reduce paradigm. Taking advantage of the paradigm, the MaxEnt algorithm
-is able to perform notably faster.
-
-
-\grafic{graphs/sclass2dmr.tex}{2D Performance graph}
-
-Figure \ref{fig:{graphs/sclass2dmr.tex}} represents the execution time of the same algorithm with different number of mappers and reducers, in two different machines: \codi{ultraman (Intel Core 2 Duo CPU 2.00GHz 4GB RAM)} 
-is the machine where I'm writing most of this document, and \codi{rogue (Intel Core 2 Quad CPU Q9300 @ 2.5GHz 8GB RAM)} is a more powerful machine used for testing purposes. The \codi{x} axis represents the 
-different mapper and reducer combinations I tested while the \codi{y} axis represents the number of categorized pages per second.
-As we can see both machines perform similary when using one to two mappers, but the most powerful machine outperforms the other one when using more than two mappers. We can also observe how \codi{ultraman}'s performance
-quickly stalls for more than thre mappers, while \codi{rogue} is able to hold a rising performance until six mappers are used.
-
-Figure \ref{fig:{graphs/sclass3dmr.tex}} is a three dimensional representation of \codi{ultraman}'s performance. We can quiclky observe a repeating pattern for each number of mappers.
-\grafic{graphs/sclass3dmr.tex}{3D Performance graph}
-
 
