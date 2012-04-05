@@ -1,14 +1,15 @@
 %!TEX root = main.tex
 
-The quick growth in the telecomunication industry is letting millions of people use their mobile devices to connect to the internet and communicate in a different way. The post-PC era is here and the 
-the amount of consumed data per second is increasing, together with the information 
+The quick growth in the telecommunication industry is letting millions of people use their mobile devices to connect to the internet and communicate in a different way. The post-PC era is here and the 
+the amount of consumed data per second is increasing together with the information that users themselves generate simply by interacting with the network.
+Although the classical mobile device usage (phone calls) is still growing linearly the modern way of using them has been growing exponentially since the year 2007\ref{fig:{img/ericsson_global.png}}.
+\imatge{img/ericsson_global.png}{Total monthly traffic} 
 
-"FlowSight is a Massively Parallel Processing platform that scales using Commercial Off-The-Shelf Hardware and Directly Attached Storage."
-Near the end of the year 2011 the company was asked by one of their Telecom clients to extend the functionality of one of the features their application was offering: they wanted to know not only which sites
-where most visited by their subscribers, but also a generic categorization of those top sites. \\*
-One way of solving this task would be doing it manually by someone in the company by reading those top sites and applying categories to them.
-The problem of such a manual approach is that maybe today the client asked for the top 10 sites, but you never know when will they ask for the top 100000. 
-Another way could be using the metadata information provided by the website itself, but not every site provides its category in the metadata.
-The best approach to solve this task in a real scenario ended up being the artificial intelligence.
-This project is the result of applying the power of machine learning algorithms to a real case scenario.
 
+
+
+The remainder of the document is organized as follows. In Chapter \ref{chap:flowsight}, I introduce the FlowSight platform describing its characteristics and functionalities, and explaining my
+expected contribution to it. In Chapter \ref{chap:research} I analyze the client requirements and perform some initial tests with a subset of the data. In Chapter \ref{chap:implementation} I introduce
+the concept of Maximum Entropy and focus in the implementation and performance evaluation of the algorithm. In Chapter \ref{chap:enhancements} I discuss ways of improving the quality and accuracy
+in the categorization. The results comparing the previously described enhancements with the original data are discussed in Chapter \ref{chap:results}. Finally, I describe some conclusions and future 
+work in Chapter \ref{chap:conclusions}.

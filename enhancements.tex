@@ -1,0 +1,107 @@
+%!TEX root = main.tex
+
+There are several difficulties in the classification task that can be optimized by some refination. 
+The first difficulty is related to those categories which are more difficult to distinguish for some reason. Another difficulty is the concept of \codi{Other} category, which is not trivial to
+model in a machine learning area.
+Other difficulties are that some servers returned their content in the language of the country they detected the request was coming from. Changing the header in the requests and using a proxy 
+solved this problem.  
+Another difficulty in this classification task is the fact that the content of some of the URIs that are being classified is written in languages different from english. 
+As in this specific problem the classifier is trained to work in English, this situation will potentially cause wrong classifications. 
+We could just filter those URIs from foreign domains (\codi{.cz, .jp, .cn}) and automatically discard them, but some of those webpages could be written in english, and we would still have the same 
+problem with the generic \codi{.com} domain.
+A better approach would be identifying the language itself and discarding the instances  which are not in english.
+
+
+\section{Ambiguous categories}
+
+
+\subsection{Entertainment into subcategories}
+%!Splitting entertainment into subcategories and seeing performance
+As we saw in chapter 3.3, the category \codi{Entertainment} is one of the most difficult to distinguish. This could be due to the fact that it is a wide category containing a lot of different
+subcategories. We could try to split \codi{Entertainment} into subcategories (such as \codi{Music}, \codi{Movies}, \codi{Literature}...) to get a more precise dataset. In order to meet the
+client requirements those subcategories should be remapped to the original \codi{Entertainment} category after the classification process. \\
+After splitting the \codi{Entertainment} category into subcategories, these were the new classes I found: \\
+\begin{lstlisting} 
+Music, Literature, Theme parks, Movies, Food & Drink, Games, Television
+\end{lstlisting} 
+As new classes are added, it is clear that the overall accuracy of the classification may be worse, but with this new structure the confusions are likely to be between categories belonging to the same
+supercategory, which is not a problem.
+ 
+
+\subsection{The \codi{Other} category}
+There are several approaches in order to represent the \codi{Other} category, one of them could be creating a new class named \codi{Other} and filling it with content from categories that 
+differ from the ones we want to classify.\\
+Another approach is taking the accuracy of a classification into account, and using a threshold to decide whether some sample should be considered of a any class or assume it should be considered of 
+another class. 
+By calculating the variance of the probability distribution through classes, we can determine the strength with which a classification is done.   
+
+\grafic{graphs/other.tex}{Probability distribution of two instances}
+
+
+This could be done by looking at the variance of the model. The plot (figure \ref{fig:{graphs/other.tex}}) represents the confidence with which two instances are classified, the x axis being the classes
+and the y axis being the probability. We could say that the blue colored classification is not really confident whereas the orange colored classification seems to be sure assigning the \codi{c30} 
+category. In this particular case we could assign the blue instance to the \codi{Other} category, because it is more or less equally unsure of where to assign it.
+
+
+
+
+\section{Language Identification}
+When crawling the URL's some websites return their content in the language of the country they detect the request is coming from. This is a problem both when generating the model for classification 
+(because it is supposed to model the english language) and when classifying (because the model is trained with english data). Changing the header in the requests and using a proxy solved this problem.
+In some situations though, some URL might only be in a language different from english, and this would lead to wrong classifications.
+Language identification is the process of determining which natural language given content is in. Using it, we could fastly avoid the classification of foreign websites and enhance the overall accuracy.
+There are several computational/statistical approaches to solve this problem which is split into two different stages: modeling and classification
+
+\subsection{Modeling techniques}
+Before being able to classify languages we need to generate models that will represent each language. This can be done using different techniques:
+\begin{itemize}
+  \item {\bf Common words technique}: the most common words in a corpus are sorted by frequency in order to get a probability distribution.
+  \item {\bf N-Gram technique}: similar to common words technique but instead of sorting the most common words, the most common successions of N characters are sorted.
+\end{itemize}  
+The disadvantage of the {\bf common words technique} is that although common words may occur in large amounts of text, they might not occur in shorter input examples. With the {\bf N-Gram} technique 
+we avoid that disadvantage by not using just the words but also all the N-partitions in the text.
+
+
+\subsection{Classification techniques}
+Once we have a model for each language we want to identify, we have to classify them. There are different approahces for this task too:
+\begin{itemize}
+  \item {\bf Relative entropy}: compares the compressibility of the text we want to identify to the compressibility of the previously generated models.
+  \item {\bf Rank order statistics}: generates a probability by comparing how far an N-Gram is from the position of the same N-Gram in the model.
+\end{itemize}
+\subsection{Application}
+For the scope of this project I chose the {\bf 3-Gram technique} to generate the language models and the {\bf Rank order statistics} to identify the languages. I used a Python implementation by Damir 
+Cavar\cite{lid1} consisting of a model generator and a classifier.
+For generating the language models, I used the Wikipedia as a text source by automatically accessing random articles in different languages and crawling their content. 
+After generating the models a simple Python algorithm remapped the classification file taking into account the language information.
+
+\begin{lstlisting}[language=Python]
+
+import lid
+import os
+import csv
+
+myLid = lid.Lid()
+output_file = "language_categorized.csv"
+input_file = "categorized.csv"
+
+seed_write = csv.writer(open(output_file, 'wb'), delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
+seed_read = csv.reader(open(input_file, 'rU'), delimiter=',')
+
+for row in seed_read:
+  try:
+    # This call returns the language of the file content
+    language = myLid.checkText(open("unknown-data/http:"+row[0]+".out").read())
+    if (language != "English"):
+      seed_write.writerow([row[0],"foreign_language"])
+    else:
+      seed_write.writerow([row[0],row[1]])
+  except Exception, e:
+    print "error identifying language of "+row[0]
+    print e
+    seed_write.writerow([row[0],"other"])
+\end{lstlisting}
+
+Before applying the LID algorithm, websites in other languages were being categorized as random categories, adding unuseful noise to the results. After applying the algorithm, those websites were 
+categorized as \codi{foreign\_language} and were easily identified. We can see how the foreign language web pages were wrongly classified both in absolute values and percentage.
+
+\grafic{graphs/lid1}{Applying the LID algorithm}

@@ -1,9 +1,8 @@
-\section{Implementation in the Framework}
 Although decision trees and Naive Bayes performed well during the rapidminer tests, they have some issues inherent to their specification. Decision trees are accurate, but their performance is 
 not suitable for an almost real time high demanding environment. Naive Bayes is better at performance but it makes independence assumptions that could cause some classification problems.\\
 There is an algorithm though that is both efficient (although it's not as fast as Naive Bayes) and doesn't make any assumption. It's called Maximum Entropy (or Logistic Regression).
 
-\subsection{Maximum entropy concept}
+\section{Maximum entropy concept}
 Maximum entropy, also known as logistic regression focuses on minimizing commitment in its classifications. It is based on the principle of modeling all that is known satisfying a set of constraints
 that must hold respecting uniformity, and assuming nothing about what is unknown.
 
@@ -18,7 +17,7 @@ This is because the constraints work over expectations of the counts. \\
 One implication for this freedom from independence assumptions is that bigrams and phrases can be easily added as features by maximum entropy, without worry that the features are overlapping.
 
 
-\subsection{MaxEnt Algorithm}
+\section{MaxEnt Algorithm}
 
 
 \begin{itemize}
@@ -35,12 +34,12 @@ One implication for this freedom from independence assumptions is that bigrams a
 
   
 
-\subsection{Feature selection}
+\section{Feature selection}
 After observing the feature selection performance in the previous chapter, maybe the best choice for a fast vector creation is counting the term frequency. It usually performed better, and it always
 was faster.
 
 
-\subsection{Performance evaluation}
+\section{Performance evaluation}
 %!Run the tests with m1r1, m2r1, m3r1, m4r1, m5,r1, mr2r2, m3r3, m4r4, m5r5, or etc...
 Compared to other classification algorithms like Naive Bayes, the Maximum Entropy algorithm has a higher computational requirement. 
 The platform where the MaxEnt classification algorithm is running is highly scalable and follows the map/reduce paradigm. Taking advantage of the paradigm, the MaxEnt algorithm

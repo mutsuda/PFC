@@ -21,7 +21,7 @@
 
 \author{Masumi Mutsuda Zapater}
 \title{Automatic web content categorization \\ Machine Learning \\ \large{\textit{Previous report}}}
-\date{February 2012}
+\date{April 2012}
 
 \begin{document}
 
@@ -30,52 +30,71 @@
 \tableofcontents
 
 \chapter{Introduction}
-FlowSight is a Massively Parallel Processing platform that scales using Commercial Off-The-Shelf Hardware and Directly Attached Storage. It has been conceived among other things, to collect
-huge amounts of data from the mobile internet networks analyzing it in real time, correlating it and analyzing the results in order to act upon. FlowSight includes:
+FlowSight is a massively parallel processing platform that scales using commercial off-the-shelf hardware and directly attached storage. It has been conceived among other things, to collect
+huge amounts of data from the mobile internet networks in real time, correlating it and analyzing the results in order to act upon. FlowSight includes:
 \begin{itemize}
-  \item{State of the art Fault Tolerance, Distribution and Manageability features that allow for low response latencies and always-on Analytics.}
-  \item{A next generation Complex Event Processing engine that is able to achieve processing rates that were previously only available at packet processing level. The engine uses schema-less, 
+  \item{State of the art fault tolerance, distribution and manageability features that allow for low response latencies and always-on analytics.}
+  \item{A next generation complex event processing engine that is able to achieve processing rates that were previously only available at packet processing level. The engine uses schema-less, 
         distributed, in-memory columnar storage to be able to handle massive amounts of data.}
   \item{Built-in reporting capabilities}
 \end{itemize}
-The figure\ref{fig:{img/total_traffic_type.png}} represents three days of data capturing and analyzing. As we can see the application is already able to distinguish between differents types of traffic (OTT, streaming, browsing...).
-But looking at the browsing category\ref{fig:{img/total_traffic_browsing.png}}, all we know right now is the amount of data that is consumed and when it is consumed.
-
+In order to get a graphical glimpse of the network, FlowSight allows the configuration of reports. A report consists of a series of options concerning a chart, which is the graphical representation
+of the previously captured and correlated data. As many reports as needed might be configured, representing variables like latency, volume, throughput, etc.   
+Figure\ref{fig:{img/total_traffic_type.png}} represents the total traffic volume during three days of data capturing. This particular report is set to represent the total volume in the network, 
+distinguishing between the different types of traffic detected (OTT, streaming, browsing, etc.)
 \imatge{img/total_traffic_type.png}{Total volume per traffic type}
+
+If we set the report to only draw the browsing traffic type\ref{fig:{img/total_traffic_browsing.png}}, we are able to see when and how much data is being consumed via web browsing, but wouldn't it be 
+great to be able to know which kind of websites are the most visited? Maybe with this information more about the users' behaviour could be learned and a better quality of service could be offered.
 
 \imatge{img/total_traffic_browsing.png}{Total browsing volume}
 
-The main objective of this thesis, is to be able to split the browsing category into subcategories by automatically (with Machine Learning algorithms) categorizing the content of each web page that is browsed. 
+The main goal of this thesis is to be able to split the browsing category into subcategories by automatically categorizing the content of each web page that is browsed, using the power of machine learning
+algorithms.
 
 
 \chapter{Overall objectives}
-This thesis is centered in the extension of the FlowSight capabilities. In this case, the need for improving FlowSight was driven by a client request and the schedule for its completion was tightly
-adjusted. As we already saw in the previous section, the main goal of this thesis is to implement and configure a module in the already existing platform FlowSight, to be able to differentiate
-the content of the websites that are being visited.\\
- 
+In the information era where large amounts of content are being generated in a daily basis, autonomous processes of sorting and categorizing the internet traffic become of high interest.
+In line with this, this Master Thesis consists of designing and implementing a web content classification application which include well-known algorithms for document classification such as Naïve 
+Bayes and Maximum Entropy and inspired by proven tools like Rapidminer. 
 
+This thesis is centered in the extension of the FlowSight capabilities. In this case, the need for improving FlowSight was driven by a client request and the schedule for its completion was tightly
+adjusted. As we already saw in the previous section, the main goal of this thesis is to implement and configure a module in the already existing platform FlowSight, to be able to categorize the
+websites that are being visited by analyzing their content.
+This would allow the application to identify the main topic of traffic in time, enhancing the network's level of intelligence.
+ 
+Initial tests with Rapidminer will be performed in order to identify the best choices for feature selection, learning algorithm, etc. and also to analyze the properties of the data we are dealing with.
+
+After the implementation of the module, its evaluation in terms of accuracy, scalability and performance will also be one of the objectives.
+
+An additional objective for this thesis is the acceptance and addition of the new module in future installations of the software. For that to happen the existing code structure will be respected
+whenever possible, and all programming patterns and style coherence will be maintained.
 
 \chapter{Covered objectives}
 
-The following table represents the objectives of the thesis which have already been covered.
+The following table represents the objectives which have already been covered.\\ 
+After delivering the results to the client in late November, some enhancements such as language detection, where added to the implementation and therefore to the thesis' scope.
 
 \begin{center}  
     \begin{tabular}{ | p{10cm} | l |}
     \hline
     \rowcolor{lightgray}{\bf Objective} & {\bf Date} \\ \hline
-    Learning to use the FlowSight platform & September 2011 \\ \hline 
-    Studying the implementation of the FlowSight platform  & September 2011 \\ \hline
+    Learning the FlowSight platform basics & September 2011 \\ \hline 
+    Studying the FlowSight platform implementation  & September 2011 \\ \hline
     Analyzing the client requirements & October 2011 \\ \hline
     Tuning the existing code to match the client requirements & October 2011 \\ \hline
     Crawling the Yahoo! directory to obtain a reliable corpus & October 2011\\ \hline
+    Crawling the most visited websites in the client's network & October 2011\\ \hline
     Performing initial tests with Rapidminer & November 2011 \\ \hline
     Implementation and setup in the Framework & November 2011\\ \hline
-    Enhancements & December 2011\\ \hline
+    Delivery to the client & November 2011\\ \hline
+    Enhancements & January 2011\\ \hline
     \end{tabular}
 \end{center}
 
+
 \chapter{Plan}
-In the following table the pending tasks are enumerated as well as an approximated date of their completion.
+Pending tasks are enumerated in the following table as well as an approximated date for their completion.
 \begin{center}
     \begin{tabular}{ | p{10cm} | l |}
     \hline
@@ -83,7 +102,7 @@ In the following table the pending tasks are enumerated as well as an approximat
     Performance evaluation & Mid April 2012\\ \hline
     Result analysis & Late April 2012\\ \hline
     Conclusions and future work & May 2012\\ \hline
-    Documentation and presentation & Late May\\ \hline
+    Documentation and slides & Late May\\ \hline
     \end{tabular}
 \end{center}
  

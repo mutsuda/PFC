@@ -1,0 +1,121 @@
+%!TEX root = main.tex
+
+The main goal of the project was to be able to automatically classify webpages into different categories depending on their content. 
+By the goal itself it is clear that Machine Learning algorithms might be the best approach to try to solve the problem. We could have tried to use some unsupervised algorithms to solve the task,
+but in this case we have a clear knowledge about what we want to classify, and we don't need to extract new knowledge from the data.
+
+\section{Client requirements}
+
+Being part of a real case scenario brought to this project some requirements we had to take into account. The original set of categories that we were asked to identify was the following.
+
+
+\begin{lstlisting}
+Social Networking, Email, Sport, News, Shopping, Weather, Travel, Maps, Photos, Instant Messaging, Entertainment, Financial, Adult, Other
+\end{lstlisting}
+
+Before going any further and just looking at the categories we were asked to classify, we can observe that some of them could be more difficult to classify than others.
+Some categories like \codi{Adult} have a clearly characteristic language in their content whereas other categories like \codi{Email} might contain generic language.
+We can also see that the category \codi{Entertainment} might be overlapping with others like \codi{Photos}, \codi{Travel}, \codi{Social Networking}, etc. 
+Another of the difficulties of the task seems to be categorizing something as \codi{Other}, because generating a training set for such a category might be difficult. 
+But before being able to do any training, we needed labeled data, that is content from where to learn.
+
+\section{Crawling training data}
+Supervised Machine Learning algorithms need a set of training (labeled) data to infer the function that will later determine whether a new example is from one class or another. In this case we needed
+web content for each of the categories. There were different approaches to solve the problem. One of them could have been querying categories in search engines or navigating through blog entries matching
+each category. \\
+We finally decided to use the {\bf Yahoo! Directory}\cite{yahoo} as a source for this data.
+Before search engines like Google existed, people used directories to find what they were looking for. These directories are characterized as being a hierarchical structure for navigating through categories
+and subcategories. Under each category there is a list of URL related to it.  
+Crawling every URL under a given category provided a huge and reliable corpus to train the model.
+I configured a workflow inside the application in order to automate the process of crawling the Yahoo directory, manually checking which categories needed to be crawled, and writing those initial URL into 
+a seed file that was later automatically parsed.
+
+\inputcfg{config/seed_yahoodir.txt}{Yahoo Directory! parsing seed file (excerpt)}
+
+The process of parsing the seed file and crawling those URL was performed by two separate  workflows in the application specifically designed for the task. \\
+The first workflow\ref{fig:{config/yahoo_parser.cfg}} simply parsed each of the lines inside the seed file looking for the URL contained in each of the categories and inserting them into a database. \\
+A second and highly scalable workflow\ref{fig:{config/yahoo_crawler.cfg}} parsed the database crawling the content of each of the previously inserted URL and put it into a folder depending on its category.\ref{fig:{config/resultdir.txt}} \\
+
+\inputcfg{config/yahoo_parser.cfg}{Yahoo Directory! URL parser}
+
+\clearpage
+\inputcfg{config/yahoo_crawler.cfg}{Yahoo Directory! URL crawler}
+
+\clearpage
+\inputcfg{config/resultdir.txt}{Directory structure created by the crawler task}
+
+Once the training set was ready I performed some initial tests that could help taking later decisions using rapidminer\cite{rapidminer}, a fast-to-setup and easy-to-use machine learning tool that, 
+among other things, allowed me to test different machine learning algorithms with the same datasets in order to compare their performance. 
+
+  
+
+\section{Rapidminer tests}
+Rapidminer\cite{rapidminer}\ref{fig:{img/rapid1.png}} is a widely used, easy to use and powerful machine learning environment.  
+It was the perfect tool to do some initial tests in order to diagnose how might some categories be overlapping, detecting which algorithms performed better, etc. Almost all training processes were 
+performed with a 10 fold cross validation in order to prevent overfitting and obtaining realistic accuracy values.
+\imatgePetita{img/rapid1.png}{Rapidminer process}
+
+\subsection{Feature vector creation}
+The fist step for all tests was reading the previously created directories and somehow turning their content into features. In rapidminer this can be done by using the \codi{Process Documents from Files}
+ (see image \ref{fig:{img/read_docs.png}})
+component and selecting where to read the files from.\\
+\imatge{img/read_docs.png}{Read documents from files}
+In order to obtain a precise and accurate document representation, and before selecting the features, several pre-processes need to/can be applied to the word set. (see image \ref{fig:{img/vector.png}})
+\imatge{img/vector.png}{Vector creation} 
+\begin{itemize}
+  \item {\bf Tokenize}: the first step is to tokenize all documents. That is, split the text into a sequence of tokens. 
+  \item {\bf Transform cases}: transforms all words to lowercase.
+  \item {\bf Stopword filter}: this process will remove common words. This step is language dependant.
+  \item {\bf Stem}: this process reduces inflected or derived words to their stem, base or root. It is also language dependant.
+\end{itemize}
+
+
+\subsection{Training set size}
+%!Make some experiments. Try classification using 10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200,210,220,230,240,250,260...300, 500, 700, 900, max
+%!Calculate time of both algorithms at 100, 200, 300, 400, 500, 600, 700, 800, 900 and 1000.
+The first experiment consisted in determining how much the size of the training set mattered in terms of accuracy. It was also useful to determine which vector creation algorithm was
+more suitable for the process of feature selection. Starting with 10 files for each category, the following plot represents the model accuracy over number of documents in the training set, 
+using two different feature selection methods: \codi{TD-IDF} and \codi{Term Frequency}.
+
+\grafic{graphs/features.tex}{Accuracy on number of features}
+ 
+The conclusion of this initial test was, not surprisingly, that the more data the better. But we can also observe that when the training set size is small it is not clear which feature selection 
+method is better, whereas as the dataset grows it is clear that word frequency performs better, and also faster. (see image \ref{fig:{graphs/features.tex}})
+
+\subsection{K nearest neighbours}
+%!Do some tests changing the N and see the performance.
+
+\subsection{Face to face accuracy}
+%!Learn to distinguish between all pairs of classes and see which are more difficult
+Another experiment consisted in comparing all classes binarily to determine which classes are more likely to be confused. In image \ref{fig:{graphs/xclass.tex}} each circle represents a classification 
+between the class in the y-axis and the class in the x-axis. Smaller and more transparent circles represent worse accuracy, and bigger and stronger circles represent better accuracy. 
+\grafic{graphs/xclass.tex}{Accuracy heat graph}
+
+As we can see, classes like \codi{Entertainment} are more likely to be confused with any other class, being the distinction between the classes \codi{News} and \codi{Entertainment} the most
+difficult to perform. The reason why the \codi{News} are so easy to confuse might be the fact that their content depends on what is trending, and their sites do not contain specific language.
+\codi{Entertainment} is likely to be confused with \codi{Sport} or \codi{Shopping} because a lot of people consider them entertainment activities. 
+As a concrete example, the following tree represents the WJ-48 pruned tree output that classifies \codi{Weather} and \codi{News}.
+
+\begin{lstlisting}[language=Python]
+weather <= 0.068359
+|   forecast <= 0.030773
+|   |   snow <= 0.035962: news (511.0/30.0)
+|   |   snow > 0.035962
+|   |   |   stori <= 0.033615
+|   |   |   |   watch <= 0.01856: weather (14.0/1.0)
+|   |   |   |   watch > 0.01856: news (3.0)
+|   |   |   stori > 0.033615: news (8.0)
+|   forecast > 0.030773
+|   |   engin <= 0.017747
+|   |   |   edit <= 0.015559: weather (19.0/1.0)
+|   |   |   edit > 0.015559: news (2.0)
+|   |   engin > 0.017747: news (4.0)
+weather > 0.068359
+|   news <= 0.153393: weather (163.0/17.0)
+|   news > 0.153393
+|   |   copi <= 0.068359: weather (4.0)
+|   |   copi > 0.068359: news (7.0)
+\end{lstlisting}
+It's obvious that words like weather, news or forecast will help us distinguish between one category and the other, but it is interesting to observe how the stem "stori" or "engin" also help performing
+the task.
+
