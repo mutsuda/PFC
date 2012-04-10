@@ -1,6 +1,8 @@
 \documentclass[12pt, a4paper , titlepage]{report}
 \usepackage{latexmasu}
 \usepackage{fancyhdr}
+\usepackage{pgfgantt}
+\usepackage{pdflscape}
 \setcounter{tocdepth}{4}
 \pagestyle{fancy}
 \lhead{Automatic web content categorization}
@@ -35,7 +37,7 @@
 \chapter{Introduction}
 \input{introduction}
 
-\chapter{Environment, goals and expected contribution}
+\chapter[Env. goals and contrib.]{Environment, goals and expected contribution}
 \label{chap:flowsight}
 \input{flowsight}
 
@@ -54,6 +56,11 @@
 \chapter{Result analysis}
 \label{chap:results}
 \input{results}
+
+\chapter{Project plan}
+\label{chap:plan}
+\input{plan}
+
 
 \chapter{Conclusions and future work}
 \label{chap:conclusions}

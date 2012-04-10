@@ -1,0 +1,104 @@
+\section{Plan and human resources}
+This project's development has been divided into X different stages which are enumerated together with the subtasks they carry.
+\begin{enumerate}
+  \item \textbf{Environment setup and maintenance}
+  \begin{enumerate}
+    \item Installation and configuration of the environment
+    \item Environment maintenance
+  \end{enumerate}
+  \item \textbf{Knowledge acquisition}
+  \begin{enumerate}
+    \item Study of the FlowSight architecture
+    \item Generation of the first workflows and reports
+    \item Documentation of the first contact with the architecture
+    \item Study of the already available machine learning functionalities in the platform
+  \end{enumerate}
+  \item \textbf{Goal definition}
+  \begin{enumerate}
+    \item Client requirement analysis   
+    \item Stage breakdown and plan
+  \end{enumerate}
+  \item \textbf{Research}
+  \begin{enumerate}
+    \item Tuning the existing code to match the client requirements
+    \item Crawling the Yahoo! directory
+    \item Crawling the client's websites
+    \item Performing initial tests with Rapidminer
+  \end{enumerate}
+  \item \textbf{Development}
+  \begin{enumerate}
+    \item MaxEnt algorithm tuning in the platform
+    \item Configuration files setup
+    \item Categorization enhancements
+    \item Language detection
+  \end{enumerate}
+  \item \textbf{Testing and evaluation}
+  \begin{enumerate}
+    \item Performance evaluation
+    \item Result analysis
+  \end{enumerate}
+  \item \textbf{Documentation and completion}
+  \begin{enumerate}
+    \item{Knowledge acquisition in the LaTex environment} 
+    \item{Installation of the LaTex environment}
+    \item{Installation and setup of a Github repository}
+    \item{Writing the document}
+    \item{Writing the slides}
+    \item{Presentation and project completion} 
+  \end{enumerate} 
+\end{enumerate}
+
+
+
+\scalebox{0.5}{
+\begin{ganttchart}[vgrid]{40}
+\gantttitle{2011}{16} 
+\gantttitle{2012}{24} \\
+\gantttitle{Sep}{4}
+\gantttitle{Oct}{4}
+\gantttitle{Nov}{4}
+\gantttitle{Dec}{4}
+\gantttitle{Jan}{4}
+\gantttitle{Feb}{4}
+\gantttitle{Mar}{4}
+\gantttitle{Apr}{4}
+\gantttitle{May}{4}
+\gantttitle{Jun}{4}\\ 
+\ganttgroup{Environment}{1}{38} \\
+\ganttbar{Installation}{1}{2} \\
+\ganttlinkedbar{Maintenance}{3}{38} \\
+\ganttgroup{Knowledge acquisition}{4}{8} \\ 
+\ganttbar{Architecture study}{4}{5} \\
+\ganttlinkedbar{First workflows}{6}{7.5} \\
+\ganttlinkedbar{First contact documentation}{6.5}{8} \\
+\ganttbar{Study of already available ML}{8}{8} \\
+\ganttgroup{Goal definition}{9}{12} \\
+\ganttbar{Client requirement analysis}{9}{11} \\
+\ganttlinkedbar{Stage breakdown and plan}{11}{12} \\
+\ganttgroup{Research}{13}{19} \\
+\ganttbar{Tuning existing code}{13}{14} \\
+\ganttlinkedbar{Crawling Yahoo! directory}{15}{15} \\
+\ganttbar{Crawling client's websites}{15}{15} \\
+\ganttlinkedbar{Rapidminer initial tests}{16}{19} \\
+\ganttgroup{Development}{20}{} \\
+\ganttbar{MaxEnt algorithm tuning in the platform}{20}{22} \\
+\ganttbar{Configuration files setup}{21}{23} \\
+\ganttmilestone{Delivery}{24}
+\ganttbar{Categorization enhancements}{}{} \\
+\ganttbar{Language detection}{}{} \\
+\gantgroup{Testing and evaluation}{}{} \\
+\ganttbar{Performance evaluation}{}{} \\
+\ganttbar{Result analysis}{}{} \\
+\ganttgroup{Documentation and completion}{}{} \\
+\ganttbar{Knowledge acquisition in LaTex}{}{} \\
+\ganttbar{Installation of the LaTex environment}{}{} \\
+\ganttbar{Installation and setup of a Github repo}{}{} \\
+\ganttbar{Writing the document}{}{} \\
+\ganttbar{Writing the slides}{}{} \\
+\ganttmilestone{Presentation and project completion}{38} \\
+\ganttlink{elem1}{elem4}
+\ganttlink{elem10}{elem12}
+\ganttlink{elem7}{elem12}
+\ganttlink{elem12}{elem14}
+\end{ganttchart}
+}
