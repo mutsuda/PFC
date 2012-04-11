@@ -1,0 +1,52 @@
+\scalebox{0.5}{
+\begin{ganttchart}[vgrid]{40}
+\gantttitle{2011}{16} 
+\gantttitle{2012}{24} \\
+\gantttitle{Sep}{4}
+\gantttitle{Oct}{4}
+\gantttitle{Nov}{4}
+\gantttitle{Dec}{4}
+\gantttitle{Jan}{4}
+\gantttitle{Feb}{4}
+\gantttitle{Mar}{4}
+\gantttitle{Apr}{4}
+\gantttitle{May}{4}
+\gantttitle{Jun}{4}\\ 
+\ganttgroup{Environment}{1}{38} \\
+\ganttbar{Installation}{1}{2} \\
+\ganttlinkedbar{Maintenance}{3}{38} \\
+\ganttgroup{Knowledge acquisition}{4}{8} \\ 
+\ganttbar{Architecture study}{4}{5} \\
+\ganttlinkedbar{First workflows}{6}{7.5} \\
+\ganttlinkedbar{First contact documentation}{6.5}{8} \\
+\ganttbar{Study of already available ML}{8}{8} \\
+\ganttgroup{Goal definition}{9}{12} \\
+\ganttbar{Client requirement analysis}{9}{11} \\
+\ganttlinkedbar{Stage breakdown and plan}{11}{12} \\
+\ganttgroup{Research}{13}{19} \\
+\ganttbar{Tuning existing code}{13}{14} \\
+\ganttlinkedbar{Crawling the data}{15}{15} \\
+\ganttlinkedbar{Rapidminer initial tests}{16}{19} \\
+\ganttgroup{Development}{18}{29} \\
+\ganttbar{MaxEnt algorithm tuning in the platform}{18}{20} \\
+\ganttbar{Configuration files setup}{20}{22} \\
+\ganttmilestone{Client delivery}{23} \\
+\ganttbar{Categorization enhancements}{24}{26} \\
+\ganttbar{Language detection}{27}{29} \\
+\ganttgroup{Testing and evaluation}{29}{32} \\
+\ganttbar{Performance evaluation}{29}{31} \\
+\ganttbar{Result analysis}{29}{32} \\
+\ganttgroup{Documentation and completion}{18}{39} \\
+\ganttbar{Installation of the LaTex environment}{18}{19} \\
+\ganttbar{Installation and setup of a Github repo}{20}{21} \\
+\ganttbar{Writing the document}{18}{37} \\
+\ganttbar{Writing the slides}{35}{39} \\
+\ganttmilestone{Presentation and project completion}{40} \\
+\ganttlink{elem1}{elem4}
+\ganttlink{elem10}{elem12}
+\ganttlink{elem7}{elem12}
+\ganttlink{elem12}{elem14}
+\ganttlink{elem17}{elem19}
+\ganttlink{elem18}{elem19}
+\end{ganttchart}
+}
