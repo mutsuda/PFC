@@ -20,19 +20,22 @@ A better approach would be identifying the language itself and discarding the in
 As we saw in Chapter \ref{chap:research}, the category \codi{Entertainment} is one of the most difficult to distinguish. This could be due to the fact that it is a wide category containing a lot of different
 subcategories. We could try to split \codi{Entertainment} into subcategories (such as \codi{Music}, \codi{Movies}, \codi{Literature}...) to get a more precise dataset. In order to meet the
 client requirements those subcategories should be remapped to the original \codi{Entertainment} category after the classification process. \\
+In Figure \ref{fig:{graphs/confusion1}} we can observe the mean accuracy for each of the categories together with the category that would have been chosen if the first one didn't existed. New
+categories are added to check their relevance. We can see how the entertainment category is being a common second option for almost all categories. We can also observe that the confidence of the 
+\codi{Food \& Drink} category is very high.
 
-\grafic{graphs/confusion1.tex}{Categorization confusions before split}
+\grafic{graphs/confusion1}{Categorization confusions before split}
 
-After splitting the \codi{Entertainment} category into subcategories, these were the new classes I found: \\
+After splitting the \codi{Entertainment} category into subcategories, these were the new classes representing it: \\
 \begin{lstlisting} 
 Music, Literature, Theme parks, Movies, Food & Drink, Games, Television
 \end{lstlisting} 
 As new classes are added, it is clear that the overall accuracy of the classification may be worse, but with this new structure the confusions are likely to be between categories belonging to the same
 supercategory, which is not a problem.
-After splitting the entertainment category into subcategories and adding some categories to represent the "Other" category, Figure \ref{fig:{graphs/confusion2.tex}} shows which is the most common second option 
-in every of the categories that are categorized and how far it is from being the first option.
+After splitting the entertainment category into subcategories and adding some categories to represent the "Other" category, Figure \ref{fig:{graphs/confusion2}} shows the same information as 
+Figure \ref{fig:{graphs/confusion1}} but without the generic \codi{Entertainment} category. Now we see how the \codi{News} category is playing the role that \codi{Entertainment} was previously playing.
 
-\grafic{graphs/confusion2.tex}{Categorization confusions after split}
+\grafic{graphs/confusion2}{Categorization confusions after split}
 
 
  
@@ -44,10 +47,10 @@ Another approach is taking the accuracy of a classification into account, and us
 another class. 
 By calculating the variance of the probability distribution through classes, we can determine the strength with which a classification is done.   
 
-\grafic{graphs/other.tex}{Probability distribution of two instances}
+\grafic{graphs/other}{Probability distribution of two instances}
 
 
-This could be done by looking at the variance of the model. The plot (figure \ref{fig:{graphs/other.tex}}) represents the confidence with which two instances are classified, the x axis being the classes
+This could be done by looking at the variance of the model. The plot (figure \ref{fig:{graphs/other}}) represents the confidence with which two instances are classified, the x axis being the classes
 and the y axis being the probability. We could say that the blue colored classification is not really confident whereas the orange colored classification seems to be sure assigning the \codi{c30} 
 category. In this particular case we could assign the blue instance to the \codi{Other} category, because it is more or less equally unsure of where to assign it.
 
@@ -111,6 +114,25 @@ for row in seed_read:
 \end{lstlisting}
 
 Before applying the LID algorithm, websites in other languages were being categorized as random categories, adding unuseful noise to the results. After applying the algorithm, those websites were 
-categorized as \codi{foreign\_language} and were easily identified. We can see how the foreign language web pages were wrongly classified both in absolute values and percentage.
+categorized as \codi{foreign\_language} and were easily identified. We can see in Figure \ref{fig:{graphs/lid1}} how the foreign language web pages were wrongly classified both in absolute values and percentage.
 
 \grafic{graphs/lid1}{Applying the LID algorithm}
+
+\begin{lstlisting}
+...
+safir.is,foreign_language
+trafikrapport.com,foreign_language
+klc.fi,foreign_language
+letemsvetemapplem.eu,foreign_language
+mediaindex.ee,foreign_language
+foceni.org,foreign_language
+ye.dk,foreign_language
+oddschecker.es,foreign_language
+m-app.jp,foreign_language
+synergysuite.net,foreign_language
+mediamatic.nl,foreign_language
+smachno.ua,foreign_language
+justrewardsuk.co.uk,foreign_language
+webnode.cz,foreign_language
+...
+\end{lstlisting}
