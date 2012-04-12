@@ -17,15 +17,24 @@ A better approach would be identifying the language itself and discarding the in
 
 \subsection{Entertainment into subcategories}
 %!Splitting entertainment into subcategories and seeing performance
-As we saw in chapter 3.3, the category \codi{Entertainment} is one of the most difficult to distinguish. This could be due to the fact that it is a wide category containing a lot of different
+As we saw in Chapter \ref{chap:research}, the category \codi{Entertainment} is one of the most difficult to distinguish. This could be due to the fact that it is a wide category containing a lot of different
 subcategories. We could try to split \codi{Entertainment} into subcategories (such as \codi{Music}, \codi{Movies}, \codi{Literature}...) to get a more precise dataset. In order to meet the
 client requirements those subcategories should be remapped to the original \codi{Entertainment} category after the classification process. \\
+
+\grafic{graphs/confusion1.tex}{Categorization confusions before split}
+
 After splitting the \codi{Entertainment} category into subcategories, these were the new classes I found: \\
 \begin{lstlisting} 
 Music, Literature, Theme parks, Movies, Food & Drink, Games, Television
 \end{lstlisting} 
 As new classes are added, it is clear that the overall accuracy of the classification may be worse, but with this new structure the confusions are likely to be between categories belonging to the same
 supercategory, which is not a problem.
+After splitting the entertainment category into subcategories and adding some categories to represent the "Other" category, Figure \ref{fig:{graphs/confusion2.tex}} shows which is the most common second option 
+in every of the categories that are categorized and how far it is from being the first option.
+
+\grafic{graphs/confusion2.tex}{Categorization confusions after split}
+
+
  
 
 \subsection{The \codi{Other} category}

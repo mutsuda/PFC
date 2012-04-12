@@ -1,0 +1,23 @@
+% This graph belongs to sclass.tex
+
+% 2D graph of the performance
+\begin{tikzpicture}[scale=1]
+    \begin{axis}[
+      height=8cm,
+      width=12cm,
+      ymin = 0.02, 
+      xmin = automotive-games, xmax = regional-realestate, 
+      xticklabel style={rotate=90},
+      xtick={automotive-games,health-news,adult-news,travel-news,sport-news,shopping-sport,news-music,fooddrink-news,software-news,science-news,photos-news,financial-news,music-religion,themeparks-news,realestate-news,weather-news,movies-news,history-news,television-news,religion-automotive,socialnetworking-news,government-news,reference-news,socialscience-themeparks,email-travel,education-news,instantmessaging-news,games-shopping,crime-automotive,literature-automotive,maps-automotive,regional-realestate},
+      legend style={at={(0.19,0.95)}, anchor=north}, 
+      symbolic x coords={automotive-games,health-news,adult-news,travel-news,sport-news,shopping-sport,news-music,fooddrink-news,software-news,science-news,photos-news,financial-news,music-religion,themeparks-news,realestate-news,weather-news,movies-news,history-news,television-news,religion-automotive,socialnetworking-news,government-news,reference-news,socialscience-themeparks,email-travel,education-news,instantmessaging-news,games-shopping,crime-automotive,literature-automotive,maps-automotive,regional-realestate},
+      xlabel style={yshift=-0.4cm},
+      ylabel=$ confidence $]
+    \addplot[line width=1pt,smooth,blue] 
+      table[x index=0, y index=1, col sep=comma]{graphs/data/confusion2.dat};
+    \addplot[line width=1pt,smooth,red] 
+      table[x index=0, y index=2, col sep=comma]{graphs/data/confusion2.dat};
+    \legend{first option, second option}
+    \end{axis}
+\end{tikzpicture}
+

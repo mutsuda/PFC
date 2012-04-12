@@ -33,8 +33,8 @@ a seed file that was later automatically parsed.
 \inputcfg{config/seed_yahoodir.txt}{Yahoo Directory! parsing seed file (excerpt)}
 
 The process of parsing the seed file and crawling those URL was performed by two separate  workflows in the application specifically designed for the task. \\
-The first workflow\ref{fig:{config/yahoo_parser.cfg}} simply parsed each of the lines inside the seed file looking for the URL contained in each of the categories and inserting them into a database. \\
-A second and highly scalable workflow\ref{fig:{config/yahoo_crawler.cfg}} parsed the database crawling the content of each of the previously inserted URL and put it into a folder depending on its category.\ref{fig:{config/resultdir.txt}} \\
+The first workflow \ref{fig:{config/yahoo_parser.cfg}} simply parsed each of the lines inside the seed file looking for the URL contained in each of the categories and inserting them into a database. \\
+A second and highly scalable workflow \ref{fig:{config/yahoo_crawler.cfg}} parsed the database crawling the content of each of the previously inserted URL and put it into a folder depending on its category \ref{fig:{config/resultdir.txt}}. \\
 
 \inputcfg{config/yahoo_parser.cfg}{Yahoo Directory! URL parser}
 
@@ -50,7 +50,7 @@ among other things, allowed me to test different machine learning algorithms wit
   
 
 \section{Rapidminer tests}
-Rapidminer\cite{rapidminer}\ref{fig:{img/rapid1.png}} is a widely used, easy to use and powerful machine learning environment.  
+Rapidminer\cite{rapidminer} \ref{fig:{img/rapid1.png}} is a widely used, easy to use and powerful machine learning environment.  
 It was the perfect tool to do some initial tests in order to diagnose how might some categories be overlapping, detecting which algorithms performed better, etc. Almost all training processes were 
 performed with a 10 fold cross validation in order to prevent overfitting and obtaining realistic accuracy values.
 \imatgePetita{img/rapid1.png}{Rapidminer process}
@@ -81,9 +81,6 @@ using two different feature selection methods: \codi{TD-IDF} and \codi{Term Freq
  
 The conclusion of this initial test was, not surprisingly, that the more data the better. But we can also observe that when the training set size is small it is not clear which feature selection 
 method is better, whereas as the dataset grows it is clear that word frequency performs better, and also faster. (see image \ref{fig:{graphs/features.tex}})
-
-\subsection{K nearest neighbours}
-%!Do some tests changing the N and see the performance.
 
 \subsection{Face to face accuracy}
 %!Learn to distinguish between all pairs of classes and see which are more difficult

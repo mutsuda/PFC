@@ -10,11 +10,11 @@ huge amounts of data from the mobile internet networks in real time, correlating
 \end{itemize}
 In order to get a graphical glimpse of the network, FlowSight allows the configuration of reports. A report consists of a series of options concerning a chart, which is the graphical representation
 of the previously captured and correlated data. As many reports as needed might be configured, representing variables like latency, volume, throughput, etc.   
-Figure\ref{fig:{img/total_traffic_type.png}} represents the total traffic volume during three days of data capturing. This particular report is set to represent the total volume in the network, 
+Figure \ref{fig:{img/total_traffic_type.png}} represents the total traffic volume during three days of data capturing. This particular report is set to represent the total volume in the network, 
 distinguishing between the different types of traffic detected (OTT, streaming, browsing, etc.)
 \imatge{img/total_traffic_type.png}{Total volume per traffic type}
 
-If we set the report to only draw the browsing traffic type\ref{fig:{img/total_traffic_browsing.png}}, we are able to see when and how much data is being consumed via web browsing, but wouldn't it be 
+If we set the report to only draw the browsing traffic type \ref{fig:{img/total_traffic_browsing.png}}, we are able to see when and how much data is being consumed via web browsing, but wouldn't it be 
 great to be able to know which kind of websites are the most visited? Maybe with this information more about the users' behaviour could be learned and a better quality of service could be offered.
 
 \imatge{img/total_traffic_browsing.png}{Total browsing volume}
@@ -22,14 +22,4 @@ great to be able to know which kind of websites are the most visited? Maybe with
 The main goal of this thesis is to be able to split the browsing category into subcategories by automatically categorizing the content of each web page that is browsed, using the power of machine learning
 algorithms.
 
-The result of this Masther thesis is not a standalone application, but an enchancement of an already existing high performance and highly scalable application called FlowSight and developed by Zhilabs.
-FlowSight captures and analyzes the traffic in a network and gives the final user the ability to see the data in many different ways. The higher level of interaction with FlowSight is performed through
-a graphical user interface in a web browser. At a lower level, FlowSight is based on workflows, which are a series of configuration files that using the implemented modules are able to perform a task.
-
-
-One way of solving this task would be doing it manually by someone in the company by reading those top sites and applying categories to them.
-The problem of such a manual approach is that maybe today the client asked for the top 10 sites, but you never know when will they ask for the top 100000. 
-Another way could be using the metadata information provided by the website itself, but not every site provides its category in the metadata.
-The best approach to solve this task in a real scenario ended up being the artificial intelligence.
-This project is the result of applying the power of machine learning algorithms to a real case scenario.
 

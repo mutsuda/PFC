@@ -17,9 +17,6 @@ This is because the constraints work over expectations of the counts. \\
 One implication for this freedom from independence assumptions is that bigrams and phrases can be easily added as features by maximum entropy, without worry that the features are overlapping.
 
 
-\section{MaxEnt Algorithm}
-
-
 \begin{itemize}
 \item Compute $d_j, j=1,...,k+1$
 \item Initialize $\lambda_j^{(1)}$ to zero
@@ -38,6 +35,14 @@ One implication for this freedom from independence assumptions is that bigrams a
 After observing the feature selection performance in the previous chapter, maybe the best choice for a fast vector creation is counting the term frequency. It usually performed better, and it always
 was faster.
 
+\section{Configuration files}
+In order to run the categorization algorithm as a thread inside the FlowSight platform some configuration files are needed. The first one is used to generate a model with the already existing and labeled
+data crawled from the Yahooo! directory. The second one performs the categorization itself using the previously generated model.
+
+
+\inputcfg{config/maxent_builder.cfg}{MaxEnt model builder configuration file}
+
+\inputcfg{config/maxent_classifier.cfg}{MaxEnt classifier configuration file}
 
 \section{Performance evaluation}
 %!Run the tests with m1r1, m2r1, m3r1, m4r1, m5,r1, mr2r2, m3r3, m4r4, m5r5, or etc...
@@ -52,7 +57,7 @@ Figure \ref{fig:{graphs/sclass2dmr.tex}} represents the execution time of the sa
 is the machine where I'm writing most of this document, and \codi{rogue (Intel Core 2 Quad CPU Q9300 @ 2.5GHz 8GB RAM)} is a more powerful machine used for testing purposes. The \codi{x} axis represents the 
 different mapper and reducer combinations I tested while the \codi{y} axis represents the number of categorized pages per second.
 As we can see both machines perform similary when using one to two mappers, but the most powerful machine outperforms the other one when using more than two mappers. We can also observe how \codi{ultraman}'s performance
-quickly stalls for more than thre mappers, while \codi{rogue} is able to hold a rising performance until six mappers are used.
+quickly stalls for more than three mappers, while \codi{rogue} is able to hold a rising performance until six mappers are used.
 
 Figure \ref{fig:{graphs/sclass3dmr.tex}} is a three dimensional representation of \codi{ultraman}'s performance. We can quiclky observe a repeating pattern for each number of mappers.
 \grafic{graphs/sclass3dmr.tex}{3D Performance graph}
