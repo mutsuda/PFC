@@ -1,7 +1,8 @@
 % This graph belongs to sclass.tex
 
+
 % 2D graph of the performance
-\begin{tikzpicture}[scale=1]
+\begin{tikzpicture}[spy using outlines={circle, magnification=4, size=2cm, connect spies}, scale=1]
     \begin{axis}[
       height=8cm,
       width=12cm,
@@ -9,18 +10,22 @@
       xmin = dirReader, xmax = cleaner, 
       xticklabel style={rotate=90},
       xtick={dirReader,fileReader,maxent,tokenizer,cleaner}, 
-      legend style={at={(0.19,0.95)}, anchor=north}, 
+      legend style={at={(0.12,0.95)}, anchor=north}, 
       symbolic x coords={dirReader,fileReader,maxent,tokenizer,cleaner}, 
       xlabel=$ tasks $,
       xlabel style={yshift=-1.5cm},
       ylabel=$ items per second $]
-    \addplot[line width=1pt,smooth,blue] 
+    \addplot[smooth,blue] 
       table[x index=0, y index=1, col sep=comma]{graphs/data/stats.dat};
-    \addplot[line width=1pt,smooth,red] 
+    \addplot[smooth,red] 
       table[x index=0, y index=2, col sep=comma]{graphs/data/stats.dat};
-    \addplot[line width=1pt,smooth,green] 
+    \addplot[smooth,green] 
       table[x index=0, y index=3, col sep=comma]{graphs/data/stats.dat};
-   \legend{5m1r, 6m1r, 7m1r}
+    \legend{5m1r, 6m1r, 7m1r}
+    \begin{scope}
+      \spy[plum!70!plum,size=3cm] on (0.25,0.25) in node [fill=white] at (2.2,2.3);
+    \end{scope}
     \end{axis}
 \end{tikzpicture}
+
 
