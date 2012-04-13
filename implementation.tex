@@ -32,20 +32,26 @@ One implication for this freedom from independence assumptions is that bigrams a
   
 
 \section{Feature selection}
-After observing the feature selection performance in the previous chapter, maybe the best choice for a fast vector creation is counting the term frequency. It usually performed better, and it always
-was faster.
+In Chapter \ref{chap:research} we compared two feature selection algorithms related to text corpus. We observed how when using small amounts of data both algorithms performed similarly whereas once
+large amounts of text are were used counting the term frequency gave better accuracy results. The term frequency counting algorithm is also faster so it was the chosen algorithm for the final 
+implementation in the platform.
+
 
 \section{Configuration files}
-In order to run the categorization algorithm as a thread inside the FlowSight platform some configuration files are needed. The first one is used to generate a model with the already existing and labeled
-data crawled from the Yahooo! directory. The second one performs the categorization itself using the previously generated model.
+\label{sec:config}
+In order to run the categorization algorithm as a thread inside the FlowSight platform some configuration files are needed. The first one \ref{fig:{config/maxent_builder.cfg}} is used to generate a model with the already existing and labeled
+data crawled from the Yahoo! directory. The second one \ref{fig:{config/maxent_classifier.cfg}} performs the categorization itself using the previously generated model. This configuration files are
+parsed once the application is running and they are detected as tasks that can be executed.
 
 
 \inputcfg{config/maxent_builder.cfg}{MaxEnt model builder configuration file}
 
+\clearpage
 \inputcfg{config/maxent_classifier.cfg}{MaxEnt classifier configuration file}
 
 \section{Performance evaluation}
 %!Run the tests with m1r1, m2r1, m3r1, m4r1, m5,r1, mr2r2, m3r3, m4r4, m5r5, or etc...
+\subsection{Overall performance}
 Compared to other classification algorithms like Naive Bayes, the Maximum Entropy algorithm has a higher computational requirement. 
 The platform where the MaxEnt classification algorithm is running is highly scalable and follows the map/reduce paradigm. Taking advantage of the paradigm, the MaxEnt algorithm
 is able to perform notably faster.
@@ -56,9 +62,18 @@ is able to perform notably faster.
 Figure \ref{fig:{graphs/sclass2dmr.tex}} represents the execution time of the same algorithm with different number of mappers and reducers, in two different machines: \codi{ultraman (Intel Core 2 Duo CPU 2.00GHz 4GB RAM)} 
 is the machine where I'm writing most of this document, and \codi{rogue (Intel Core 2 Quad CPU Q9300 @ 2.5GHz 8GB RAM)} is a more powerful machine used for testing purposes. The \codi{x} axis represents the 
 different mapper and reducer combinations I tested while the \codi{y} axis represents the number of categorized pages per second.
-As we can see both machines perform similary when using one to two mappers, but the most powerful machine outperforms the other one when using more than two mappers. We can also observe how \codi{ultraman}'s performance
+As we can see both machines perform similarly when using one to two mappers, but the most powerful machine outperforms the other one when using more than two mappers. We can also observe how \codi{ultraman}'s performance
 quickly stalls for more than three mappers, while \codi{rogue} is able to hold a rising performance until six mappers are used.
 
-Figure \ref{fig:{graphs/sclass3dmr.tex}} is a three dimensional representation of \codi{ultraman}'s performance. We can quiclky observe a repeating pattern for each number of mappers.
+Figure \ref{fig:{graphs/sclass3dmr.tex}} is a three dimensional representation of \codi{ultraman}'s performance. We can quickly observe a repeating pattern for each number of mappers.
 \grafic{graphs/sclass3dmr.tex}{3D Performance graph}
+
+\subsection{Detailed performance}
+We saw how using the \codi{rogue} machine the performance of the classification reached its top when using 5 mappers, but the reason this happens seems to be unknown. 
+Fortunately, the FlowSight platform offers the possibility of analyzing the performance of each of the mappers during each task. As we saw in Section \ref{sec:config} the execution of the classification
+task depends on other tasks like reading the directory, reading the content of each file that needs to be classified, and also has some small operations after the classification is done and before
+the result is written. Using the available FlowSight statistics we can analyze where is the bottleneck that is causing the performance to stall even if more mappers are added. 
+
+\grafic{graphs/stats.tex}{Performance for each task}
+
 
