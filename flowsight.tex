@@ -9,15 +9,17 @@ huge amounts of data from the mobile internet networks in real time, correlating
   \item{Built-in reporting capabilities}
 \end{itemize}
 In order to get a graphical glimpse of the network, FlowSight allows the configuration of reports. A report consists of a series of options concerning a chart, which is the graphical representation
-of the previously captured and correlated data. As many reports as needed might be configured, representing variables like latency, volume, throughput, etc.   
+of the previously captured and correlated data. This data is previously correlated using what in FlowSight are called workflows, a set of tasks defined inside configuration files. \\
+As many reports as needed might be configured, representing variables like latency, volume, throughput, etc.   
 Figure \ref{fig:{img/total_traffic_type.png}} represents the total traffic volume during three days of data capturing. This particular report is set to represent the total volume in the network, 
 distinguishing between the different types of traffic detected (OTT, streaming, browsing, etc.)
 \imatge{img/total_traffic_type.png}{Total volume per traffic type}
 
-If we set the report to only draw the browsing traffic type \ref{fig:{img/total_traffic_browsing.png}}, we are able to see when and how much data is being consumed via web browsing, but wouldn't it be 
-great to be able to know which kind of websites are the most visited? Maybe with this information more about the users' behaviour could be learned and a better quality of service could be offered.
+If we set the report to only draw the browsing traffic type \ref{fig:{img/total_traffic_browsing1.png}}, we are able to see when and how much data is being consumed via web browsing. This level of
+granularity was enough for previous projects but one of the clients wanted to go further. They wanted to know which kind of websites were generating most of the traffic. Having this information
+would let them learn more about their subscribers' behaviour allowing them to offer a better customer experience.
 
-\imatge{img/total_traffic_browsing.png}{Total browsing volume}
+\imatge{img/total_traffic_browsing1.png}{Total browsing volume}
 
 The main goal of this thesis is to be able to split the browsing category into subcategories by automatically categorizing the content of each web page that is browsed, using the power of machine learning
 algorithms.
