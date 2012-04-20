@@ -1,0 +1,34 @@
+% This graph belongs to sclass.tex
+
+
+\begin{tikzpicture}
+\begin{axis}[
+  width=11cm,
+  height=15cm,
+  bar width = 3pt,
+  ytick=data,
+  ylabel style = {yshift=10},
+  enlargelimits=0.05,
+  legend style={at={(0.8,0.9)},
+    anchor=north,legend columns=5},
+  xbar,
+  scaled x ticks = false,
+  y tick label style={/pgf/number format/fixed, /pgf/number format/1000 sep=\thinspace },
+  symbolic y coords={adult,email,entertainment,financial,instant messaging,maps,news,photos,shopping,social networking,sport,travel,weather,other,foreign},
+  xticklabel style={rotate=90,anchor=east},
+  ]
+\addplot
+  table[x index = 1, y index = 0, col sep=comma]{graphs/data/distrib.dat};
+\addplot
+  table[x index = 2, y index = 0, col sep=comma]{graphs/data/distrib.dat};
+%\addplot
+%  table[x index = 3, y index = 0, col sep=comma]{graphs/data/distrib.dat};
+\addplot
+  table[x index = 4, y index = 0, col sep=comma]{graphs/data/distrib.dat};
+\addplot
+  table[x index = 5, y index = 0, col sep=comma]{graphs/data/distrib.dat};
+
+
+\legend{1,2,3,4,5}
+\end{axis}
+\end{tikzpicture}
