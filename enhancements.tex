@@ -1,5 +1,26 @@
 %!TEX root = main.tex
 
+%For each of the websites the module had to classify, information about the volume of consumed data on each of the connections was also available. 
+%Figure \ref{fig:{img/volume_stacked.png}} is the result of combining the classification results with that information, before applying the language classification.
+%the other data,
+
+\section{Results}
+
+As we saw in previous chapters, FlowSight was already able to graphically represent the amount of consumed data in time \ref{fig:{img/total_traffic_browsing.png}}. The objective of this thesis was to
+give FlowSight the power to accurately and efficiently categorize the traffic depending on the content of the visited URL. As we can see in figures \ref{fig:{img/volume_stacked.png}} and 
+\ref{fig:{img/volume_plain.png}} the objective was achieved.
+ 
+\clearpage
+\imatge{img/total_traffic_browsing.png}{Total browsing traffic}
+\imatge{img/volume_stacked.png}{Stacked representation of the volume of different categories}
+\imatge{img/volume_plain.png}{Plain representation of the volume of different categories}
+
+%!TEX root = main.tex
+
+
+
+\section{Enhancements}
+
 There are several difficulties in the classification task that can be optimized performing some refination. 
 The first difficulty is related to those categories which are more difficult to distinguish for some reason. Another difficulty is the concept of \codi{Other} category, which is not trivial to
 model in a machine learning area.
@@ -12,10 +33,10 @@ problem with the generic \codi{.com} domain.
 A better approach would be identifying the language itself and discarding the instances  which are not in english.
 
 
-\section{Ambiguous categories}
+\subsection{Ambiguous categories}
 
 
-\subsection{Entertainment into subcategories}
+\subsubsection{Entertainment into subcategories}
 %!Splitting entertainment into subcategories and seeing performance
 As we saw in Chapter \ref{chap:research}, the category \codi{Entertainment} is one of the most difficult to distinguish. This could be due to the fact that it is a wide category containing a lot of different
 subcategories. We could try to split \codi{Entertainment} into subcategories (such as \codi{Music}, \codi{Movies}, \codi{Literature}...) to get a more precise dataset. In order to meet the
@@ -39,7 +60,7 @@ Figure \ref{fig:{graphs/confusion1}} but without the generic \codi{Entertainment
 %TODO Somehow test which approach is better!
  
 
-\subsection{The \codi{Other} category}
+\subsubsection{The \codi{Other} category}
 There are several approaches in order to represent the \codi{Other} category, one of them could be creating a new class named \codi{Other} and filling it with content from categories that 
 differ from the ones we want to classify.\\
 Another approach is taking the accuracy of a classification into account, and using a threshold to decide whether some sample should be considered of a any class or assume it should be considered of 
@@ -54,7 +75,7 @@ category. In this particular case we could assign the blue instance to the \codi
 
 %TODO Somehow test which approach is better!
 
-\subsection{Testing}
+\subsubsection{Testing}
 Taking into account the previous two sections, I performed an experiment using different permutations in the training data set, as well as implementations of the \codi{Other} category. 
 The second column in table \ref{tab:accuracy} represents whether the \codi{Entertainment} category is split into subcategories or not. The third column represents whether the \codi{Other} category
 is split into subcategories or not, or if it is actually used to train the model or the variance approach is used. The last column represents the accuracy of the model training. \\
@@ -84,13 +105,13 @@ a balanced number of examples gives a much better result.
 \grafic{graphs/distrib.tex}{Example distribution using the different combinations}
 
 
-\section{Language Identification}
+\subsection{Language Identification}
 As we saw in the introduction of this Chapter, in some situations web page content might be in a language different from English and as the model is trained in English this would lead to wrong 
 classifications. Detecting the web page content language and separating those URL from the rest would give a more accurate result.
 Language identification is the process of determining which natural language given content is in. Using it, we could avoid the classification of foreign websites and enhance the overall accuracy.
 There are several computational/statistical approaches to solve this problem which is split into two different stages: modeling and classification
 
-\subsection{Modeling techniques}
+\subsubsection{Modeling techniques}
 Before being able to classify languages we need to generate models that will represent each language. This can be done using different techniques:
 \begin{itemize}
   \item {\bf Common words technique}: the most common words in a corpus are sorted by frequency in order to get a probability distribution.
@@ -100,13 +121,13 @@ The disadvantage of the {\bf common words technique} is that although common wor
 we avoid that disadvantage by not using just the words but also all the N-partitions in the text.
 
 
-\subsection{Classification techniques}
+\subsubsection{Classification techniques}
 Once we have a model for each language we want to identify, we have to classify them. There are different approaches for this task too:
 \begin{itemize}
   \item {\bf Relative entropy}: compares the compressibility of the text we want to identify to the compressibility of the previously generated models.
   \item {\bf Rank order statistics}: generates a probability by comparing how far an N-Gram is from the position of the same N-Gram in the model.
 \end{itemize}
-\subsection{Application}
+\subsubsection{Application}
 For the scope of this project I chose the {\bf 3-Gram technique} to generate the language models and the {\bf Rank order statistics} to identify the languages. I used a Python implementation by Damir 
 Cavar\cite{lid1} consisting of a model generator and a classifier.
 For generating the language models, I used the Wikipedia as a text source by automatically accessing random articles in different languages and crawling their content. 
