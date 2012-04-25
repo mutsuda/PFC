@@ -17,8 +17,10 @@ then
       rm -f *.out
       echo "rm -f *.aux"
       rm -f *.aux
-      echo rm -f *.pdf
+      echo "rm -f *.pdf"
       rm -f *.pdf
+      echo "rm -f *.lof"
+      rm -f *.lof
       tput setaf 4
       echo "#"
       echo "# Ended cleaning directory."
