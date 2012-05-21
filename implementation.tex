@@ -17,17 +17,17 @@ This is because the constraints work over expectations of the counts. \\
 One implication for this freedom from independence assumptions is that bigrams and phrases can be easily added as features by maximum entropy, without worry that the features are overlapping.
 
 
-\begin{itemize}
-\item Compute $d_j, j=1,...,k+1$
-\item Initialize $\lambda_j^{(1)}$ to zero
-\item Repeat until converge
-\item For each j 
-  \begin{itemize}
-  \item Compute $E_{p^{(n)}} f_j = \sum\limits_{x \in \varepsilon} p^{(n)} (x)f_j(x)$
-    where $p^{(n)}(x) = \frac{e^{\sum\limits_{j=1}^{k+1}\lambda_j^{(n)}f_j(x)}}{Z}$ 
-  \item Update $\lambda_j^{(n+1)} = \lambda_j^{(n)} + \frac{1}{C}(log\frac{d_i}{E_{{p^{(n)}}}f_j})$
-  \end{itemize}
-\end{itemize}
+%\begin{itemize}
+%\item Compute $d_j, j=1,...,k+1$
+%\item Initialize $\lambda_j^{(1)}$ to zero
+%\item Repeat until converge
+%\item For each j 
+%  \begin{itemize}
+%  \item Compute $E_{p^{(n)}} f_j = \sum\limits_{x \in \varepsilon} p^{(n)} (x)f_j(x)$
+%    where $p^{(n)}(x) = \frac{e^{\sum\limits_{j=1}^{k+1}\lambda_j^{(n)}f_j(x)}}{Z}$ 
+%  \item Update $\lambda_j^{(n+1)} = \lambda_j^{(n)} + \frac{1}{C}(log\frac{d_i}{E_{{p^{(n)}}}f_j})$
+%  \end{itemize}
+%\end{itemize}
 
   
 

@@ -33,7 +33,8 @@ else
   echo "# Started generating document."
   echo "#"
   tput setaf 1 
-  pdflatex -interaction=nonstopmode main.tex | grep !
+  pdflatex -interaction=nonstopmode main.tex | grep ! &
+  wait
   tput setaf 4
   echo "#"
   echo "# Ended generating document."
