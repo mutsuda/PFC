@@ -8,8 +8,9 @@
 
 As we saw in previous chapters, FlowSight was already able to graphically represent the amount of consumed data in time \ref{fig:{img/total_traffic_browsing.png}}. The objective of this thesis was to
 give FlowSight the power to accurately and efficiently categorize the traffic depending on the content of the visited URL. As we can see in figures \ref{fig:{img/volume_stacked.png}} and 
-\ref{fig:{img/volume_plain.png}} the objective was achieved.
- 
+\ref{fig:{img/volume_plain.png}} the objective was achieved.\\
+Looking at the results we can see how the consumption of URL of each category varies over time of the day, being entertainment and social networking the most volume consumer categories during the day and lowering their volume during the night, when adult category content becomes the top consumer.
+Having this kind of information mobile internet service providers might be able to improve their balancing, giving more bandwith to those sites that might be more demanding at a given time of the day depending on their category. 
 \clearpage
 \imatge{img/total_traffic_browsing.png}{Total browsing traffic}
 \imatge{img/volume_stacked.png}{Stacked representation of the volume of different categories}
@@ -83,7 +84,7 @@ is split into subcategories or not, or if it is actually used to train the model
 \begin{table}[htbp]
 \caption{Accuracy evaluation using different training data structure}
 \begin{center}
-\begin{tabular}{|c|c|c|c|}
+\begin{tabular}{|c|c|c|c|c|}
 \hline
 \textbf{id} & \textbf{Entertainment} & \textbf{Other} & \textbf{Accuracy} & \textbf{Normalized} \\ \hline
 1 & Split & Split & 77.33\% & 78.40\% \\ \hline
@@ -96,10 +97,10 @@ is split into subcategories or not, or if it is actually used to train the model
 \label{tab:accuracy}
 \end{table}
 
-As we can see trainings 3 and 4 are identically set but give different accuracy percentages. This is due to how the construction of the training directories was made. In example 3, the structure
-of example 1 was used as a base and the \codi{Entertainment} and \codi{Other} directories were constructed by merging all related directories, having as a result, two categories with almost 5 times more data
-than the others. The low accuracy percentage gives us a hint of what may have happened. Having too many data of two classes might have caused the model to overfit the data. In example 4, which has
-a balanced number of examples gives a much better result. 
+As we can see trainings 3 and 4 are identically set but give different accuracy percentages. This is due to how the construction of the training directories was made. \\
+In example 3, the structure of example 1 was used as a base and the \codi{Entertainment} and \codi{Other} directories were constructed by merging all related directories, having as a result, two categories with almost 5 times more data
+than the others. The low accuracy percentage gives us a hint of what may have happened. Having too many data of two classes might have caused the model to overfit the data. \\
+In example 4, which has a balanced number of examples gives a much better result. \\
 Apparently splitting the categories gave a worse result in the classification, but we have to take into account the fact that splitting one class increases the number of classes and thus the probability of error increases too. To be able to compare all performance a normalization has to be done not considering as wrong a missclassification between two subcategories of the same category. The fifth column represents the normalized accuracy of the models where categories were split, proving how splitting the data and using no data to model the \codi{Other} category is a good choice. 
 
 \clearpage
@@ -180,8 +181,6 @@ oddschecker.es,foreign_language
 m-app.jp,foreign_language
 synergysuite.net,foreign_language
 mediamatic.nl,foreign_language
-smachno.ua,foreign_language
-justrewardsuk.co.uk,foreign_language
 webnode.cz,foreign_language
 ...
 \end{lstlisting}
