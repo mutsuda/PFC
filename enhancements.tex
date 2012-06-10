@@ -85,12 +85,12 @@ is split into subcategories or not, or if it is actually used to train the model
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
 \hline
-\textbf{id} & \textbf{Entertainment} & \textbf{Other} & \textbf{Accuracy} \\ \hline
-1 & Split & Split & 77.33\% \\ \hline
-2 & Split & No data & 77.40\% \\ \hline
-3 & Not split & Not split & 65.07\% \\ \hline
-4 & Not split & Not split & 79.19\% \\ \hline
-5 & Not split & No data & 78.23\% \\ \hline
+\textbf{id} & \textbf{Entertainment} & \textbf{Other} & \textbf{Accuracy} & \textbf{Normalized} \\ \hline
+1 & Split & Split & 77.33\% & 78.40\% \\ \hline
+2 & Split & No data & 77.40\% & 80.17\% \\ \hline
+3 & Not split & Not split & 65.07\% & - \\ \hline
+4 & Not split & Not split & 79.19\% & - \\ \hline
+5 & Not split & No data & 78.23\% & - \\ \hline
 \end{tabular}
 \end{center}
 \label{tab:accuracy}
@@ -100,6 +100,7 @@ As we can see trainings 3 and 4 are identically set but give different accuracy 
 of example 1 was used as a base and the \codi{Entertainment} and \codi{Other} directories were constructed by merging all related directories, having as a result, two categories with almost 5 times more data
 than the others. The low accuracy percentage gives us a hint of what may have happened. Having too many data of two classes might have caused the model to overfit the data. In example 4, which has
 a balanced number of examples gives a much better result. 
+Apparently splitting the categories gave a worse result in the classification, but we have to take into account the fact that splitting one class increases the number of classes and thus the probability of error increases too. To be able to compare all performance a normalization has to be done not considering as wrong a missclassification between two subcategories of the same category. The fifth column represents the normalized accuracy of the models where categories were split, proving how splitting the data and using no data to model the \codi{Other} category is a good choice. 
 
 \clearpage
 \grafic{graphs/distrib.tex}{Example distribution using the different combinations}
