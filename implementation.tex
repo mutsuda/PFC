@@ -71,7 +71,7 @@ Figure \ref{fig:{graphs/sclass3dmr.tex}} is a three dimensional representation o
 \subsection{Detailed performance}
 We saw how using the \codi{rogue} machine the performance of the classification reached its top when using 5 mappers, but the reason this happens seems to be unknown. 
 Fortunately, the FlowSight platform offers the possibility of analyzing the performance of each of the mappers during each task. As we saw in Section \ref{sec:config} the execution of the classification
-task depends on other subtasks like reading the directory, reading the content of each file that needs to be classified, and also performs some small operations after the classification is done and before
+task depends on other subtasks like reading the directory, reading the content of each file that needs to be classified, and also performing some small operations after the classification is done and before
 the result is written. Using the available FlowSight statistics we can locate the bottleneck that is causing the performance to stall even if more mappers are added. \\ 
 In figure \ref{fig:{graphs/stats.tex}} we can see how when using more mappers almost all tasks perform better, including the classification task itself. Looking at the magnified section we can observe
 that the task of reading the directory is the only one decreasing in performance, and so, causing the bottleneck. 
