@@ -19,7 +19,7 @@ We can also see that the category \codi{Entertainment} might be overlapping with
 Another of the difficulties of the task seems to be categorizing something as \codi{Other}, because generating a training set for such a category might be difficult. 
 Once the client requirements were analyzed we needed data in order to start experimenting with the algorithms.
 
-\section{Crawling training data}
+\section{Crawling data}
 Supervised Machine Learning algorithms need a set of training (labeled) data to infer the function that will later determine whether a new example is from one class or another. In this case we needed
 web content for each of the categories. There are different approaches to acquire web content. One of them could have been querying categories in search engines or navigating through blog entries matching
 each category. \\
@@ -45,6 +45,7 @@ depending on its category \ref{fig:{config/resultdir.txt}}. \\
 \clearpage
 \inputcfg{config/resultdir.txt}{Directory structure created by the crawler task}
 
+I used a similar workflow in order to crawl the content of the actual web pages we wanted to categorize.
 Once the training set was ready I performed some initial tests that could help taking later decisions using rapidminer\cite{rapidminer}, a fast-to-setup and easy-to-use machine learning tool that, 
 among other things, allowed me to test different machine learning algorithms with the same datasets in order to compare their performance. 
 
