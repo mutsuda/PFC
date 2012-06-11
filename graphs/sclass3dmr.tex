@@ -1,7 +1,7 @@
 % This graph belongs to sclass.tex
 
 \begin{tikzpicture}[scale=0.5]
-\begin{axis}[xlabel=$mappers$,ylabel=$reducers$,zlabel=$performance (pps)$]
+\begin{axis}[xlabel=$tasks$,ylabel=$storage handlers$,zlabel=$performance (pps)$]
   \addplot3[smooth] table[x index=0, y index=1, z index=2, col sep=comma]{graphs/data/sclass_3dmr_1.dat};
   \addplot3[smooth] table[x index=0, y index=1, z index=2, col sep=comma]{graphs/data/sclass_3dmr_2.dat};
   \addplot3[smooth] table[x index=0, y index=1, z index=2, col sep=comma]{graphs/data/sclass_3dmr_3.dat};

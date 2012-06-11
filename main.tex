@@ -6,6 +6,8 @@
 \usepackage{multirow}
 \usepackage{bigstrut}
 \usepackage{colortbl}
+\usepackage{pdfpages} 
+
 
 \setcounter{tocdepth}{4}
 \pagestyle{fancy}
@@ -24,15 +26,37 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
 
+
+
 \author{Masumi Mutsuda Zapater}
 \title{Automatic web content categorization \\ Machine Learning}
 \date{June 2012}
 
 \begin{document}
 
+\includepdf[pages=-]{pagina1.pdf} 
+
+\newpage
+\thispagestyle{empty}
+\mbox{}
+
+\includepdf[pages=-]{pagina3.pdf}
+
+\newpage
+\thispagestyle{empty}
+\mbox{}
+
 \maketitle
 
+\newpage
+\thispagestyle{empty}
+\mbox{}
+
 \input{abstract}
+
+\newpage
+\thispagestyle{empty}
+\mbox{}
 
 \tableofcontents
 
@@ -45,9 +69,20 @@
 \label{chap:flowsight}
 \input{flowsight}
 
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
+\thispagestyle{empty}
+\mbox{}
+
 \chapter{Previous research}
 \label{chap:research}
 \input{research}
+
+\newpage
+\thispagestyle{empty}
+\mbox{}
 
 \chapter{Implementation}
 \label{chap:implementation}
@@ -56,6 +91,14 @@
 \chapter[Results \& enhancements]{Results and enhancements}
 \label{chap:enhancements}
 \input{enhancements}
+
+
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
+\thispagestyle{empty}
+\mbox{}
 
 \chapter{Project plan}
 \label{chap:plan}
@@ -75,7 +118,5 @@
 \phantomsection
 \addcontentsline{toc}{chapter}{List of Figures} 
 \listoffigures
-
-
 
 \end{document}

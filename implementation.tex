@@ -53,27 +53,27 @@ parsed once the application is running and they are detected as tasks that can b
 %!Run the tests with m1r1, m2r1, m3r1, m4r1, m5,r1, mr2r2, m3r3, m4r4, m5r5, or etc...
 \subsection{Overall performance}
 Compared to other classification algorithms like Naive Bayes, the Maximum Entropy algorithm has a higher computational requirement. 
-The platform where the MaxEnt classification algorithm is running is highly scalable and follows the map/reduce paradigm. Taking advantage of the paradigm, the MaxEnt algorithm
-is able to perform notably faster.
+The platform where the MaxEnt classification algorithm is running is highly scalable and follows a massively parallel paradigm of concurrent tasks and storage handlers. 
+Taking advantage of the paradigm, the MaxEnt algorithm is able to perform notably faster.
 
 
 \grafic{graphs/sclass2dmr.tex}{2D Performance graph}
 
-Figure \ref{fig:{graphs/sclass2dmr.tex}} represents the performance (in categorized pages per second) of the same algorithm with different number of mappers and reducers, in two different machines: \codi{ultraman (Intel Core 2 Duo CPU 2.00GHz 4GB RAM)} 
+Figure \ref{fig:{graphs/sclass2dmr.tex}} represents the performance (in categorized pages per second) of the same algorithm with different number of tasks and storage handlers, in two different machines: \codi{ultraman (Intel Core 2 Duo CPU 2.00GHz 4GB RAM)} 
 is the machine where I'm writing most of this document, and \codi{rogue (Intel Core 2 Quad CPU Q9300 @ 2.5GHz 8GB RAM)} is a more powerful machine used for testing purposes. The \codi{x} axis represents the 
-different mapper and reducer combinations I tested while the \codi{y} axis represents the number of categorized pages per second.
-As we can see both machines perform similarly when using one to two mappers, but the most powerful machine outperforms the other one when using more than two mappers. We can also observe how \codi{ultraman}'s performance
-quickly stalls for more than three mappers, while \codi{rogue} is able to hold a rising performance until six mappers are used.
+different number of concurrent tasks and storage handler combinations I tested while the \codi{y} axis represents the number of categorized pages per second.
+As we can see both machines perform similarly when using one to two tasks, but the most powerful machine outperforms the other one when using more than two. We can also observe how \codi{ultraman}'s performance
+quickly stalls for more than three tasks, while \codi{rogue} is able to hold a rising performance until six tasks are used.
 
-Figure \ref{fig:{graphs/sclass3dmr.tex}} is a three dimensional representation of \codi{ultraman}'s performance. We can quickly observe a repeating pattern for each number of mappers.
+Figure \ref{fig:{graphs/sclass3dmr.tex}} is a three dimensional representation of \codi{ultraman}'s performance. We can quickly observe a repeating pattern for each number of tasks.
 \grafic{graphs/sclass3dmr.tex}{3D Performance graph}
 
 \subsection{Detailed performance}
-We saw how using the \codi{rogue} machine the performance of the classification reached its top when using 5 mappers, but the reason this happens seems to be unknown. 
-Fortunately, the FlowSight platform offers the possibility of analyzing the performance of each of the mappers during each task. As we saw in Section \ref{sec:config} the execution of the classification
+We saw how using the \codi{rogue} machine the performance of the classification reached its top when using 5 tasks, but the reason this happens seems to be unknown. 
+Fortunately, the FlowSight platform offers the possibility of analyzing the performance of each of the tasks. As we saw in Section \ref{sec:config} the execution of the classification
 task depends on other subtasks like reading the directory, reading the content of each file that needs to be classified, and also performing some small operations after the classification is done and before
-the result is written. Using the available FlowSight statistics we can locate the bottleneck that is causing the performance to stall even if more mappers are added. \\ 
-In figure \ref{fig:{graphs/stats.tex}} we can see how when using more mappers almost all tasks perform better, including the classification task itself. Looking at the magnified section we can observe
+the result is written. Using the available FlowSight statistics we can locate the bottleneck that is causing the performance to stall even if more concurrency is added. \\ 
+In figure \ref{fig:{graphs/stats.tex}} we can see how the more concurrency the better performance, including the classification task itself. Looking at the magnified section we can observe
 that the task of reading the directory is the only one decreasing in performance, and so, causing the bottleneck. 
 
 \grafic{graphs/stats.tex}{Performance for each task}
